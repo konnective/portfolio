@@ -24,7 +24,12 @@
             </div>
         </nav>
         <section class="hero_sec">
-
+            <div class="hero_left">
+                <div class="hero_title"></div>
+                <div class="hero_subtitle"></div>
+                <div class="hero_details"></div>
+            </div>
+            <div class="hero_right"></div>
         </section>
     </div>
 </body>
