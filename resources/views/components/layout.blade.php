@@ -11,6 +11,15 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <title>Document</title>
+    {{-- for css from different blade files --}}
+    <style>
+        .main_wrapper{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+    </style>
+    @stack('custom-css')
 </head>
 
 <body>
@@ -57,7 +66,7 @@
         </div>
     </nav>
     {{-- nav ends ```--}}
-    <main>
+    <main class="main_wrapper">
         {{ $slot }}
     </main>
 </body>
