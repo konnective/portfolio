@@ -46,7 +46,7 @@
     @foreach($projects as $item)
       <div class="product-card">
           <div class="img-container">
-              <img src="" alt="no img" />
+              <img src="{{asset('images/home.png')}}" alt="no img" />
           </div>
           <div class="info-container">
               <span class="item-title">main content</span>
