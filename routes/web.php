@@ -11,3 +11,4 @@ Route::get('/', function () {
 });
 Route::get('/home', [FrontController::class, 'index'])->name('home');
 Route::get('/homee', [FrontController::class, 'home'])->name('homee');
+Route::get('/note/{id}', [FrontController::class, 'note'])->name('note');
