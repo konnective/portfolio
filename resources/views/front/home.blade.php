@@ -49,7 +49,7 @@
               <img src="{{asset('images/home.png')}}" alt="no img" />
           </div>
           <div class="info-container">
-              <span class="item-title">main content</span>
+              <span class="item-title">{{$item->name}}</span>
               <span class="item-price">
                   <p>content</p>
               </span>

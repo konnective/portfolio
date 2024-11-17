@@ -25,7 +25,7 @@ class FrontController extends Controller
     }
     public  function note($id)
     {
-        $note = Note::all();
+        $note = Note::first();
         return view('front.note',compact('note'));
     }
 }
