@@ -20,12 +20,12 @@ class FrontController extends Controller
     }
     public  function home()
     {
-        $projects = Project::all();
+        $projects = Note::all();
         return view('front.home',compact('projects'));
     }
     public  function note($id)
     {
-        $note = Note::first();
+        $note = Note::find($id);
         return view('front.note',compact('note'));
     }
 }

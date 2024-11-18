@@ -45,9 +45,12 @@
   <div class="card_wrapper">
     @foreach($projects as $item)
       <div class="product-card">
-          <div class="img-container">
-              <img src="{{asset('images/home.png')}}" alt="no img" />
-          </div>
+        <a href="{{route('note',$item->id)}}">
+
+            <div class="img-container">
+                <img src="{{asset('images/home.png')}}" alt="no img" />
+            </div>
+        </a>
           <div class="info-container">
               <span class="item-title">{{$item->name}}</span>
               <span class="item-price">
