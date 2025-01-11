@@ -39,115 +39,102 @@
             flex: 1;
             padding: 20px;
         }
-
-        .marker_wrapper {
+        .marker_wrapper{
             display: flex;
             flex-wrap: wrap;
             gap: 2px;
         }
-
-        .marker {
+        .marker{
             padding: 10px;
             border-radius: 5px;
             background-color: #198754;
         }
-
-        .marked {
+        .marked{
             padding: 10px;
             border-radius: 5px;
             background-color: #80edba;
         }
-
-       
-        .content_wrapper {
-            max-width: 75vw;
-        }
     </style>
 @endpush
 <x-layout>
-    <div class="content_wrapper">
-        <div class="btn-wrapper p-4">
-            <button type="button" class="btn btn-primary float-end">Add Goal</button>
-        </div>
-        <div class="card_wrapper">
-            @foreach ($projects as $item)
-                <div class="product-card">
-                    <div class="row">
-                        <div class="col-6">
-                            <a href="{{ route('note', $item->id) }}">
-                                <div class="img-container">
-                                    <img src="{{ asset('images/home.png') }}" alt="no img" />
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-6">
-                            <div class="info-container">
-                                <span class="item-title">{{ $item->name }}</span>
-                                <span class="item-price">
-                                    <button type="button" class="btn btn-primary pro" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        Progress
-                                    </button>
-                                </span>
+    <div class="card_wrapper">
+        @foreach ($projects as $item)
+            <div class="product-card">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="{{ route('note', $item->id) }}">
+                            <div class="img-container">
+                                <img src="{{ asset('images/home.png') }}" alt="no img" />
                             </div>
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <div class="info-container">
+                            <span class="item-title">{{ $item->name }}</span>
+                            <span class="item-price">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    Progress
+                                </button>
+                            </span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                {{-- code for modal here --}}
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Details</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="marker_wrapper">
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                </div>
+            {{-- code for modal here --}}
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="marker_wrapper">
+                                <div class="marker"></div>
+                                <div class="marker"></div>
+                                <div class="marker"></div>
+                                <div class="marker"></div>
+                                <div class="marker"></div>
+                                <div class="marker"></div>
+                                <div class="marker"></div>
+                                <div class="marker"></div>
+                                <div class="marker"></div>
+                                <div class="marker"></div>
+                                <div class="marker"></div>
+                                <div class="marked"></div>
+                                <div class="marked"></div>
+                                <div class="marked"></div>
+                                <div class="marked"></div>
+                                <div class="marked"></div>
+                                <div class="marked"></div>
+                                <div class="marked"></div>
+                                <div class="marked"></div>
+                                <div class="marked"></div>
+                                <div class="marked"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
     </div>
 </x-layout>
 <script>
-    $(".pro").on("click", function() {
-        var url = "{{ route('project.data', 1) }}";
-        $.ajax({
-            type: "GET",
-            url: "",
-            beforeSend: function() {
-                console.log("waiting ....")
-            },
-            success: function(data) {
-                console.log(data)
-            }
-        });
-    });
+    $(".btn-primary").on("click",function(){
+    var url = "{{route('project.data',1)}}";
+    $.ajax({
+       type:"GET",
+       url:"",
+       beforeSend:function(){
+            console.log("waiting ....")
+       },
+       success:function(data){
+        console.log(data)
+      }
+   });
+});
 </script>

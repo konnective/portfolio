@@ -16,8 +16,6 @@ class FrontController extends Controller
     //hve view file mathi ajax call marvo api mate
     // bas khali per api call right div load thava joie = 30-12
     // solve karvu cdn issue
-    //name for task management 
-    // Goal Tracker
     public  function index()
     {
         return view('front.profile');
