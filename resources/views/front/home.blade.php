@@ -41,8 +41,6 @@
         }
 
         .marker_wrapper {
-
-        .marker_wrapper {
             display: flex;
             flex-wrap: wrap;
             gap: 2px;
@@ -53,8 +51,6 @@
             border-radius: 5px;
             background-color: #80edba;
         }
-
-        .marked {
 
         .marked {
             padding: 10px;
@@ -154,12 +150,18 @@
         var url = "{{ route('project.data', 1) }}";
         $.ajax({
             type: "GET",
-            url: "",
+            url: url,
             beforeSend: function() {
                 console.log("waiting ....")
+                const loader = '<p>Loading ...</p>'
+                $('.marker_wrapper').empty();
+                $('.marker_wrapper').append(loader);
             },
             success: function(data) {
                 console.log(data)
+                $('.marker_wrapper').empty();
+                $('.marker_wrapper').append(data.html);
+
             }
         });
     });
