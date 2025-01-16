@@ -41,6 +41,8 @@
         }
 
         .marker_wrapper {
+
+        .marker_wrapper {
             display: flex;
             flex-wrap: wrap;
             gap: 2px;
@@ -49,13 +51,15 @@
         .marker {
             padding: 10px;
             border-radius: 5px;
-            background-color: #198754;
+            background-color: #80edba;
         }
+
+        .marked {
 
         .marked {
             padding: 10px;
             border-radius: 5px;
-            background-color: #80edba;
+            background-color: #198754;
         }
 
 

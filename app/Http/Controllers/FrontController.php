@@ -36,7 +36,7 @@ class FrontController extends Controller
         $divMarked = '<div class="marked"></div>';
         if($project){
             foreach($project->days as $item){
-                if($item->is_done === 1){
+                if($item->is_done == 1){
                     $html.=$divMarked;
                 }else{
                     $html.=$div;
