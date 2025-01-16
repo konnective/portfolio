@@ -58,7 +58,7 @@
             background-color: #80edba;
         }
 
-       
+
         .content_wrapper {
             max-width: 75vw;
         }
@@ -67,7 +67,7 @@
 <x-layout>
     <div class="content_wrapper">
         <div class="btn-wrapper p-4">
-            <button type="button" class="btn btn-primary float-end">Add Goal</button>
+            <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addFormModal">Add Goal</button>
         </div>
         <div class="card_wrapper">
             @foreach ($projects as $item)
@@ -93,46 +93,55 @@
                         </div>
                     </div>
                 </div>
-
-                {{-- code for modal here --}}
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Details</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="marker_wrapper">
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                    <div class="marked"></div>
-                                </div>
+            @endforeach
+            {{-- code for modal here --}}
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="marker_wrapper">
                             </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
+            </div>
+            {{-- modal for add form --}}
+            <div class="modal fade" id="addFormModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add Goal</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="ajax-form" action="{{route('submit_form')}}" method="POST" data-id='addFormModal'>
+                                @csrf
+                                <div class="form-group">
+                                    <label for="name">Goal Name:</label>
+                                    <input type="text" name="name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="date">Date:</label>
+                                    <input type="date" name="end_date" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="days">Days:</label>
+                                    <input type="number" name="days" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </x-layout>
@@ -151,3 +160,4 @@
         });
     });
 </script>
+<script src="{{ asset('js/form.js') }}"></script>

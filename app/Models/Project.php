@@ -10,6 +10,7 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
     public function days(): HasMany
     {
         return $this->hasMany(Day::class);

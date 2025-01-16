@@ -2,27 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Day;
 use App\Models\Note;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
 
 class FrontController extends Controller
 {
-    //creating cards for each projects
-    // days count kai rite thase?
-    // card ni andar j count hoy jya thi id vade api call
-    //loader find karine mukvu..
-    //## project inspiration for note making is github.com, laracast.com
-    //hve view file mathi ajax call marvo api mate
-    // bas khali per api call right div load thava joie = 30-12
-    // solve karvu cdn issue
+    //  how many inputs: - days , goal name, 
+    // now date 
     public  function index()
     {
         return view('front.profile');
     }
     public  function home()
     {
-        $projects = Note::all();
+        $projects = Project::all();
         return view('front.home',compact('projects'));
     }
     public  function note($id)
@@ -59,4 +55,38 @@ class FrontController extends Controller
     {
         return view('front.profile');
     }
+
+
+    public function submitForm(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'days' => 'required|integer|min:1'
+        ]);
+
+        try {
+            //code...
+            $project = Project::create([
+                'name' => $request->name,
+                'end_date' => $request->end_date
+            ]);
+            for ($i = 1; $i <= $request->input('days'); $i++) {
+                Day::create([
+                    'project_id' => $project->id,
+                ]);
+            }
+        } catch (\Throwable $th) {
+            dd($th);
+        }
+
+      
+        // Handle the data (save to database, etc.)
+
+        if ($request->ajax()) {
+            return response()->json(['success' => true]);
+        }
+
+        return redirect('/')->with('success', 'Form submitted successfully!');
+    }
+
 }
