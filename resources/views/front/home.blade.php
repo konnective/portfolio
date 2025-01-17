@@ -70,7 +70,7 @@
             <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addFormModal">Add Goal</button>
         </div>
         <div class="card_wrapper">
-            @foreach ($projects as $item)
+            @forelse($projects as $item)
                 <div class="product-card">
                     <div class="row">
                         <div class="col-6">
@@ -82,18 +82,23 @@
                         </div>
                         <div class="col-6">
                             <div class="info-container">
-                                <span class="item-title">{{ $item->name }}</span>
+                                <span class="item-title text-muted">{{ $item->name }}</span>
                                 <span class="item-price">
-                                    <button type="button" class="btn btn-primary pro" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
+                                    <button type="button" class="btn btn-primary pro mt-2" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal" data-url="{{route('project.data',$item->id)}}">
                                         Progress
+                                    </button>
+                                    <button  class="btn btn-warning mt-2 update"  data-url="{{route('change_progress',$item->id)}}">
+                                        Update
                                     </button>
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
+                @empty
+                    <h2 class="display-5 mt-3">No projects to show</h2>
+                @endforelse
             {{-- code for modal here --}}
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -147,7 +152,10 @@
 </x-layout>
 <script>
     $(".pro").on("click", function() {
-        var url = "{{ route('project.data', 1) }}";
+        var id = $(this).data('id');
+        // var url = "{{ route('project.data', " + 13 + ") }}";
+        var url = $(this).data('url');
+        console.log(url);
         $.ajax({
             type: "GET",
             url: url,
@@ -158,9 +166,25 @@
                 $('.marker_wrapper').append(loader);
             },
             success: function(data) {
-                console.log(data)
                 $('.marker_wrapper').empty();
                 $('.marker_wrapper').append(data.html);
+
+            }
+        });
+    });
+    $(".update").on("click", function() {
+        var id = $(this).data('id');
+        // var url = "{{ route('project.data', " + 13 + ") }}";
+        var url = $(this).data('url');
+        $.ajax({
+            type: "GET",
+            url: url,
+            beforeSend: function() {
+                console.log("waiting ....");
+                
+            },
+            success: function(data) {
+
 
             }
         });

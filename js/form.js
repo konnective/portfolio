@@ -4,7 +4,6 @@ $(document).ready(function() {
         let url = form.attr('action');
         let method = form.attr('method');
         let modal = form.data('id');
-        e.preventDefault();
         $.ajax({
             url: url,
             method: method,
@@ -12,6 +11,7 @@ $(document).ready(function() {
             success: function(res) {
                 if(res.success){
                     $('#'+modal).modal('hide');
+                    window.location.reload();
                     $('#success-message').text('Form submitted successfully!').show();
                 }
             },
