@@ -18,7 +18,11 @@ class FrontController extends Controller
     }
     public  function home()
     {
-        $projects = Project::all();
+        $projects = Project::all()->map(function($project){
+            $days = Day::where('project_id',$project->id)->where('is_done',0)->get();
+            $project->day_count = count($days);
+            return $project;
+        });
         return view('front.home',compact('projects'));
     }
     public  function note($id)

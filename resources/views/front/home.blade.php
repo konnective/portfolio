@@ -88,9 +88,11 @@
                                         data-bs-target="#exampleModal" data-url="{{route('project.data',$item->id)}}">
                                         Progress
                                     </button>
-                                    <button  class="btn btn-warning mt-2 update"  data-url="{{route('change_progress',$item->id)}}">
-                                        Update
-                                    </button>
+                                    @if($item->day_count > 0 )
+                                        <button  class="btn btn-warning mt-2 update"  data-url="{{route('change_progress',$item->id)}}">
+                                            Update
+                                        </button>
+                                    @endif
                                 </span>
                             </div>
                         </div>
