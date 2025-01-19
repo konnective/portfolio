@@ -1,8 +1,6 @@
 $(document).ready(function() {
-    var tapped = false;
     $('#ajax-form').on('submit', function(e) {
-        if (tapped) return;
-        tapped = true;
+        $('#ajax-form').prop('disabled', true);
         let form = $(this);
         let url = form.attr('action');
         let method = form.attr('method');
@@ -23,7 +21,18 @@ $(document).ready(function() {
             }
         });
     });
-    setTimeout(function() {
-        tapped = false;
-      }, 500);
 });
+
+
+// $('#myForm').on('submit', function(event) {
+//     $('#mySubmitButton').prop('disabled', true);
+//     // Your code here
+//     // Make sure to re-enable the button after the form submission is complete
+//     // For example, after an AJAX request is complete
+//     $.ajax({
+//       // Your AJAX options here
+//       complete: function() {
+//         $('#mySubmitButton').prop('disabled', false);
+//       }
+//     });
+//   });
