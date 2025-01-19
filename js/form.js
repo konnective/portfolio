@@ -1,5 +1,8 @@
 $(document).ready(function() {
+    var tapped = false;
     $('#ajax-form').on('submit', function(e) {
+        if (tapped) return;
+        tapped = true;
         let form = $(this);
         let url = form.attr('action');
         let method = form.attr('method');
@@ -20,4 +23,7 @@ $(document).ready(function() {
             }
         });
     });
+    setTimeout(function() {
+        tapped = false;
+      }, 500);
 });

@@ -93,6 +93,9 @@
                                             Update
                                         </button>
                                     @endif
+                                    <button  class="btn btn-danger mt-2 " >
+                                        Delete
+                                    </button>
                                 </span>
                             </div>
                         </div>
