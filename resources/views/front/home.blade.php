@@ -156,11 +156,37 @@
     </div>
 </x-layout>
 <script>
+    $(document).ready(function() {
+        $('#ajax-form').on('submit', function(e) {
+            e.preventDefault();
+            $(this).unbind('submit');
+            let form = $(this);
+            let url = form.attr('action');
+            let method = form.attr('method');
+            let modal = form.data('id');
+            $.ajax({
+                url: url,
+                method: method,
+                data: $(this).serialize(),
+                success: function(res) {
+                    if(res.success){
+                        $('#'+modal).modal('hide');
+                        $('#success-message').text('Form submitted successfully!').show();
+                        window.location.reload();
+                    }
+                },
+                error: function(xhr) {
+                    console.log(xhr.responseText);
+                }
+            });
+        });
+    });
+
+
     $(".pro").on("click", function() {
         var id = $(this).data('id');
         // var url = "{{ route('project.data', " + 13 + ") }}";
         var url = $(this).data('url');
-        console.log(url);
         $.ajax({
             type: "GET",
             url: url,
@@ -195,4 +221,3 @@
         });
     });
 </script>
-<script src="{{ asset('js/form.js') }}"></script>
