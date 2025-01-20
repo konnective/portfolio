@@ -6,6 +6,7 @@ use App\Models\Day;
 use App\Models\Note;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Stmt\TryCatch;
 
 class FrontController extends Controller
@@ -101,6 +102,19 @@ class FrontController extends Controller
         }
 
         return redirect('/')->with('success', 'Form submitted successfully!');
+    }
+
+    public function projectDelete($id) {
+        try {
+            //code...
+            $project = Project::find($id);
+            DB::transaction(function () use ($project) {
+                $project->days()->delete();
+                $project->delete();
+            });
+        } catch (\Throwable $th) {
+            dd($th);
+        }
     }
 
 }

@@ -13,3 +13,4 @@ Route::get('/project/data/{id}', [FrontController::class, 'project_data'])->name
 Route::get('/profile', [FrontController::class, 'profile'])->name('profile');
 Route::get('/change-progress/{id}', [FrontController::class, 'changeProgress'])->name('change_progress');
 Route::post('/submit-form', [FrontController::class, 'submitForm'])->name('submit_form');
+Route::get('/project-delete/{id}', [FrontController::class, 'projectDelete'])->name('project_delete');

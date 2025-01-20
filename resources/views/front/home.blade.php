@@ -93,7 +93,7 @@
                                             Update
                                         </button>
                                     @endif
-                                    <button  class="btn btn-danger mt-2 " >
+                                    <button  class="btn btn-danger mt-2 pro_del" data-url="{{route('project_delete',$item->id)}}">
                                         Delete
                                     </button>
                                 </span>
@@ -215,8 +215,23 @@
                 
             },
             success: function(data) {
+               
+            }
+        });
+    });
+    $(".pro_del").on("click", function() {
 
-
+        var url = $(this).data('url');
+        $.ajax({
+            type: "GET",
+            url: url,
+            beforeSend: function() {
+                console.log("waiting ....");
+                
+            },
+            success: function(data) {
+                console.log("deleted");
+                window.location.reload();
             }
         });
     });
