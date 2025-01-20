@@ -17,6 +17,10 @@ class FrontController extends Controller
     {
         return view('front.developer');
     }
+    public  function notes()
+    {
+        return view('front.notes');
+    }
     public  function home()
     {
         $projects = Project::all()->map(function($project){
