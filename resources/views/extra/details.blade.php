@@ -47,7 +47,7 @@
     {{-- shifting second-brain folder as a main folder and making a new folder for laravel with tailwind app --}}
     {{-- making icons for different landing pages and giving links of websites to it --}}
     {{-- we can also use cyborg theme for shocasing websites. --}}
-    {{-- nav ends ```--}}
+    {{-- also set up steller theme to main laravel structure --}}
     <main class="main_wrapper mt-2">
         {{ $slot }}
     </main>
