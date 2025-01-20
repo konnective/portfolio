@@ -11,11 +11,11 @@ use PhpParser\Node\Stmt\TryCatch;
 
 class FrontController extends Controller
 {
-    //  how many inputs: - days , goal name, 
-    // now date 
+    //new objectives for this task manager 
+    // setting up export website for 
     public  function index()
     {
-        return view('front.profile');
+        return view('front.export');
     }
     public  function home()
     {
@@ -33,8 +33,6 @@ class FrontController extends Controller
     }
     public  function project_data($id)
     {
-        // hve ajax call mate nu logic set karo 
-        // also jquery ni cdn muko
         $project = Project::with('days')->find($id);
         $html = '';
         $div = '<div class="marker"></div>';
@@ -58,7 +56,7 @@ class FrontController extends Controller
 
     public  function profile()
     {
-        return view('front.profile');
+        return view('front.export');
     }
 
 
