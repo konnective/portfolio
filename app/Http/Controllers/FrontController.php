@@ -13,9 +13,9 @@ class FrontController extends Controller
 {
     //new objectives for this task manager 
     // setting up export website for 
-    public  function index()
+    public  function developer()
     {
-        return view('front.export');
+        return view('front.developer');
     }
     public  function home()
     {
