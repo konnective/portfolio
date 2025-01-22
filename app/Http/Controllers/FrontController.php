@@ -21,6 +21,10 @@ class FrontController extends Controller
     {
         return view('front.notes');
     }
+    public  function singleNote()
+    {
+        return view('front.single-note');
+    }
     public  function home()
     {
         $projects = Project::all()->map(function($project){

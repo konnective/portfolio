@@ -48,6 +48,7 @@
     {{-- making icons for different landing pages and giving links of websites to it --}}
     {{-- we can also use cyborg theme for shocasing websites. --}}
     {{-- also set up steller theme to main laravel structure --}}
+    {{-- now deciding what to do next trying to make dashboard looking at the ui of others --}}
     <main class="main_wrapper mt-2">
         {{ $slot }}
     </main>
