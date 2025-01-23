@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <title>Products</title>
+    <title>Product-Details</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('cyborg/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -99,66 +99,19 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-content">
-
-                    <!-- ***** Banner Start ***** -->
-                    <div class="main-banner">
-                        <div class="row">
-                            <div class="col-lg-7">
-                                <div class="header-text">
-                                    <h6>Welcome To Second-Brain</h6>
-                                    <h4><em>Browse</em> Our Popular Products Here</h4>
-                                    <div class="main-button">
-                                        <a type="button" class="" data-bs-toggle="modal"
-                                            data-bs-target="#addProModal">Add New</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ***** Banner End ***** -->
-
-                    <!-- ***** Most Popular Start ***** -->
-
-                    <!-- ***** Most Popular End ***** -->
-
-                    <!-- ***** Gaming Library Start ***** -->
                     <div class="gaming-library">
                         <div class="col-lg-12">
                             <div class="heading-section">
-                                <h4><em>Your Product</em> Library</h4>
+                                <h4><em>Product</em> Details</h4>
                             </div>
-
-                            @forelse ($products as $item)
-                                <div class="item">
-                                    <ul>
-                                        <li><img src="{{ asset('cyborg/assets/images/game-02.jpg') }}" alt=""
-                                                class="templatemo-item"></li>
-                                        <li>
-                                            <h4>{{ $item->name }}</h4><span>Sandbox</span>
-                                        </li>
-                                        <li>
-                                            <h4>Date Added</h4><span>{{ $item->created_at }}</span>
-                                        </li>
-                                        <li>
-                                            <h4>{{ $item->price }}</h4><span>{{ $item->subject }}</span>
-                                        </li>
-                                        <li>
-                                            <div class="view-button"><a href="{{route('product',$item->id)}}"  >View</a></div>
-                                        </li>
-                                        <li>
-                                            <div class="main-border-button"><a class="pro_del"  data-url="{{route('delete_product',$item->id)}}">Delete</a></div>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            @empty
-                                <p>No Products to Show</p>
-                            @endforelse
+                            <div class="row">
+                                <p>{{@$product->details}}</p>
+                            </div>
+                            
 
                         </div>
 
                     </div>
-                    <!-- ***** Gaming Library End ***** -->
                 </div>
             </div>
         </div>

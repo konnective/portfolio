@@ -163,5 +163,12 @@ class FrontController extends Controller
         }
         
     }
+    public function product($id) 
+    {
+
+        $product = Product::find(8);
+        return view('front.product-details',compact('product'));
+        
+    }
 
 }

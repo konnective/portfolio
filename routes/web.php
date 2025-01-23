@@ -15,6 +15,7 @@ Route::get('/notes', [FrontController::class, 'notes'])->name('notes');
 Route::get('/products', [FrontController::class, 'products'])->name('products');
 Route::post('/add-product',[FrontController::class, 'addProduct'])->name('add_product');
 Route::get('/delete-product/{id}',[FrontController::class, 'deleteProduct'])->name('delete_product');
+Route::get('/product/{id}',[FrontController::class, 'product'])->name('product');
 
 Route::get('/homee', [FrontController::class, 'home'])->name('homee');
 Route::get('/note/{id}', [FrontController::class, 'note'])->name('note');
