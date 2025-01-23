@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Day;
 use App\Models\Note;
+use App\Models\Product;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -121,6 +122,46 @@ class FrontController extends Controller
         } catch (\Throwable $th) {
             dd($th);
         }
+    }
+
+    public function products() 
+    {
+
+        $products = Product::all();
+
+        return view('front.products',compact('products'));
+        
+    }
+    public function addProduct(Request $request) 
+    {
+
+        $product = new Product;
+        $product->name = $request->name;
+        $product->subject = $request->subject;
+        $product->details = $request->details;
+        $product->save();
+
+        if ($request->ajax()) {
+            return response()->json(['success' => true]);
+        }
+
+        // return redirect()->back();
+        
+    }
+    public function deleteProduct($id) 
+    {
+
+        try {
+            //code...
+            $project = Product::find($id);
+            DB::transaction(function () use ($project) {
+        
+                $project->delete();
+            });
+        } catch (\Throwable $th) {
+            dd($th);
+        }
+        
     }
 
 }
