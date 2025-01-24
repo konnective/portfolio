@@ -143,7 +143,7 @@
                                             <h4>{{ $item->price }}</h4><span>{{ $item->subject }}</span>
                                         </li>
                                         <li>
-                                            <div class="view-button"><a href="{{route('product',$item->id)}}"  >View</a></div>
+                                            <div class="view-button"><a href="{{route('product_detail',$item->id)}}"  >View</a></div>
                                         </li>
                                         <li>
                                             <div class="main-border-button"><a class="pro_del"  data-url="{{route('delete_product',$item->id)}}">Delete</a></div>

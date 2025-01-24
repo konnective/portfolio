@@ -105,7 +105,7 @@
                                 <h4><em>Product</em> Details</h4>
                             </div>
                             <div class="row">
-                                <p>{{@$product->details}}</p>
+                                <p>{{ strip_tags($product->details)}}</p>
                             </div>
                             
 

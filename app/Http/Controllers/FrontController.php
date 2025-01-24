@@ -166,7 +166,7 @@ class FrontController extends Controller
     public function product($id) 
     {
 
-        $product = Product::find(8);
+        $product = Product::find($id);
         return view('front.product-details',compact('product'));
         
     }
