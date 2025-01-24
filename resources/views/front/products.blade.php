@@ -36,6 +36,39 @@
             font-style: normal;
             color: #e75e8d;
         }
+        li .btn_wrapepr{
+            display: flex;
+        }
+        li .view_btn{
+           
+            padding: 10px 20px;
+            color: #ec6090;
+            background-color: transparent;
+            border: 1px solid #ec6090;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+        li .pro_del{
+            
+            padding: 10px 20px;
+            color: #f31a1a;
+            background-color: transparent;
+            border: 1px solid #f31a1a;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+        li .view_btn:hover {
+            cursor: pointer;
+            border-color: #fff;
+            background-color: #fff;
+            color: #ec6090;
+        }
+        li .pro_del:hover {
+            cursor: pointer;
+            border-color: #fff;
+            background-color: #fff;
+            color: #f31a1a;
+        }
     </style>
 </head>
 
@@ -143,10 +176,15 @@
                                             <h4>{{ $item->price }}</h4><span>{{ $item->subject }}</span>
                                         </li>
                                         <li>
-                                            <div class="view-button"><a href="{{route('product_detail',$item->id)}}"  >View</a></div>
-                                        </li>
-                                        <li>
-                                            <div class="main-border-button"><a class="pro_del"  data-url="{{route('delete_product',$item->id)}}">Delete</a></div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <a class="view_btn"  href="{{route('product_detail', $item->id)}}">View</a>
+                                                </div>
+                                                <div class="col-6">
+                                                    <a class="pro_del"  data-url="{{ route('delete_product', $item->id) }}">Delete</a>
+                                                </div>
+                                                
+                                            </div>
                                         </li>
 
                                     </ul>
@@ -194,7 +232,7 @@
                         </div>
                         <div class="form-group">
                             <label for="details">Details:</label>
-                            <textarea id="details" type="textarea" name="details" class="form-control" ></textarea>
+                            <textarea id="details" type="textarea" name="details" class="form-control"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     </form>
@@ -269,4 +307,3 @@
         });
     });
 </script>
-
