@@ -7,7 +7,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/', [FrontController::class, 'developer'])->name('home');
+Route::get('/login', [FrontController::class, 'login'])->name('login');
+Route::post('/login-attempt', [FrontController::class, 'loginAttempt'])->name('login_attempt');
+Route::get('/register', [FrontController::class, 'register'])->name('register');
+Route::post('/register-attempt', [FrontController::class, 'registerAttempt'])->name('register_attempt');
+
+Route::get('/', [FrontController::class, 'developer'])->name('home')->middleware('auth');
 Route::get('/profile', [FrontController::class, 'profile'])->name('profile');
 Route::get('/developer', [FrontController::class, 'developer'])->name('developer');
 Route::get('/notes', [FrontController::class, 'notes'])->name('notes');
