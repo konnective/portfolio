@@ -22,7 +22,7 @@ Route::post('/add-product',[FrontController::class, 'addProduct'])->name('add_pr
 Route::get('/delete-product/{id}',[FrontController::class, 'deleteProduct'])->name('delete_product');
 Route::get('/product-detail/{id}',[FrontController::class, 'product'])->name('product_detail');
 
-Route::get('/homee', [FrontController::class, 'home'])->name('homee');
+Route::get('/homee', [FrontController::class, 'home'])->name('homee')->middleware('auth');
 Route::get('/note/{id}', [FrontController::class, 'note'])->name('note');
 Route::get('/project/data/{id}', [FrontController::class, 'project_data'])->name('project.data');
 Route::get('/change-progress/{id}', [FrontController::class, 'changeProgress'])->name('change_progress');
