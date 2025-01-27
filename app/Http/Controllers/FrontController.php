@@ -21,6 +21,10 @@ class FrontController extends Controller
     {
         return view('front.developer');
     }
+    public  function insure()
+    {
+        return view('front.insure');
+    }
     public  function notes()
     {
         return view('front.notes');

@@ -15,6 +15,7 @@ Route::post('/register-attempt', [FrontController::class, 'registerAttempt'])->n
 Route::get('/', [FrontController::class, 'developer'])->name('home')->middleware('auth');
 Route::get('/profile', [FrontController::class, 'profile'])->name('profile');
 Route::get('/developer', [FrontController::class, 'developer'])->name('developer');
+Route::get('/insure', [FrontController::class, 'insure'])->name('insure');
 Route::get('/notes', [FrontController::class, 'notes'])->name('notes');
 // for products
 Route::get('/products', [FrontController::class, 'products'])->name('products');
