@@ -11,6 +11,20 @@
         li .btn_wrapepr{
             display: flex;
         }
+        .modal_btn{
+            padding: 10px 20px;
+            color: #ec6090;
+            background-color: transparent;
+            border: 1px solid #ec6090;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+        .modal_btn:hover {
+            cursor: pointer;
+            border-color: #fff;
+            background-color: #fff;
+            color: #ec6090;
+        }
         li .view_btn{
            
             padding: 10px 20px;
@@ -100,6 +114,7 @@
                                     <div class="main-button">
                                         <a type="button" class="" data-bs-toggle="modal"
                                             data-bs-target="#addProModal">Add New</a>
+                                        <a type="button" class="" href="{{route('add-task')}}">Add Task</a>
                                     </div>
                                 </div>
                             </div>
@@ -121,28 +136,21 @@
                                 @forelse ( $users as $user)
                                     <div class="col-lg-3 col-sm-6">
                                         <div class="item">
-                                        <img src="{{ asset('cyborg/assets/images/popular-01.jpg') }}" alt="">
-                                        <h4>{{$user->name}}<br><span>{{$user->email}}</span></h4>
-                                        <ul>
-                                            <li><i class="fa fa-star"></i> 4.8</li>
-                                            <li><i class="fa fa-download"></i> 2.3M</li>
-                                        </ul>
+                                            <img src="{{ asset('cyborg/assets/images/popular-01.jpg') }}" alt="">
+                                            <h4>{{$user->name}}<br><span>{{$user->email}}</span></h4>
+                                            <div class="row mt-3">
+                                                <div class="col-6">
+                                                    <a class="modal_btn text-center" data-url="{{route('view-task',$user->id)}}">View</a>
+                                                </div>
+                                                <div class="col-6">
+                                                    <a class="progress_btn text-center" >Progress</a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 @empty
                                     <p>Nothing to show</p>
                                 @endforelse
-                             
-                             
-                             
-                           
-                             
-                                   
-                                 
-                             
-                             
-                              
-                              
                               <div class="col-lg-12">
                                 <div class="main-button">
                                   <a href="browse.html">Discover Popular</a>
@@ -177,7 +185,7 @@
                                         <li>
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <a class="view_btn"  href="{{route('product_detail', $item->id)}}">View</a>
+                                                    <a class="view_btn"  href="{{route('product_detail', $item->id)}}" >View</a>
                                                 </div>
                                                 <div class="col-6">
                                                     <a class="pro_del"  data-url="{{ route('delete_product', $item->id) }}">Delete</a>
@@ -219,7 +227,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="ajax-form" action="{{ route('add_product') }}" method="POST" data-id='addProModal'>
+                    <form id="ajax-form" action="{{ route('add-task') }}" method="POST" data-id='addProModal'>
                         @csrf
                         <div class="form-group">
                             <label for="name">Product Name:</label>
@@ -233,12 +241,33 @@
                             <label for="details">Details:</label>
                             <textarea id="details" type="textarea" name="details" class="form-control"></textarea>
                         </div>
+                        <button type="submit" class="btn btn-primary mt-2 modal-submit" >Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- modal for task view --}}
+    <div class="modal fade" id="viewTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Check Tasks</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="ajax-form" class="modal-form" action="{{ route('add_product') }}" method="POST" data-id='addProModal'>
+                        @csrf
+                        <div class="row task-list p-4">
+
+                        </div>
                         <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    {{-- new modal for progress --}}
     {{-- {{asset('vasperr/assets/css/main.css')}} --}}
 </x-cyborg>
 <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
@@ -290,4 +319,52 @@
             }
         });
     });
+    $(".modal_btn").on("click", function() {
+
+
+        //check the x-cyborg component as not delivering navbar
+
+        // click pr ajax call
+        // person s task modal in mshow
+        // how many checked will submit in form
+
+        // web route , controler method , modal will edit task status
+        //add task page create
+        // task controller new mthod to load view 
+        // copy product-detail
+        // add formcomplete
+        //dynamic value from ajax call
+        //
+
+
+        var url = $(this).data('url');
+        $.ajax({
+            type: "GET",
+            url: url,
+            beforeSend: function() {
+                console.log("waiting ....");
+
+            },
+            success: function(data) {
+                
+                data.users.tasks.forEach((item)=>{
+                    $('.task-list').append(`
+                        <li class="list-group-item d-flex justify-content-between align-items-center mt-2">
+                            <label class="w-100 d-flex align-items-center">
+                                <input type="checkbox" class="form-check-input me-2"> ${item.name}
+                            </label>
+                        </li>
+                    `);
+                })
+                
+            }
+        });
+        const viewModal  = $('#viewTaskModal');
+        viewModal.modal('show')
+    });
+
+    $(".modal-submit").on("click", function() {
+        
+
+    })
 </script>

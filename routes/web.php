@@ -2,6 +2,7 @@
 <?php
 
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,6 +18,13 @@ Route::get('/profile', [FrontController::class, 'profile'])->name('profile');
 Route::get('/developer', [FrontController::class, 'developer'])->name('developer');
 Route::get('/insure', [FrontController::class, 'insure'])->name('insure');
 Route::get('/notes', [FrontController::class, 'notes'])->name('notes');
+
+//for tasks
+Route::get('/add-task', [TaskController::class, 'addTask'])->name('add-task');
+Route::post('/add-task', [TaskController::class, 'create'])->name('add-task');
+Route::get('/view-task/{id}', [TaskController::class, 'viewTask'])->name('view-task');
+
+
 // for products
 Route::get('/products', [FrontController::class, 'products'])->name('products');
 Route::post('/add-product',[FrontController::class, 'addProduct'])->name('add_product');
