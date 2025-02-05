@@ -136,8 +136,10 @@ class FrontController extends Controller
     {
 
         $products = Product::all();
+        $users  = User::partner();
+        
 
-        return view('front.products',compact('products'));
+        return view('front.products',compact('products','users'));
         
     }
     public function addProduct(Request $request) 

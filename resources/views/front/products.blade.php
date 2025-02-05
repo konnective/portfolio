@@ -110,6 +110,48 @@
                     <!-- ***** Most Popular Start ***** -->
 
                     <!-- ***** Most Popular End ***** -->
+                    <div class="most-popular">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="heading-section">
+                              <h4><em>Most Popular</em> Right Now</h4>
+                            </div>
+                            <div class="row">
+                                {{-- for loop here is the single div --}}
+                                @forelse ( $users as $user)
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="item">
+                                        <img src="{{ asset('cyborg/assets/images/popular-01.jpg') }}" alt="">
+                                        <h4>{{$user->name}}<br><span>{{$user->email}}</span></h4>
+                                        <ul>
+                                            <li><i class="fa fa-star"></i> 4.8</li>
+                                            <li><i class="fa fa-download"></i> 2.3M</li>
+                                        </ul>
+                                        </div>
+                                    </div>
+                                @empty
+                                    <p>Nothing to show</p>
+                                @endforelse
+                             
+                             
+                             
+                           
+                             
+                                   
+                                 
+                             
+                             
+                              
+                              
+                              <div class="col-lg-12">
+                                <div class="main-button">
+                                  <a href="browse.html">Discover Popular</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
                     <!-- ***** Gaming Library Start ***** -->
                     <div class="gaming-library">
