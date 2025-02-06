@@ -47,4 +47,26 @@ class TaskController extends Controller
         return redirect()->back();
 
     }
+    public  function taskData($id)
+    {
+        $user = User::with('tasks')->find($id);
+        $html = '';
+        $div = '<div class="marker"></div>';
+        $divMarked = '<div class="marked"></div>';
+        if($user){
+            foreach($user->tasks as $item){
+                if($item->status == 1){
+                    $html.=$divMarked;
+                }else{
+                    $html.=$div;
+                    
+                }
+            }
+        }
+        $res= [
+            "success"=>true,
+            "html"=>$html
+        ];
+        return response()->json($res);
+    }
 }

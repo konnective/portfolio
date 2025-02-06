@@ -8,10 +8,12 @@
             font-style: normal;
             color: #e75e8d;
         }
-        li .btn_wrapepr{
+
+        li .btn_wrapepr {
             display: flex;
         }
-        .modal_btn{
+
+        .modal_btn {
             padding: 10px 20px;
             color: #ec6090;
             background-color: transparent;
@@ -19,14 +21,16 @@
             cursor: pointer;
             border-radius: 25px;
         }
+
         .modal_btn:hover {
             cursor: pointer;
             border-color: #fff;
             background-color: #fff;
             color: #ec6090;
         }
-        li .view_btn{
-           
+
+        li .view_btn {
+
             padding: 10px 20px;
             color: #ec6090;
             background-color: transparent;
@@ -34,8 +38,9 @@
             cursor: pointer;
             border-radius: 25px;
         }
-        li .pro_del{
-            
+
+        li .pro_del {
+
             padding: 10px 20px;
             color: #f31a1a;
             background-color: transparent;
@@ -43,12 +48,14 @@
             cursor: pointer;
             border-radius: 25px;
         }
+
         li .view_btn:hover {
             cursor: pointer;
             border-color: #fff;
             background-color: #fff;
             color: #ec6090;
         }
+
         li .pro_del:hover {
             cursor: pointer;
             border-color: #fff;
@@ -58,7 +65,7 @@
     </style>
 
 
-    
+
 
     <div class="container">
         <div class="row">
@@ -75,7 +82,7 @@
                                     <div class="main-button">
                                         <a type="button" class="" data-bs-toggle="modal"
                                             data-bs-target="#addProModal">Add New</a>
-                                        <a type="button" class="" href="{{route('add-task')}}">Add Task</a>
+                                        <a type="button" class="" href="{{ route('add-task') }}">Add Task</a>
                                     </div>
                                 </div>
                             </div>
@@ -88,39 +95,41 @@
                     <!-- ***** Most Popular End ***** -->
                     <div class="most-popular">
                         <div class="row">
-                          <div class="col-lg-12">
-                            <div class="heading-section">
-                              <h4><em>Most Popular</em> Right Now</h4>
-                            </div>
-                            <div class="row">
-                                {{-- for loop here is the single div --}}
-                                @forelse ( $users as $user)
-                                    <div class="col-lg-3 col-sm-6">
-                                        <div class="item">
-                                            <img src="{{ asset('cyborg/assets/images/popular-01.jpg') }}" alt="">
-                                            <h4>{{$user->name}}<br><span>{{$user->email}}</span></h4>
-                                            <div class="row mt-3">
-                                                <div class="col-6">
-                                                    <a class="modal_btn text-center" data-url="{{route('view-task',$user->id)}}">View</a>
-                                                </div>
-                                                <div class="col-6">
-                                                    <a class="progress_btn text-center" >Progress</a>
+                            <div class="col-lg-12">
+                                <div class="heading-section">
+                                    <h4><em>Most Popular</em> Right Now</h4>
+                                </div>
+                                <div class="row">
+                                    {{-- for loop here is the single div --}}
+                                    @forelse ($users as $user)
+                                        <div class="col-lg-3 col-sm-6">
+                                            <div class="item">
+                                                <img src="{{ asset('cyborg/assets/images/popular-01.jpg') }}"
+                                                    alt="">
+                                                <h4>{{ $user->name }}<br><span>{{ $user->email }}</span></h4>
+                                                <div class="row mt-3">
+                                                    <div class="col-6">
+                                                        <a class="modal_btn text-center"
+                                                            data-url="{{ route('view-task', $user->id) }}">View</a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <a class="progress_btn text-center" >Progress</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    @empty
+                                        <p>Nothing to show</p>
+                                    @endforelse
+                                    <div class="col-lg-12">
+                                        <div class="main-button">
+                                            <a href="browse.html">Discover Popular</a>
+                                        </div>
                                     </div>
-                                @empty
-                                    <p>Nothing to show</p>
-                                @endforelse
-                              <div class="col-lg-12">
-                                <div class="main-button">
-                                  <a href="browse.html">Discover Popular</a>
                                 </div>
-                              </div>
                             </div>
-                          </div>
                         </div>
-                      </div>
+                    </div>
 
                     <!-- ***** Gaming Library Start ***** -->
                     <div class="gaming-library">
@@ -146,12 +155,14 @@
                                         <li>
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <a class="view_btn"  href="{{route('product_detail', $item->id)}}" >View</a>
+                                                    <a class="view_btn"
+                                                        href="{{ route('product_detail', $item->id) }}">View</a>
                                                 </div>
                                                 <div class="col-6">
-                                                    <a class="pro_del"  data-url="{{ route('delete_product', $item->id) }}">Delete</a>
+                                                    <a class="pro_del"
+                                                        data-url="{{ route('delete_product', $item->id) }}">Delete</a>
                                                 </div>
-                                                
+
                                             </div>
                                         </li>
 
@@ -188,7 +199,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form  action="{{ route('add_product') }}" method="POST" data-id='addProModal'>
+                    <form action="{{ route('add_product') }}" method="POST" data-id='addProModal'>
                         @csrf
                         <div class="form-group">
                             <label for="name">Product Name:</label>
@@ -202,7 +213,7 @@
                             <label for="details">Details:</label>
                             <textarea id="details" type="textarea" name="details" class="form-control"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-2 modal-submit" >Submit</button>
+                        <button type="submit" class="btn btn-primary mt-2 modal-submit">Submit</button>
                     </form>
                 </div>
             </div>
@@ -217,7 +228,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="ajax-form" class="modal-form" action="{{ route('add-task') }}" method="POST" data-id='addProModal'>
+                    <form id="ajax-form" class="modal-form" action="{{ route('add-task') }}" method="POST"
+                        data-id='addProModal'>
                         @csrf
                         <div class="row task-list p-4">
 
@@ -229,6 +241,21 @@
         </div>
     </div>
     {{-- new modal for progress --}}
+    <div class="modal fade progressModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="marker_wrapper">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     {{-- {{asset('vasperr/assets/css/main.css')}} --}}
 </x-cyborg>
 <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
@@ -292,9 +319,9 @@
             },
             success: function(data) {
                 $('.task-list').empty()
-                data.users.tasks.forEach((item)=>{
-                   
-                    if(item.status == 1){
+                data.users.tasks.forEach((item) => {
+
+                    if (item.status == 1) {
                         $('.task-list').append(`
                             <li class="list-group-item d-flex justify-content-between align-items-center mt-2 ">
                                 <label class="w-100 d-flex align-items-center">
@@ -302,7 +329,7 @@
                                 </label>
                             </li>
                         `);
-                    }else{
+                    } else {
                         $('.task-list').append(`
                             <li class="list-group-item d-flex justify-content-between align-items-center mt-2">
                                 <label class="w-100 d-flex align-items-center">
@@ -312,11 +339,38 @@
                         `);
                     }
                 })
-                
+
             }
         });
-        const viewModal  = $('#viewTaskModal');
+        const viewModal = $('#viewTaskModal');
         viewModal.modal('show')
         // check if checkbox is not checked then 
+        // adding progress buttno 
+    });
+    $(".profress_btn").on("click", function() {
+
+        var id = $(this).data('id');
+        // var url = "{{ route('project.data', ' + 13 + ') }}";
+        var url = $(this).data('url');
+        $.ajax({
+            type: "GET",
+            url: url,
+            beforeSend: function() {
+                console.log("waiting ....")
+                const loader = '<p>Loading ...</p>'
+                $('.marker_wrapper').empty();
+                $('.marker_wrapper').append(loader);
+            },
+            success: function(data) {
+                $('.marker_wrapper').empty();
+                $('.marker_wrapper').append(data.html);
+
+            }
+        });
+
+
+
+        const progressModal = $('.progressModal');
+        progressModal.modal('show')
     });
 </script>
