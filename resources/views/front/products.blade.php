@@ -28,6 +28,20 @@
             background-color: #fff;
             color: #ec6090;
         }
+        .progress_btn {
+            padding: 10px 20px;
+            color: #ec6090;
+            background-color: transparent;
+            border: 1px solid #ec6090;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+        .progress_btn:hover {
+            cursor: pointer;
+            border-color: #fff;
+            background-color: #fff;
+            color: #ec6090;
+        }
 
         li .view_btn {
 
@@ -61,6 +75,22 @@
             border-color: #fff;
             background-color: #fff;
             color: #f31a1a;
+        }
+        .marker_wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+        .marker {
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #80edba;
+        }
+
+        .marked {
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #198754;
         }
     </style>
 
@@ -113,7 +143,7 @@
                                                             data-url="{{ route('view-task', $user->id) }}">View</a>
                                                     </div>
                                                     <div class="col-6">
-                                                        <a class="progress_btn text-center" >Progress</a>
+                                                        <a class="progress_btn text-center" data-url="{{ route('task-data', $user->id) }}">Progress</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -347,7 +377,7 @@
         // check if checkbox is not checked then 
         // adding progress buttno 
     });
-    $(".profress_btn").on("click", function() {
+    $(".progress_btn").on("click", function() {
 
         var id = $(this).data('id');
         // var url = "{{ route('project.data', ' + 13 + ') }}";
