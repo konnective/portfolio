@@ -33,7 +33,7 @@
                                         <input type="text" name="name" class="form-control mt-2" required>
                                     </div> --}}
                                 </div>
-                                <button type="submit" class="btn btn-info">Info</button>
+                                <button type="submit" class="btn btn-info">Save</button>
                                 <button   class="btn btn-warning text-bg-dark">
                                     <a href="{{route('products')}}">back</a>
                                 </button>
