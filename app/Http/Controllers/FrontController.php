@@ -144,7 +144,6 @@ class FrontController extends Controller
     }
     public function addProduct(Request $request) 
     {
-
         $product = new Product;
         $product->name = $request->name;
         $product->subject = $request->subject;
@@ -155,7 +154,7 @@ class FrontController extends Controller
             return response()->json(['success' => true]);
         }
 
-        // return redirect()->back();
+        return redirect()->back();
         
     }
     public function deleteProduct($id) 
@@ -198,6 +197,7 @@ class FrontController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'partner' => 1,
         ]);
 
         // $token = $user->createToken('auth_token')->plainTextToken;

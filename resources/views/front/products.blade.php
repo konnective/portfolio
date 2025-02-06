@@ -188,7 +188,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="ajax-form" action="{{ route('add-task') }}" method="POST" data-id='addProModal'>
+                    <form  action="{{ route('add_product') }}" method="POST" data-id='addProModal'>
                         @csrf
                         <div class="form-group">
                             <label for="name">Product Name:</label>
