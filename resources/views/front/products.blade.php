@@ -58,46 +58,7 @@
     </style>
 
 
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="" class="logo">
-                            <span class="logo_main">Second-Brain</span>
-                        </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Search End ***** -->
-                        <div class="search-input">
-                            <form id="search" action="#">
-                                <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword"
-                                    onkeypress="handle" />
-                                <i class="fa fa-search"></i>
-                            </form>
-                        </div>
-                        <!-- ***** Search End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li><a href=""class="active">Home</a></li>
-                            <li><a href="">Browse</a></li>
-                            <li><a href="">Details</a></li>
-                            <li><a href="">Streams</a></li>
-                            <li><a href="">Profile <img
-                                        src="{{ asset('cyborg/assets/images/profile-header.jpg') }}" alt=""></a>
-                            </li>
-                        </ul>
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
+    
 
     <div class="container">
         <div class="row">
@@ -256,7 +217,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="ajax-form" class="modal-form" action="{{ route('add_product') }}" method="POST" data-id='addProModal'>
+                    <form id="ajax-form" class="modal-form" action="{{ route('add-task') }}" method="POST" data-id='addProModal'>
                         @csrf
                         <div class="row task-list p-4">
 
@@ -321,22 +282,6 @@
     });
     $(".modal_btn").on("click", function() {
 
-
-        //check the x-cyborg component as not delivering navbar
-
-        // click pr ajax call
-        // person s task modal in mshow
-        // how many checked will submit in form
-
-        // web route , controler method , modal will edit task status
-        //add task page create
-        // task controller new mthod to load view 
-        // copy product-detail
-        // add formcomplete
-        //dynamic value from ajax call
-        //
-
-
         var url = $(this).data('url');
         $.ajax({
             type: "GET",
@@ -346,25 +291,32 @@
 
             },
             success: function(data) {
-                
+                $('.task-list').empty()
                 data.users.tasks.forEach((item)=>{
-                    $('.task-list').append(`
-                        <li class="list-group-item d-flex justify-content-between align-items-center mt-2">
-                            <label class="w-100 d-flex align-items-center">
-                                <input type="checkbox" class="form-check-input me-2"> ${item.name}
-                            </label>
-                        </li>
-                    `);
+                   
+                    if(item.status == 1){
+                        $('.task-list').append(`
+                            <li class="list-group-item d-flex justify-content-between align-items-center mt-2 ">
+                                <label class="w-100 d-flex align-items-center">
+                                    <s><input type="checkbox" class="form-check-input me-2" name="task_ids[]" value="${item.id}" ${item.status == 1 ? 'disabled':''}> ${item.name}</s>
+                                </label>
+                            </li>
+                        `);
+                    }else{
+                        $('.task-list').append(`
+                            <li class="list-group-item d-flex justify-content-between align-items-center mt-2">
+                                <label class="w-100 d-flex align-items-center">
+                                    <input type="checkbox" class="form-check-input me-2" name="task_ids[]" value="${item.id}"> ${item.name}
+                                </label>
+                            </li>
+                        `);
+                    }
                 })
                 
             }
         });
         const viewModal  = $('#viewTaskModal');
         viewModal.modal('show')
+        // check if checkbox is not checked then 
     });
-
-    $(".modal-submit").on("click", function() {
-        
-
-    })
 </script>
