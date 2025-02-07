@@ -376,6 +376,7 @@
         viewModal.modal('show')
         // check if checkbox is not checked then 
         // adding progress buttno 
+        //
     });
     $(".progress_btn").on("click", function() {
 

@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
@@ -32,9 +33,18 @@ Route::post('/add-product',[FrontController::class, 'addProduct'])->name('add_pr
 Route::get('/delete-product/{id}',[FrontController::class, 'deleteProduct'])->name('delete_product');
 Route::get('/product-detail/{id}',[FrontController::class, 'product'])->name('product_detail');
 
+//admin routes
+Route::group(['prefix' => 'admin'], function () {
+    Route::name('admin.')->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    });
+});
+
+
 Route::get('/homee', [FrontController::class, 'home'])->name('homee')->middleware('auth');
 Route::get('/note/{id}', [FrontController::class, 'note'])->name('note');
 Route::get('/project/data/{id}', [FrontController::class, 'project_data'])->name('project.data');
 Route::get('/change-progress/{id}', [FrontController::class, 'changeProgress'])->name('change_progress');
 Route::post('/submit-form', [FrontController::class, 'submitForm'])->name('submit_form');
 Route::get('/project-delete/{id}', [FrontController::class, 'projectDelete'])->name('project_delete');
+
