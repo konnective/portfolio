@@ -249,7 +249,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('add_product') }}" method="POST" data-id='addProModal'>
+                    <form action="{{ route('add-task') }}" method="POST" data-id='addProModal'>
                         @csrf
                         <div class="form-group">
                             <label for="name">Task Name:</label>
@@ -257,7 +257,7 @@
                         </div>
                         <input type="text" name="user_id" value="{{ auth()->user()->id }}" hidden>
                         <div class="form-group">
-                            <label for="date">Project:</label>
+                            <label for="date">Goal:</label>
                             <select name="project_id" class="form-control mt-2 " id="cars">
                                 @foreach ($projects as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
