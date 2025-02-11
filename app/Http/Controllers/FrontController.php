@@ -40,7 +40,7 @@ class FrontController extends Controller
             $project->day_count = count($days);
             return $project;
         });
-        return view('front.home',compact('projects'));
+        return view('front.new-home',compact('projects'));
     }
     public  function note($id)
     {

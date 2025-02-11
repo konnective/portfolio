@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TaskController;
@@ -37,6 +38,9 @@ Route::get('/product-detail/{id}',[FrontController::class, 'product'])->name('pr
 Route::group(['prefix' => 'admin'], function () {
     Route::name('admin.')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+        
+        Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
     });
 });
 

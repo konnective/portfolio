@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Mazer Admin Dashboard</title>
+    <title>Dashboard - Admin Dashboard</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -26,8 +26,9 @@
                 <div class="sidebar-header">
                     <div class="d-flex justify-content-between">
                         <div class="logo">
-                            <a href="index.html"><img src="{{ asset('mazer/assets/images/logo/logo.png') }}"
-                                    alt="Logo" srcset=""></a>
+                            <span>Admin Panel</span>
+                            {{-- <a href="index.html"><img src="{{ asset('mazer/assets/images/logo/logo.png') }}"
+                                    alt="Logo" srcset=""></a> --}}
                         </div>
                         <div class="toggler">
                             <a href="#" class="sidebar-hide d-xl-none d-block"><i
@@ -39,15 +40,20 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
-
-                        <li class="sidebar-item active ">
-                            <a href="index.html" class='sidebar-link'>
+                        <li class="sidebar-item {{ Route::is('admin.dashboard') ? 'active' : '' }} ">
+                            <a href="{{route('admin.dashboard')}}" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
+                        <li class="sidebar-item {{ Route::is('admin.blogs') ? 'active' : '' }}">
+                        <a href="{{route('admin.blogs')}}" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Blogs</span>
+                            </a>
+                        </li>
 
-                        <li class="sidebar-item  has-sub">
+                        {{-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>
                                 <span>Components</span>
@@ -120,12 +126,12 @@
                                     <a href="extra-component-divider.html">Divider</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
                         <!-- SO -->
                         <p> </p>
                         <!--  -->
-                        <li class="sidebar-item  has-sub">
+                        {{-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-grid-1x2-fill"></i>
                                 <span>Layouts</span>
@@ -144,11 +150,11 @@
                                     <a href="layout-horizontal.html">Horizontal Menu</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
-                        <li class="sidebar-title">Forms &amp; Tables</li>
+                        {{-- <li class="sidebar-title">Forms &amp; Tables</li> --}}
 
-                        <li class="sidebar-item  has-sub">
+                        {{-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-hexagon-fill"></i>
                                 <span>Form Elements</span>
@@ -173,16 +179,16 @@
                                     <a href="form-element-textarea.html">Textarea</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
-                        <li class="sidebar-item  ">
+                        {{-- <li class="sidebar-item  ">
                             <a href="form-layout.html" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>Form Layout</span>
                             </a>
-                        </li>
+                        </li> --}}
 
-                        <li class="sidebar-item  has-sub">
+                        {{-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-pen-fill"></i>
                                 <span>Form Editor</span>
@@ -201,25 +207,25 @@
                                     <a href="form-editor-tinymce.html">TinyMCE</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
-                        <li class="sidebar-item  ">
+                        {{-- <li class="sidebar-item  ">
                             <a href="table.html" class='sidebar-link'>
                                 <i class="bi bi-grid-1x2-fill"></i>
                                 <span>Table</span>
                             </a>
-                        </li>
+                        </li> --}}
 
-                        <li class="sidebar-item  ">
+                        {{-- <li class="sidebar-item  ">
                             <a href="table-datatable.html" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                                 <span>Datatable</span>
                             </a>
-                        </li>
+                        </li> --}}
 
-                        <li class="sidebar-title">Extra UI</li>
+                        {{-- <li class="sidebar-title">Extra UI</li> --}}
 
-                        <li class="sidebar-item  has-sub">
+                        {{-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-pentagon-fill"></i>
                                 <span>Widgets</span>
@@ -235,9 +241,9 @@
                                     <a href="ui-widgets-todolist.html">To-do List</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
-                        <li class="sidebar-item  has-sub">
+                        {{-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-egg-fill"></i>
                                 <span>Icons</span>
@@ -253,9 +259,9 @@
                                     <a href="ui-icons-dripicons.html">Dripicons</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
-                        <li class="sidebar-item  has-sub">
+                        {{-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-bar-chart-fill"></i>
                                 <span>Charts</span>
@@ -268,16 +274,16 @@
                                     <a href="ui-chart-apexcharts.html">Apexcharts</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
-                        <li class="sidebar-item  ">
+                        {{-- <li class="sidebar-item  ">
                             <a href="ui-file-uploader.html" class='sidebar-link'>
                                 <i class="bi bi-cloud-arrow-up-fill"></i>
                                 <span>File Uploader</span>
                             </a>
-                        </li>
+                        </li> --}}
 
-                        <li class="sidebar-item  has-sub">
+                        {{-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-map-fill"></i>
                                 <span>Maps</span>
@@ -290,9 +296,9 @@
                                     <a href="ui-map-jsvectormap.html">JS Vector Map</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
-                        <li class="sidebar-title">Pages</li>
+                        {{-- <li class="sidebar-title">Pages</li>
 
                         <li class="sidebar-item  ">
                             <a href="application-email.html" class='sidebar-link'>
@@ -379,7 +385,7 @@
                                 <i class="bi bi-cash"></i>
                                 <span>Donate</span>
                             </a>
-                        </li>
+                        </li> --}}
 
                     </ul>
                 </div>

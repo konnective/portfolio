@@ -62,6 +62,23 @@
         .content_wrapper {
             max-width: 75vw;
         }
+        .item {
+            background-color: #27292a;
+            padding: 30px 15px;
+            border-radius: 23px;
+            margin-bottom: 30px;
+        }
+
+        .item img {
+            border-radius: 23px;
+        }
+
+        .item h4 {
+            font-size: 15px;
+            margin-top: 20px;
+            margin-bottom: 0px;
+            display: inline-block;
+        }
     </style>
 @endpush
 <x-layout>
@@ -70,6 +87,29 @@
             <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addFormModal">Add Goal</button>
         </div>
         <div class="card_wrapper">
+            <div class="row">
+                {{-- for loop here is the single div --}}
+                @forelse ($projects as $user)
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="item">
+                            <img src="{{ asset('cyborg/assets/images/popular-01.jpg') }}"
+                                alt="">
+                            <h4></h4>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <a class="modal_btn text-center"
+                                        data-url="{{ route('view-task', 1) }}">View</a>
+                                </div>
+                                <div class="col-6">
+                                    <a class="progress_btn text-center" data-url="{{ route('task-data', 1) }}">Progress</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p>Nothing to show</p>
+                @endforelse
+            </div>
             @forelse($projects as $item)
                 <div class="product-card">
                     <div class="row">
@@ -153,6 +193,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </x-layout>
 <script>

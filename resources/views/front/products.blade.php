@@ -314,7 +314,7 @@
                         window.location.reload();
                     }
                 },
-                error: function(xhr) {
+                error: function(xhwer) {
                     console.log(xhr.responseText);
                 }
             });

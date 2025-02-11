@@ -71,6 +71,7 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="{{route('register')}}" class="active">Register</a></li>
+                            <li><a href="{{route('admin.dashboard')}}" class="active">Dashboard</a></li>
                            
                             <li><a href="">Profile <img
                                         src="{{ asset('cyborg/assets/images/profile-header.jpg') }}" alt=""></a>
