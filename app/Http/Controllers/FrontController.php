@@ -49,6 +49,7 @@ class FrontController extends Controller
     }
     public  function project_data($id)
     {
+
         $project = Project::with('days')->find($id);
         $html = '';
         $div = '<div class="marker"></div>';

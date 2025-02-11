@@ -20,10 +20,16 @@ class TaskController extends Controller
 
     public function viewTask($id)
     {
-        $users = User::with('tasks')->find($id);
+        // changing the tasks to 
+        if(request()->query()['project_id']){
+            $tasks = Task::where('user_id',$id)->where('project_id',request()->query()['project_id'])->get();
+            // $users = User::with('tasks')->where('project_id',$)->first();
+        }else{
+            $tasks = Task::where('user_id',$id)->get();
+        }
         $res= [
             "success"=>true,
-            "users"=>$users
+            "tasks"=>$tasks
         ];
         return response()->json($res);
 
