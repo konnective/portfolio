@@ -28,6 +28,7 @@
             background-color: #fff;
             color: #ec6090;
         }
+
         .progress_btn {
             padding: 10px 20px;
             color: #ec6090;
@@ -36,14 +37,16 @@
             cursor: pointer;
             border-radius: 25px;
         }
+
         .progress_btn:hover {
             cursor: pointer;
             border-color: #fff;
             background-color: #fff;
             color: #ec6090;
         }
-        .update_btn{
-            display: block; 
+
+        .update_btn {
+            display: block;
             width: 100%;
             padding: 10px 20px;
             color: #ec6090;
@@ -93,11 +96,13 @@
             background-color: #fff;
             color: #f31a1a;
         }
+
         .marker_wrapper {
             display: flex;
             flex-wrap: wrap;
             gap: 2px;
         }
+
         .marker {
             padding: 10px;
             border-radius: 5px;
@@ -116,7 +121,10 @@
                 <div class="page-content">
                     <div class="most-popular">
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#addFormModal">Add Goal</button>
+                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                data-bs-target="#addFormModal">Add Goal</button>
+                            <button type="button" class="btn btn-primary addTaskBtn" data-bs-toggle="modal"
+                                data-bs-target="#addTaskModal">Add Task</button>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
@@ -134,27 +142,30 @@
                                                 <div class="row mt-3">
                                                     <div class="col-6">
                                                         <a class="modal_btn text-center modal_btn"
-                                                            data-url="{{ route('view-task', ['id' => auth()->user()->id,'project_id'=>$item->id])}}">View</a>
+                                                            data-url="{{ route('view-task', ['id' => auth()->user()->id, 'project_id' => $item->id]) }}">View</a>
                                                     </div>
                                                     <div class="col-6">
-                                                        <a class="progress_btn pro text-center" data-bs-toggle="modal" data-bs-target="#exampleModal" data-url="{{route('project.data',$item->id)}}">Progress</a>
+                                                        <a class="progress_btn pro text-center" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal"
+                                                            data-url="{{ route('project.data', $item->id) }}">Progress</a>
                                                     </div>
                                                     <div class="col-12">
-                                                        <a class="update_btn update text-center mt-3" data-url="{{route('change_progress',$item->id)}}">Update</a>
+                                                        <a class="update_btn update text-center mt-3"
+                                                            data-url="{{ route('change_progress', $item->id) }}">Update</a>
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
                                     @empty
-                                        <p>Nothing to show</p>  
+                                        <p>Nothing to show</p>
                                     @endforelse
                                     <div class="col-lg-12">
                                         {{-- <div class="main-button">
                                             <a href="browse.html">Discover Popular</a>
                                         </div> --}}
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -164,75 +175,106 @@
         </div>
     </div>
     {{-- modal place --}}
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="marker_wrapper">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="marker_wrapper">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-{{--  --}}
-<div class="modal fade" id="viewTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Check Tasks</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="ajax-form" class="modal-form" action="{{ route('add-task') }}" method="POST"
-                    data-id='addProModal'>
-                    @csrf
-                    <div class="row task-list p-4">
+    {{--  --}}
+    <div class="modal fade" id="viewTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Check Tasks</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="ajax-form" class="modal-form" action="{{ route('add-task') }}" method="POST"
+                        data-id='addProModal'>
+                        @csrf
+                        <div class="row task-list p-4">
 
-                    </div>
-                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
-                </form>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-{{--  --}}
-<div class="modal fade" id="addFormModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Goal</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="ajax-form" action="{{route('submit_form')}}" method="POST" data-id='addFormModal'>
-                    @csrf
-                    <div class="form-group">
-                        <label for="name">Goal Name:</label>
-                        <input type="text" name="name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Date:</label>
-                        <input type="date" name="end_date" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="days">Days:</label>
-                        <input type="number" name="days" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
-                </form>
+    {{--  --}}
+    <div class="modal fade" id="addFormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Goal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="ajax-form" action="{{ route('submit_form') }}" method="POST" data-id='addFormModal'>
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Goal Name:</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" name="end_date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="days">Days:</label>
+                            <input type="number" name="days" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-{{--  --}}
+    {{--  --}}
+    <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Goal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('add_product') }}" method="POST" data-id='addProModal'>
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Task Name:</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+                        <input type="text" name="user_id" value="{{ auth()->user()->id }}" hidden>
+                        <div class="form-group">
+                            <label for="date">Project:</label>
+                            <select name="project_id" class="form-control mt-2 " id="cars">
+                                @foreach ($projects as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="details">Details:</label>
+                            <textarea id="details" type="textarea" name="details" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2 modal-submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--  --}}
 </x-cyborg>
 <script>
     $(document).ready(function() {
@@ -248,8 +290,8 @@
                 method: method,
                 data: $(this).serialize(),
                 success: function(res) {
-                    if(res.success){
-                        $('#'+modal).modal('hide');
+                    if (res.success) {
+                        $('#' + modal).modal('hide');
                         $('#success-message').text('Form submitted successfully!').show();
                         window.location.reload();
                     }
@@ -274,7 +316,7 @@
             },
             success: function(data) {
                 $('.task-list').empty()
-                if(data.tasks.length >0){
+                if (data.tasks.length > 0) {
                     data.tasks.forEach((item) => {
                         if (item.status == 1) {
                             $('.task-list').append(`
@@ -308,7 +350,7 @@
 
     $(".pro").on("click", function() {
         var id = $(this).data('id');
-        // var url = "{{ route('project.data', " + 13 + ") }}";
+        // var url = "{{ route('project.data', ' + 13 + ') }}";
         var url = $(this).data('url');
         $.ajax({
             type: "GET",
@@ -328,17 +370,17 @@
     });
     $(".update").on("click", function() {
         var id = $(this).data('id');
-        // var url = "{{ route('project.data', " + 13 + ") }}";
+        // var url = "{{ route('project.data', ' + 13 + ') }}";
         var url = $(this).data('url');
         $.ajax({
             type: "GET",
             url: url,
             beforeSend: function() {
                 console.log("waiting ....");
-                
+
             },
             success: function(data) {
-               
+
             }
         });
     });
@@ -350,7 +392,7 @@
             url: url,
             beforeSend: function() {
                 console.log("waiting ....");
-                
+
             },
             success: function(data) {
                 console.log("deleted");

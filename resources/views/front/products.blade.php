@@ -286,6 +286,7 @@
             </div>
         </div>
     </div>
+    {{--  --}}
     {{-- {{asset('vasperr/assets/css/main.css')}} --}}
 </x-cyborg>
 <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
@@ -405,3 +406,5 @@
         progressModal.modal('show')
     });
 </script>
+{{-- so first way is to make drop down at add task module
+ second one is add a moodal for adding  a task --}}

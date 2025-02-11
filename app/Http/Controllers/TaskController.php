@@ -47,6 +47,8 @@ class TaskController extends Controller
             $task  = new Task;
             $task->name = $req->name;
             $task->user_id = $req->user_id;
+            $task->project_id = $req->project_id ? $req->project_id:'';
+            $task->details = $req->details ? $req->details:'';
             $task->save();
         }
 
