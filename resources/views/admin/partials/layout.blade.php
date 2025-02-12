@@ -8,6 +8,9 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="{{ asset('mazer/assets/vendors/toastify/toastify.css')}}">
     <link rel="stylesheet" href="{{ asset('mazer/assets/css/bootstrap.css') }}">
 
     <link rel="stylesheet" href="{{ asset('mazer/assets/vendors/iconly/bold.css') }}">
@@ -19,6 +22,7 @@
 </head>
 
 <body>
+    @include('admin.partials.flash-msg')
     <div id="app">
         {{-- sidebar starts --}}
         <div id="sidebar" class="active">
@@ -421,6 +425,22 @@
     <script src="{{ asset('mazer/assets/js/pages/dashboard.js') }}"></script>
 
     <script src="{{ asset('mazer/assets/js/main.js') }}"></script>
+    <script src="{{ asset('mazer/assets/vendors/toastify/toastify.js') }}"></script>
+    <script src="{{ asset('mazer/assets/js/extensions/toastify.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            Toastify({
+                text: "This is toast in top center",
+                duration: 100000,
+                close: true,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "#4fbe87",
+            }).showToast();
+
+        });
+    </script>
 </body>
 
 </html>

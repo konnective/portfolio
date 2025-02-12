@@ -51,9 +51,10 @@ class TaskController extends Controller
             $task->project_id = $req->project_id ? $req->project_id:0;
             $task->details = $req->details ? $req->details:'';
             $task->save();
+            session()->flash('error', 'This is a flash red!');
         }
 
-        return redirect()->back();
+        return redirect('products');
 
     }
     public  function taskData($id)

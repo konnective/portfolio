@@ -8,10 +8,10 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="{{ asset('mazer/assets/vendors/toastify/toastify.css')}}">
     <title>Products</title>
 
     <!-- Bootstrap core CSS -->
@@ -30,12 +30,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
 
-   
+
 </head>
 
 <body>
+    @include('admin.partials.flash-msg')
     <!-- ***** Header Area Start ***** -->
-    
+
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Preloader Start ***** -->
@@ -73,9 +74,9 @@
                         <!-- ***** Search End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="{{route('register')}}" class="active">Register</a></li>
-                            <li><a href="{{route('admin.dashboard')}}" class="active">Dashboard</a></li>
-                           
+                            <li><a href="{{ route('register') }}" class="active">Register</a></li>
+                            <li><a href="{{ route('admin.dashboard') }}" class="active">Dashboard</a></li>
+
                             <li><a href="">Profile <img
                                         src="{{ asset('cyborg/assets/images/profile-header.jpg') }}" alt=""></a>
                             </li>
@@ -105,7 +106,13 @@
     <script src="{{ asset('cyborg/assets/js/tabs.js') }}"></script>
     <script src="{{ asset('cyborg/assets/js/popup.js') }}"></script>
     <script src="{{ asset('cyborg/assets/js/custom.js') }}"></script>
+    <script src="{{ asset('mazer/assets/vendors/toastify/toastify.js') }}"></script>
+    <script src="{{ asset('mazer/assets/js/extensions/toastify.js') }}"></script>
     {{-- {{asset('vasperr/assets/css/main.css')}} --}}
 </body>
+
 </html>
 
+<div id="flashMessage" class="flash-message">
+
+</div>
