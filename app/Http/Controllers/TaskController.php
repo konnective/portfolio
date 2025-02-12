@@ -20,9 +20,10 @@ class TaskController extends Controller
 
     public function viewTask($id)
     {
+        $projectId = request()->query('project_id');
         // changing the tasks to 
-        if(request()->query()['project_id']){
-            $tasks = Task::where('user_id',$id)->where('project_id',request()->query()['project_id'])->get();
+        if($projectId){
+            $tasks = Task::where('user_id',$id)->where('project_id',$projectId)->get();
             // $users = User::with('tasks')->where('project_id',$)->first();
         }else{
             $tasks = Task::where('user_id',$id)->get();
@@ -47,7 +48,7 @@ class TaskController extends Controller
             $task  = new Task;
             $task->name = $req->name;
             $task->user_id = $req->user_id;
-            $task->project_id = $req->project_id ? $req->project_id:'';
+            $task->project_id = $req->project_id ? $req->project_id:0;
             $task->details = $req->details ? $req->details:'';
             $task->save();
         }

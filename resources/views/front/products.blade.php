@@ -354,7 +354,7 @@
             },
             success: function(data) {
                 $('.task-list').empty()
-                data.users.tasks.forEach((item) => {
+                data.tasks.forEach((item) => {
 
                     if (item.status == 1) {
                         $('.task-list').append(`
