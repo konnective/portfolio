@@ -43,7 +43,7 @@ class TaskController extends Controller
                 $task->status = 1;
                 $task->save();
             }
-
+        session()->flash('message', 'Task list updated successfully!');
         }else{
             $task  = new Task;
             $task->name = $req->name;
@@ -51,10 +51,10 @@ class TaskController extends Controller
             $task->project_id = $req->project_id ? $req->project_id:0;
             $task->details = $req->details ? $req->details:'';
             $task->save();
-            session()->flash('error', 'This is a flash red!');
+            session()->flash('message', 'Task added successfully!');
         }
 
-        return redirect('products');
+        return redirect()->back();
 
     }
     public  function taskData($id)
