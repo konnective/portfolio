@@ -28,6 +28,7 @@
             background-color: #fff;
             color: #ec6090;
         }
+
         .progress_btn {
             padding: 10px 20px;
             color: #ec6090;
@@ -36,6 +37,7 @@
             cursor: pointer;
             border-radius: 25px;
         }
+
         .progress_btn:hover {
             cursor: pointer;
             border-color: #fff;
@@ -76,11 +78,13 @@
             background-color: #fff;
             color: #f31a1a;
         }
+
         .marker_wrapper {
             display: flex;
             flex-wrap: wrap;
             gap: 2px;
         }
+
         .marker {
             padding: 10px;
             border-radius: 5px;
@@ -143,7 +147,8 @@
                                                             data-url="{{ route('view-task', $user->id) }}">View</a>
                                                     </div>
                                                     <div class="col-6">
-                                                        <a class="progress_btn text-center" data-url="{{ route('task-data', $user->id) }}">Progress</a>
+                                                        <a class="progress_btn text-center"
+                                                            data-url="{{ route('task-data', $user->id) }}">Progress</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -271,12 +276,11 @@
         </div>
     </div>
     {{-- new modal for progress --}}
-    <div class="modal fade progressModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade progressModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                    <h5 class="modal-title text-dark" id="exampleModalLabel">Details</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -297,9 +301,9 @@
             console.error(error);
         });
 
-        $(document).ready(function() {
-            $(".my-tip").tooltip();
-        });    
+    $(document).ready(function() {
+        $(".my-tip").tooltip();
+    });
     $(document).ready(function() {
         $('#ajax-form').on('submit', function(e) {
             e.preventDefault();
@@ -354,26 +358,29 @@
             },
             success: function(data) {
                 $('.task-list').empty()
-                data.tasks.forEach((item) => {
-
-                    if (item.status == 1) {
-                        $('.task-list').append(`
-                            <li class="list-group-item d-flex justify-content-between align-items-center mt-2 ">
-                                <label class="w-100 d-flex align-items-center">
-                                    <s><input type="checkbox" class="form-check-input me-2" name="task_ids[]" value="${item.id}" ${item.status == 1 ? 'disabled':''}> ${item.name}</s>
-                                </label>
-                            </li>
-                        `);
-                    } else {
-                        $('.task-list').append(`
-                            <li class="list-group-item d-flex justify-content-between align-items-center mt-2">
-                                <label class="w-100 d-flex align-items-center">
-                                    <input type="checkbox" class="form-check-input me-2" name="task_ids[]" value="${item.id}"> ${item.name}
-                                </label>
-                            </li>
-                        `);
-                    }
-                })
+                if (data.tasks.length > 0) {
+                    data.tasks.forEach((item) => {
+                        if (item.status == 1) {
+                            $('.task-list').append(`
+                        <li class="list-group-item d-flex justify-content-between align-items-center mt-2">
+                            <label class="w-100 d-flex align-items-center">
+                                <s><input type="checkbox" class="form-check-input me-2" name="task_ids[]" value="${item.id}" ${item.status == 1 ? 'disabled':''}> ${item.name}</s>
+                            </label>
+                        </li>
+                    `);
+                        } else {
+                            $('.task-list').append(`
+                        <li class="list-group-item d-flex justify-content-between align-items-center mt-2">
+                            <label class="w-100 d-flex align-items-center">
+                                <input type="checkbox" class="form-check-input me-2" name="task_ids[]" value="${item.id}"> ${item.name}
+                            </label>
+                        </li>
+                    `);
+                        }
+                    });
+                } else {
+                    $('.task-list').append('<p>Nothing to show</p>');
+                }
 
             }
         });
@@ -403,8 +410,6 @@
 
             }
         });
-
-
 
         const progressModal = $('.progressModal');
         progressModal.modal('show')
