@@ -296,6 +296,10 @@
         .catch(error => {
             console.error(error);
         });
+
+        $(document).ready(function() {
+            $(".my-tip").tooltip();
+        });    
     $(document).ready(function() {
         $('#ajax-form').on('submit', function(e) {
             e.preventDefault();

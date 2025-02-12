@@ -59,10 +59,11 @@ class TaskController extends Controller
     {
         $user = User::with('tasks')->find($id);
         $html = '';
-        $div = '<div class="marker"></div>';
-        $divMarked = '<div class="marked"></div>';
+        
         if($user){
             foreach($user->tasks as $item){
+                $div = '<div class="marker" title="Not completed"></div>';
+                $divMarked = '<div class="marked" title="'.$item->updated_at.'"></div>';
                 if($item->status == 1){
                     $html.=$divMarked;
                 }else{
