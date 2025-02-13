@@ -156,11 +156,11 @@
                                     @empty
                                         <p>Nothing to show</p>
                                     @endforelse
-                                    <div class="col-lg-12">
+                                    {{-- <div class="col-lg-12">
                                         <div class="main-button">
                                             <a href="browse.html">Discover Popular</a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -293,13 +293,8 @@
     {{--  --}}
     {{-- {{asset('vasperr/assets/css/main.css')}} --}}
 </x-cyborg>
-<script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('#details'))
-        .catch(error => {
-            console.error(error);
-        });
+
 
     $(document).ready(function() {
         $(".my-tip").tooltip();

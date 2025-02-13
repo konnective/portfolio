@@ -35,14 +35,17 @@ Route::get('/delete-product/{id}',[FrontController::class, 'deleteProduct'])->na
 Route::get('/product-detail/{id}',[FrontController::class, 'product'])->name('product_detail');
 
 //admin routes
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::name('admin.')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-        
         Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
+        Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
+        Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
+        Route::get('/blog/edit', [BlogController::class, 'edit'])->name('blog.edit');
     });
 });
+
 
 
 Route::get('/homee', [FrontController::class, 'home'])->name('homee')->middleware('auth');

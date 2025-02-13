@@ -380,7 +380,14 @@
 
             },
             success: function(data) {
-
+                if(data.success){
+                    notify(data.message,'success')
+                }else{
+                   
+                }
+            },
+            error: function(xhr) {
+                notify(xhr.responseJSON.message, 'error');
             }
         });
     });

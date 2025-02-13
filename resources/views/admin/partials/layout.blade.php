@@ -405,19 +405,10 @@
             </header>
                 @yield('content')
             <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
-                    </div>
-                    <div class="float-end">
-                        {{-- <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                            href="http://ahmadsaugi.com">A. Saugi</a></p> --}}
-                    </div>
-                </div>
             </footer>
         </div>
     </div>
-
+    
     <script src="{{ asset('mazer/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('mazer/assets/js/bootstrap.bundle.min.js') }}"></script>
 
@@ -426,20 +417,14 @@
 
     <script src="{{ asset('mazer/assets/js/main.js') }}"></script>
     <script src="{{ asset('mazer/assets/vendors/toastify/toastify.js') }}"></script>
-    <script src="{{ asset('mazer/assets/js/extensions/toastify.js') }}"></script>
-
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+    <script src="{{ asset('js/toast.js') }}"></script>
     <script>
-        $(document).ready(function() {
-            Toastify({
-                text: "This is toast in top center",
-                duration: 100000,
-                close: true,
-                gravity: "top",
-                position: "center",
-                backgroundColor: "#4fbe87",
-            }).showToast();
-
-        });
+        ClassicEditor
+            .create(document.querySelector('#details'))
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 </body>
 

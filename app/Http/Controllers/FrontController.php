@@ -85,6 +85,11 @@ class FrontController extends Controller
             $day->is_done = 1;
             $day->save();
         }
+       $res=[
+            "success"=>true,
+            "message"=>"Added progress"
+       ];
+       return response()->json($res);
 
     }
     public function submitForm(Request $request)

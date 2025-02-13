@@ -252,11 +252,12 @@
             type: "GET",
             url: url,
             beforeSend: function() {
-                console.log("waiting ....");
+                console.log("waiting...");
                 
             },
             success: function(data) {
-               
+                
+                // notify(response.message, 'success');
             }
         });
     });

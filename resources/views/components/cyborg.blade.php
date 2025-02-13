@@ -108,6 +108,15 @@
     <script src="{{ asset('cyborg/assets/js/custom.js') }}"></script>
     <script src="{{ asset('mazer/assets/vendors/toastify/toastify.js') }}"></script>
     <script src="{{ asset('mazer/assets/js/extensions/toastify.js') }}"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+    <script src="{{ asset('js/toast.js') }}"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#details'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
     {{-- {{asset('vasperr/assets/css/main.css')}} --}}
 </body>
 
