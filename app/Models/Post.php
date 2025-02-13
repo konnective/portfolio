@@ -62,9 +62,9 @@ class Post extends Model
     /**
      * The tags that belong to the post.
      */
-    public function tags(): HasMany
+    public function tags()
     {
-        return $this->hasMany(Tag::class);
+        return $this->belongsToMany(Tag::class);
     }
 
     /**

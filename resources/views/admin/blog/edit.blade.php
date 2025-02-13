@@ -16,7 +16,7 @@
                         <h3 class="mb-0">Create New Blog Post</h3>
                     </div>
                     <div class="card-body">
-                        <form  id="ajax-form" class="modal-form" action="{{ route('admin.blog.store') }}" method="POST" novalidate>
+                    <form  id="ajax-form" class="modal-form" action="{{ route('admin.blog.update') }}" method="POST" novalidate>
                             @csrf
                             <!-- Title -->
                             @if ($errors->any())
@@ -28,6 +28,7 @@
                                     </ul>
                                 </div>
                             @endif
+                            <input type="text" name="post_id" value="{{$post->id}}" hidden>
                             <input type="text" name="user_id" value="{{auth()->user()->id}}" hidden>
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
@@ -43,7 +44,7 @@
                                 <select class="form-select" name="category_id" id="category" required>
                                     <option value="">Choose a category...</option>
                                     @foreach ($categories as $item)
-                                    <option value="{{$item->id}}" {{$post->category->id == $item->id ? selected : '' }}>{{$item->name}}</option>
+                                    <option value="{{$item->id}}" {{$post->category->id == $item->id ? 'selected' : '' }}>{{$item->name}}</option>
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">

@@ -60,7 +60,7 @@ class BlogController extends Controller
                 'title' => $request->title,
                 'slug' => Str::slug($request->title),
                 'content' => $request->content,
-                'category_id' => $request->category_id,
+                'category_id' => $request->category_id ? $request->category_id:0,
                 'featured_image' => $imagePath,
                 'meta_description' => $request->meta_description,
                 'status' => $request->has('publish') ? 'published' : 'draft',
@@ -72,7 +72,7 @@ class BlogController extends Controller
                 $tags = collect($request->tags)->map(function ($tagName) {
                     return Tag::firstOrCreate(['name' => $tagName])->id;
                 });
-                // $post->tags()->sync($tags);
+                $post->tags()->sync($tags);
             }
 
             DB::commit();
@@ -108,9 +108,10 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified blog post.
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        $post->load(['tags', 'category']);
+        $post = Post::find($id);
+        // $post->load(['tags', 'category']);
         $categories = Category::all();
         $tags = Tag::all();
         
@@ -136,6 +137,7 @@ class BlogController extends Controller
             }
 
             // Update post
+            $post = Post::find($request->post_id);
             $post->update([
                 'title' => $request->title,
                 'slug' => Str::slug($request->title),
@@ -157,7 +159,7 @@ class BlogController extends Controller
             DB::commit();
 
             return redirect()
-                ->route('admin.blog.index')
+                ->route('admin.blogs')
                 ->with('success', 'Post updated successfully!');
 
         } catch (\Exception $e) {
@@ -189,7 +191,7 @@ class BlogController extends Controller
             DB::commit();
 
             return redirect()
-                ->route('admin.blog.index')
+                ->route('admin.blogs')
                 ->with('success', 'Post deleted successfully!');
 
         } catch (\Exception $e) {
@@ -241,7 +243,7 @@ class BlogController extends Controller
             DB::commit();
 
             return redirect()
-                ->route('admin.blog.index')
+                ->route('admin.blogs')
                 ->with('success', $message);
 
         } catch (\Exception $e) {
