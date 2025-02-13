@@ -84,9 +84,15 @@
                                     </div>
                                 </td>
                             </tr>  
-                        @empty
-                            <p>No Posts</p>
-                        @endforelse
+                            @empty
+                                <tr>
+                                    <td colspan="9" class="text-center py-4">
+                                        <div class="alert alert-warning" role="alert">
+                                            <i class="fas fa-exclamation-circle"></i> No posts found. 
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforelse
 {{-- 
                         <tr>
                             <td>
