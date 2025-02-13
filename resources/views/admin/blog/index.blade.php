@@ -93,28 +93,6 @@
                                     </td>
                                 </tr>
                             @endforelse
-{{-- 
-                        <tr>
-                            <td>
-                                <input type="checkbox" class="form-check-input post-checkbox">
-                            </td>
-                            <td>Top 10 Travel Destinations</td>
-                            <td>Travel</td>
-                            <td><img src="/api/placeholder/50/50" alt="thumbnail" class="img-thumbnail"
-                                    style="width: 50px;"></td>
-                            <td><span class="badge bg-info">Travel</span> <span class="badge bg-warning">Adventure</span>
-                            </td>
-                            <td class="text-truncate" style="max-width: 200px;">Discover the most amazing places to visit...
-                            </td>
-                            <td><span class="badge bg-warning">Draft</span></td>
-                            <td>2025-02-12</td>
-                            <td>
-                                <div class="btn-group btn-group-sm">
-                                    <button class="btn btn-outline-primary"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-outline-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr> --}}
                     </tbody>
                 </table>
             </div>
