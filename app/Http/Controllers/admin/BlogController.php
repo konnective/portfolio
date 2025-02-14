@@ -15,8 +15,13 @@ use Illuminate\Support\Facades\DB;
 class BlogController extends Controller
 {
     /**
-     * Display a listing of blog posts.
+     * next task is to create main section from some attractive design
+     * firstly create a navbar to create
+     * https://themewagon.github.io/pinwheel/blog.html
      */
+    /* 
+
+    */
     public function index()
     {
         $posts = Post::with(['tags', 'category'])

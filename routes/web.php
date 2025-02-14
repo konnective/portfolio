@@ -22,14 +22,14 @@ Route::get('/developer', [FrontController::class, 'developer'])->name('developer
 Route::get('/insure', [FrontController::class, 'insure'])->name('insure');
 Route::get('/notes', [FrontController::class, 'notes'])->name('notes');
 
-//for tasks
+//tasks routes
 Route::get('/add-task', [TaskController::class, 'addTask'])->name('add-task');
 Route::post('/add-task', [TaskController::class, 'create'])->name('add-task');
 Route::get('/view-task/{id}', [TaskController::class, 'viewTask'])->name('view-task');
 Route::get('/task-data/{id}', [TaskController::class, 'taskData'])->name('task-data');
 
 
-// for products
+// products routes
 Route::get('/products', [FrontController::class, 'products'])->name('products');
 Route::post('/add-product',[FrontController::class, 'addProduct'])->name('add_product');
 Route::get('/delete-product/{id}',[FrontController::class, 'deleteProduct'])->name('delete_product');
@@ -39,7 +39,7 @@ Route::get('/product-detail/{id}',[FrontController::class, 'product'])->name('pr
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::name('admin.')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
+        // 
         Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
         Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
         Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
@@ -47,8 +47,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::post('/blog/update', [BlogController::class, 'update'])->name('blog.update');
     });
 });
-
-
 
 Route::get('/homee', [FrontController::class, 'home'])->name('homee')->middleware('auth');
 Route::get('/note/{id}', [FrontController::class, 'note'])->name('note');
