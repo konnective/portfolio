@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
@@ -10,10 +11,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login', [FrontController::class, 'login'])->name('login');
-Route::post('/login-attempt', [FrontController::class, 'loginAttempt'])->name('login_attempt');
-Route::get('/register', [FrontController::class, 'register'])->name('register');
-Route::post('/register-attempt', [FrontController::class, 'registerAttempt'])->name('register_attempt');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login-attempt', [LoginController::class, 'loginAttempt'])->name('login_attempt');
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/register-attempt', [LoginController::class, 'registerAttempt'])->name('register_attempt');
 
 Route::get('/', [FrontController::class, 'developer'])->name('home')->middleware('auth');
 Route::get('/profile', [FrontController::class, 'profile'])->name('profile');
