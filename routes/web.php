@@ -4,6 +4,7 @@
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\LoginController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
@@ -30,10 +31,10 @@ Route::get('/task-data/{id}', [TaskController::class, 'taskData'])->name('task-d
 
 
 // products routes
-Route::get('/products', [FrontController::class, 'products'])->name('products');
-Route::post('/add-product',[FrontController::class, 'addProduct'])->name('add_product');
-Route::get('/delete-product/{id}',[FrontController::class, 'deleteProduct'])->name('delete_product');
-Route::get('/product-detail/{id}',[FrontController::class, 'product'])->name('product_detail');
+Route::get('/products', [ProductController::class, 'products'])->name('products');
+Route::post('/add-product',[ProductController::class, 'addProduct'])->name('add_product');
+Route::get('/delete-product/{id}',[ProductController::class, 'deleteProduct'])->name('delete_product');
+Route::get('/product-detail/{id}',[ProductController::class, 'product'])->name('product_detail');
 
 //admin routes
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
@@ -54,4 +55,6 @@ Route::get('/project/data/{id}', [FrontController::class, 'project_data'])->name
 Route::get('/change-progress/{id}', [FrontController::class, 'changeProgress'])->name('change_progress');
 Route::post('/submit-form', [FrontController::class, 'submitForm'])->name('submit_form');
 Route::get('/project-delete/{id}', [FrontController::class, 'projectDelete'])->name('project_delete');
-
+/* 
+    show toast when adding a product and deleting a product
+*/

@@ -25,6 +25,10 @@ class FrontController extends Controller
     {
         return view('front.insure');
     }
+    public  function blogger()
+    {
+        return view('front.blogger');
+    }
     public  function notes()
     {
         return view('front.notes');
@@ -138,52 +142,6 @@ class FrontController extends Controller
         }
     }
 
-    public function products() 
-    {
-
-        $products = Product::all();
-        $users  = User::partner();
-        
-
-        return view('front.products',compact('products','users'));
-        
-    }
-    public function addProduct(Request $request) 
-    {
-        $product = new Product;
-        $product->name = $request->name;
-        $product->subject = $request->subject;
-        $product->details = $request->details;
-        $product->save();
-
-        if ($request->ajax()) {
-            return response()->json(['success' => true]);
-        }
-
-        return redirect()->back();
-        
-    }
-    public function deleteProduct($id) 
-    {
-
-        try {
-            //code...
-            $project = Product::find($id);
-            DB::transaction(function () use ($project) {
-        
-                $project->delete();
-            });
-        } catch (\Throwable $th) {
-            dd($th);
-        }
-        
-    }
-    public function product($id) 
-    {
-
-        $product = Product::find($id);
-        return view('front.product-details',compact('product'));
-        
-    }
+   
 
 }

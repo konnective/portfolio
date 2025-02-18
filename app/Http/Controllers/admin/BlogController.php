@@ -130,7 +130,6 @@ class BlogController extends Controller
     {
         try {
             DB::beginTransaction();
-
             // Handle featured image update
             $imagePath = $post->featured_image;
             if ($request->hasFile('featured_image')) {
@@ -297,4 +296,4 @@ class BlogController extends Controller
 
         return view('admin.blog.index', compact('posts'));
     }
-}
+}/* so this is about latest self analysis well there is still an emptyness inside which was there  */
