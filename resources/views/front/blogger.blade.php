@@ -2,32 +2,34 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Vesperr Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Index - Vesperr Bootstrap Template</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="{{asset('vasperr/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-  <link href="{{asset('vasperr/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
-  <link href="{{asset('vasperr/assets/vendor/aos/aos.css')}}" rel="stylesheet">
-  <link href="{{asset('vasperr/assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
-  <link href="{{asset('vasperr/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="{{ asset('vasperr/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vasperr/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('vasperr/assets/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ asset('vasperr/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vasperr/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
-  <!-- Main CSS File -->
-  <link href="{{asset('vasperr/assets/css/main.css')}}" rel="stylesheet">
+    <!-- Main CSS File -->
+    <link href="{{ asset('vasperr/assets/css/main.css') }}" rel="stylesheet">
 
-  <!-- =======================================================
+    <!-- =======================================================
   * Template Name: Vesperr
   * Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
   * Updated: Aug 07 2024 with Bootstrap v5.3.3
@@ -38,74 +40,78 @@
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Vesperr</h1>
-      </a>
+            <a href="index.html" class="logo d-flex align-items-center me-auto">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <h1 class="sitename">Vesperr</h1>
+            </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Home<br></a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <nav id="navmenu" class="navmenu">
                 <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
+                    <li><a href="#hero" class="active">Home<br></a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li class="dropdown"><a href="#"><span>Dropdown</span> <i
+                                class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a href="#">Dropdown 1</a></li>
+                            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                                        class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a href="#">Deep Dropdown 1</a></li>
+                                    <li><a href="#">Deep Dropdown 2</a></li>
+                                    <li><a href="#">Deep Dropdown 3</a></li>
+                                    <li><a href="#">Deep Dropdown 4</a></li>
+                                    <li><a href="#">Deep Dropdown 5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Dropdown 2</a></li>
+                            <li><a href="#">Dropdown 3</a></li>
+                            <li><a href="#">Dropdown 4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
 
-      <a class="btn-getstarted" href="index.html#about">Get Started</a>
+            <a class="btn-getstarted" href="index.html#about">Get Started</a>
 
-    </div>
-  </header>
-
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
-
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1>Grow your business with Vesperr</h1>
-            <p>We are team of talented designers making websites with Bootstrap</p>
-            <div class="d-flex">
-              <a href="#about" class="btn-get-started">Get Started</a>
-              <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"></a>
-            </div>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img">
-            <img src="{{asset('vasperr/assets/img/hero-img.png')}}" class="img-fluid animated" alt="">
-          </div>
         </div>
-      </div>
+    </header>
 
-    </section><!-- /Hero Section -->
+    <main class="main">
 
-    <!-- Clients Section -->
-    <section id="clients" class="clients section light-background">
+        <!-- Hero Section -->
+        <section id="hero" class="hero section">
+
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                        <h1>Grow your business with Vesperr</h1>
+                        <p>We are team of talented designers making websites with Bootstrap</p>
+                        <div class="d-flex">
+                            <a href="#about" class="btn-get-started">Get Started</a>
+                            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                                class="glightbox btn-watch-video d-flex align-items-center"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2 hero-img">
+                        <img src="{{ asset('vasperr/assets/img/hero-img.png') }}" class="img-fluid animated"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+
+        </section><!-- /Hero Section -->
+
+        <!-- Clients Section -->
+        {{-- <section id="clients" class="clients section light-background">
 
       <div class="container" data-aos="fade-up">
 
@@ -139,10 +145,10 @@
 
       </div>
 
-    </section><!-- /Clients Section -->
+    </section><!-- /Clients Section --> --}}
 
-    <!-- About Section -->
-    <section id="about" class="about section">
+        <!-- About Section -->
+        {{-- <section id="about" class="about section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -196,75 +202,171 @@
 
       </div>
 
-    </section><!-- /About Section -->
+    </section><!-- /About Section --> --}}
 
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
+        <!-- Stats Section -->
+        <section id="stats" class="stats section">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4 align-items-center">
+                <div class="row gy-4 align-items-center">
 
-          <div class="col-lg-5">
-            <img src="{{asset('vasperr/assets/img/stats-img.svg')}}" alt="" class="img-fluid">
-          </div>
+                    <div class="col-lg-5">
+                        <img src="{{ asset('vasperr/assets/img/stats-img.svg') }}" alt="" class="img-fluid">
+                    </div>
 
-          <div class="col-lg-7">
+                    <div class="col-lg-7">
 
-            <div class="row gy-4">
+                        <div class="row gy-4">
 
-              <div class="col-lg-6">
-                <div class="stats-item d-flex">
-                  <i class="bi bi-emoji-smile flex-shrink-0"></i>
-                  <div>
-                    <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Happy Clients</strong> <span>consequuntur quae</span></p>
-                  </div>
+                            <div class="col-lg-6">
+                                <div class="stats-item d-flex">
+                                    <i class="bi bi-emoji-smile flex-shrink-0"></i>
+                                    <div>
+                                        <span data-purecounter-start="0" data-purecounter-end="232"
+                                            data-purecounter-duration="1" class="purecounter"></span>
+                                        <p><strong>Happy Clients</strong> <span>consequuntur quae</span></p>
+                                    </div>
+                                </div>
+                            </div><!-- End Stats Item -->
+
+                            <div class="col-lg-6">
+                                <div class="stats-item d-flex">
+                                    <i class="bi bi-journal-richtext flex-shrink-0"></i>
+                                    <div>
+                                        <span data-purecounter-start="0" data-purecounter-end="521"
+                                            data-purecounter-duration="1" class="purecounter"></span>
+                                        <p><strong>Projects</strong> <span>adipisci atque cum quia aut</span></p>
+                                    </div>
+                                </div>
+                            </div><!-- End Stats Item -->
+
+                            <div class="col-lg-6">
+                                <div class="stats-item d-flex">
+                                    <i class="bi bi-headset flex-shrink-0"></i>
+                                    <div>
+                                        <span data-purecounter-start="0" data-purecounter-end="1453"
+                                            data-purecounter-duration="1" class="purecounter"></span>
+                                        <p><strong>Hours Of Support</strong> <span>aut commodi quaerat</span></p>
+                                    </div>
+                                </div>
+                            </div><!-- End Stats Item -->
+
+                            <div class="col-lg-6">
+                                <div class="stats-item d-flex">
+                                    <i class="bi bi-people flex-shrink-0"></i>
+                                    <div>
+                                        <span data-purecounter-start="0" data-purecounter-end="32"
+                                            data-purecounter-duration="1" class="purecounter"></span>
+                                        <p><strong>Hard Workers</strong> <span>rerum asperiores dolor</span></p>
+                                    </div>
+                                </div>
+                            </div><!-- End Stats Item -->
+
+                        </div>
+
+                    </div>
+
                 </div>
-              </div><!-- End Stats Item -->
-
-              <div class="col-lg-6">
-                <div class="stats-item d-flex">
-                  <i class="bi bi-journal-richtext flex-shrink-0"></i>
-                  <div>
-                    <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Projects</strong> <span>adipisci atque cum quia aut</span></p>
-                  </div>
-                </div>
-              </div><!-- End Stats Item -->
-
-              <div class="col-lg-6">
-                <div class="stats-item d-flex">
-                  <i class="bi bi-headset flex-shrink-0"></i>
-                  <div>
-                    <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Hours Of Support</strong> <span>aut commodi quaerat</span></p>
-                  </div>
-                </div>
-              </div><!-- End Stats Item -->
-
-              <div class="col-lg-6">
-                <div class="stats-item d-flex">
-                  <i class="bi bi-people flex-shrink-0"></i>
-                  <div>
-                    <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Hard Workers</strong> <span>rerum asperiores dolor</span></p>
-                  </div>
-                </div>
-              </div><!-- End Stats Item -->
 
             </div>
 
-          </div>
+        </section><!-- /Stats Section -->
 
-        </div>
 
-      </div>
+        {{-- blog section --}}
+        <section class="container-fluid blog py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h4 class="text-primary">From Blog</h4>
+                    <h1 class="display-4 mb-4">News And Updates</h1>
+                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci
+                        facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa
+                        deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
+                    </p>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="{{ asset('lifesure/img/blog-1.png') }}" class="img-fluid rounded-top w-100"
+                                    alt="">
+                                <div class="blog-categiry py-2 px-4">
+                                    <span>Business</span>
+                                </div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <div class="blog-comment d-flex justify-content-between mb-3">
+                                    <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div>
+                                    <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025
+                                    </div>
+                                    <div class="small"><span class="fa fa-comment-alt text-primary"></span> 6
+                                        Comments</div>
+                                </div>
+                                <a href="#" class="h4 d-inline-block mb-3">Which allows you to pay down
+                                    insurance bills</a>
+                                <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero
+                                    soluta impedit eligendi? Quibusdam, laudantium.</p>
+                                <a href="#" class="btn p-0">Read More <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="{{ asset('lifesure/img/blog-2.png') }}" class="img-fluid rounded-top w-100"
+                                    alt="">
+                                <div class="blog-categiry py-2 px-4">
+                                    <span>Business</span>
+                                </div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <div class="blog-comment d-flex justify-content-between mb-3">
+                                    <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div>
+                                    <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025
+                                    </div>
+                                    <div class="small"><span class="fa fa-comment-alt text-primary"></span> 6
+                                        Comments</div>
+                                </div>
+                                <a href="#" class="h4 d-inline-block mb-3">Leverage agile frameworks to
+                                    provide</a>
+                                <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero
+                                    soluta impedit eligendi? Quibusdam, laudantium.</p>
+                                <a href="#" class="btn p-0">Read More <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="{{ asset('lifesure/img/blog-3.png') }}" class="img-fluid rounded-top w-100"
+                                    alt="">
+                                <div class="blog-categiry py-2 px-4">
+                                    <span>Business</span>
+                                </div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <div class="blog-comment d-flex justify-content-between mb-3">
+                                    <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div>
+                                    <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025
+                                    </div>
+                                    <div class="small"><span class="fa fa-comment-alt text-primary"></span> 6
+                                        Comments</div>
+                                </div>
+                                <a href="#" class="h4 d-inline-block mb-3">Leverage agile frameworks to
+                                    provide</a>
+                                <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero
+                                    soluta impedit eligendi? Quibusdam, laudantium.</p>
+                                <a href="#" class="btn p-0">Read More <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    </section><!-- /Stats Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
+        <!-- Services Section -->
+        {{-- <section id="services" class="services section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -312,10 +414,10 @@
 
       </div>
 
-    </section><!-- /Services Section -->
+    </section><!-- /Services Section --> --}}
 
-    <!-- Alt Services Section -->
-    <section id="alt-services" class="alt-services section">
+        <!-- Alt Services Section -->
+        {{-- <section id="alt-services" class="alt-services section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -382,10 +484,10 @@
 
       </div>
 
-    </section><!-- /Alt Services Section -->
+    </section><!-- /Alt Services Section --> --}}
 
-    <!-- Features Section -->
-    <section id="features" class="features section">
+        <!-- Features Section -->
+        {{-- <section id="features" class="features section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -485,10 +587,10 @@
 
       </div>
 
-    </section><!-- /Features Section -->
+    </section><!-- /Features Section --> --}}
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section light-background">
+        <!-- Testimonials Section -->
+        {{-- <section id="testimonials" class="testimonials section light-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -622,10 +724,10 @@
 
       </div>
 
-    </section><!-- /Testimonials Section -->
+    </section><!-- /Testimonials Section --> --}}
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
+        <!-- Portfolio Section -->
+        {{-- <section id="portfolio" class="portfolio section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -797,360 +899,385 @@
 
       </div>
 
-    </section><!-- /Portfolio Section -->
+    </section><!-- /Portfolio Section --> --}}
 
-    <!-- Team Section -->
-    <section id="team" class="team section">
+        <!-- Team Section -->
+        <section id="team" class="team section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Team</h2>
+                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div><!-- End Section Title -->
 
-      <div class="container">
+            <div class="container">
 
-        <div class="row gy-4">
+                <div class="row gy-4">
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="{{asset('vasperr/assets/img/team/team-1.jpg')}}" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div class="team-member">
+                            <div class="member-img">
+                                <img src="{{ asset('vasperr/assets/img/team/team-1.jpg') }}" class="img-fluid"
+                                    alt="">
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Walter White</h4>
+                                <span>Chief Executive Officer</span>
+                            </div>
+                        </div>
+                    </div><!-- End Team Member -->
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="team-member">
+                            <div class="member-img">
+                                <img src="{{ asset('vasperr/assets/img/team/team-2.jpg') }}" class="img-fluid"
+                                    alt="">
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Sarah Jhonson</h4>
+                                <span>Product Manager</span>
+                            </div>
+                        </div>
+                    </div><!-- End Team Member -->
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <div class="team-member">
+                            <div class="member-img">
+                                <img src="{{ asset('vasperr/assets/img/team/team-3.jpg') }}" class="img-fluid"
+                                    alt="">
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>William Anderson</h4>
+                                <span>CTO</span>
+                            </div>
+                        </div>
+                    </div><!-- End Team Member -->
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                        data-aos-delay="400">
+                        <div class="team-member">
+                            <div class="member-img">
+                                <img src="{{ asset('vasperr/assets/img/team/team-4.jpg') }}" class="img-fluid"
+                                    alt="">
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Amanda Jepson</h4>
+                                <span>Accountant</span>
+                            </div>
+                        </div>
+                    </div><!-- End Team Member -->
+
                 </div>
-              </div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="{{asset('vasperr/assets/img/team/team-2.jpg')}}" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+
+        </section><!-- /Team Section -->
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Pricing</h2>
+                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="pricing-item">
+                            <h3>Free Plan</h3>
+                            <h4><sup>$</sup>0<span> / month</span></h4>
+                            <ul>
+                                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
+                                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
+                                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
+                                <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span>
+                                </li>
+                                <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis
+                                        hendrerit</span></li>
+                            </ul>
+                            <a href="#" class="buy-btn">Buy Now</a>
+                        </div>
+                    </div><!-- End Pricing Item -->
+
+                    <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="pricing-item featured">
+                            <h3>Business Plan</h3>
+                            <h4><sup>$</sup>29<span> / month</span></h4>
+                            <ul>
+                                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
+                                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
+                                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
+                                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
+                                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+                            </ul>
+                            <a href="#" class="buy-btn">Buy Now</a>
+                        </div>
+                    </div><!-- End Pricing Item -->
+
+                    <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="pricing-item">
+                            <h3>Developer Plan</h3>
+                            <h4><sup>$</sup>49<span> / month</span></h4>
+                            <ul>
+                                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
+                                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
+                                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
+                                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
+                                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+                            </ul>
+                            <a href="#" class="buy-btn">Buy Now</a>
+                        </div>
+                    </div><!-- End Pricing Item -->
+
                 </div>
-              </div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="{{asset('vasperr/assets/img/team/team-3.jpg')}}" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+
+        </section><!-- /Pricing Section -->
+
+        <!-- Faq Section -->
+        <section id="faq" class="faq section light-background">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Frequently Asked Questions</h2>
+                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-5 d-flex">
+                        <i class="bi bi-question-circle"></i>
+                        <h4>Non consectetur a erat nam at lectus urna duis?</h4>
+                    </div>
+                    <div class="col-lg-7">
+                        <p>
+                            Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non
+                            curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                        </p>
+                    </div>
+                </div><!-- End F.A.Q Item-->
+
+                <div class="row faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-5 d-flex">
+                        <i class="bi bi-question-circle"></i>
+                        <h4>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h4>
+                    </div>
+                    <div class="col-lg-7">
+                        <p>
+                            Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit
+                            laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium.
+                            Est pellentesque elit ullamcorper dignissim.
+                        </p>
+                    </div>
+                </div><!-- End F.A.Q Item-->
+
+                <div class="row faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="col-lg-5 d-flex">
+                        <i class="bi bi-question-circle"></i>
+                        <h4>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?</h4>
+                    </div>
+                    <div class="col-lg-7">
+                        <p>
+                            Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar
+                            elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus
+                            pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus.
+                        </p>
+                    </div>
+                </div><!-- End F.A.Q Item-->
+
+                <div class="row faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="col-lg-5 d-flex">
+                        <i class="bi bi-question-circle"></i>
+                        <h4>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h4>
+                    </div>
+                    <div class="col-lg-7">
+                        <p>
+                            Aperiam itaque sit optio et deleniti eos nihil quidem cumque. Voluptas dolorum accusantium
+                            sunt sit enim. Provident consequuntur quam aut reiciendis qui rerum dolorem sit odio.
+                            Repellat assumenda soluta sunt pariatur error doloribus fuga.
+                        </p>
+                    </div>
+                </div><!-- End F.A.Q Item-->
+
+                <div class="row faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="col-lg-5 d-flex">
+                        <i class="bi bi-question-circle"></i>
+                        <h4>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h4>
+                    </div>
+                    <div class="col-lg-7">
+                        <p>
+                            Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est
+                            ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing
+                            bibendum est. Purus gravida quis blandit turpis cursus in
+                        </p>
+                    </div>
+                </div><!-- End F.A.Q Item-->
+
+            </div>
+
+        </section><!-- /Faq Section -->
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Contact</h2>
+                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div><!-- End Section Title -->
+
+            <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-5">
+                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                            <i class="bi bi-geo-alt flex-shrink-0"></i>
+                            <div>
+                                <h3>Address</h3>
+                                <p>A108 Adam Street, New York, NY 535022</p>
+                            </div>
+                        </div><!-- End Info Item -->
+
+                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                            <i class="bi bi-telephone flex-shrink-0"></i>
+                            <div>
+                                <h3>Call Us</h3>
+                                <p>+1 5589 55488 55</p>
+                            </div>
+                        </div><!-- End Info Item -->
+
+                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                            <i class="bi bi-envelope flex-shrink-0"></i>
+                            <div>
+                                <h3>Email Us</h3>
+                                <p>info@example.com</p>
+                            </div>
+                        </div><!-- End Info Item -->
+
+                    </div>
+
+                    <div class="col-lg-7">
+                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
+                            data-aos-delay="500">
+                            <div class="row gy-4">
+
+                                <div class="col-md-6">
+                                    <input type="text" name="name" class="form-control"
+                                        placeholder="Your Name" required="">
+                                </div>
+
+                                <div class="col-md-6 ">
+                                    <input type="email" class="form-control" name="email"
+                                        placeholder="Your Email" required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" name="subject" placeholder="Subject"
+                                        required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                                    <button type="submit">Send Message</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div><!-- End Contact Form -->
+
                 </div>
-              </div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="{{asset('vasperr/assets/img/team/team-4.jpg')}}" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-              </div>
             </div>
-          </div><!-- End Team Member -->
 
+        </section><!-- /Contact Section -->
+
+    </main>
+
+    <footer id="footer" class="footer">
+
+        <div class="container">
+            <div class="copyright text-center ">
+                <p>© <span>Copyright</span> <strong class="px-1 sitename">Vesperr</strong> <span>All Rights
+                        Reserved</span></p>
+            </div>
+            <div class="social-links d-flex justify-content-center">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you've purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
         </div>
 
-      </div>
+    </footer>
 
-    </section><!-- /Team Section -->
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing section">
+    <!-- Preloader -->
+    <div id="preloader"></div>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Pricing</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('vasperr/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('vasperr/assets/vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{ asset('vasperr/assets/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('vasperr/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ asset('vasperr/assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+    <script src="{{ asset('vasperr/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('vasperr/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('vasperr/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
 
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="pricing-item">
-              <h3>Free Plan</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-              </ul>
-              <a href="#" class="buy-btn">Buy Now</a>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="pricing-item featured">
-              <h3>Business Plan</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-              </ul>
-              <a href="#" class="buy-btn">Buy Now</a>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="pricing-item">
-              <h3>Developer Plan</h3>
-              <h4><sup>$</sup>49<span> / month</span></h4>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-              </ul>
-              <a href="#" class="buy-btn">Buy Now</a>
-            </div>
-          </div><!-- End Pricing Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Pricing Section -->
-
-    <!-- Faq Section -->
-    <section id="faq" class="faq section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Frequently Asked Questions</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row faq-item" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-5 d-flex">
-            <i class="bi bi-question-circle"></i>
-            <h4>Non consectetur a erat nam at lectus urna duis?</h4>
-          </div>
-          <div class="col-lg-7">
-            <p>
-              Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-            </p>
-          </div>
-        </div><!-- End F.A.Q Item-->
-
-        <div class="row faq-item" data-aos="fade-up" data-aos-delay="200">
-          <div class="col-lg-5 d-flex">
-            <i class="bi bi-question-circle"></i>
-            <h4>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h4>
-          </div>
-          <div class="col-lg-7">
-            <p>
-              Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
-            </p>
-          </div>
-        </div><!-- End F.A.Q Item-->
-
-        <div class="row faq-item" data-aos="fade-up" data-aos-delay="300">
-          <div class="col-lg-5 d-flex">
-            <i class="bi bi-question-circle"></i>
-            <h4>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?</h4>
-          </div>
-          <div class="col-lg-7">
-            <p>
-              Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus.
-            </p>
-          </div>
-        </div><!-- End F.A.Q Item-->
-
-        <div class="row faq-item" data-aos="fade-up" data-aos-delay="400">
-          <div class="col-lg-5 d-flex">
-            <i class="bi bi-question-circle"></i>
-            <h4>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h4>
-          </div>
-          <div class="col-lg-7">
-            <p>
-              Aperiam itaque sit optio et deleniti eos nihil quidem cumque. Voluptas dolorum accusantium sunt sit enim. Provident consequuntur quam aut reiciendis qui rerum dolorem sit odio. Repellat assumenda soluta sunt pariatur error doloribus fuga.
-            </p>
-          </div>
-        </div><!-- End F.A.Q Item-->
-
-        <div class="row faq-item" data-aos="fade-up" data-aos-delay="500">
-          <div class="col-lg-5 d-flex">
-            <i class="bi bi-question-circle"></i>
-            <h4>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h4>
-          </div>
-          <div class="col-lg-7">
-            <p>
-              Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-            </p>
-          </div>
-        </div><!-- End F.A.Q Item-->
-
-      </div>
-
-    </section><!-- /Faq Section -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h3>Address</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email Us</h3>
-                <p>info@example.com</p>
-              </div>
-            </div><!-- End Info Item -->
-
-          </div>
-
-          <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Contact Section -->
-
-  </main>
-
-  <footer id="footer" class="footer">
-
-    <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Vesperr</strong> <span>All Rights Reserved</span></p>
-      </div>
-      <div class="social-links d-flex justify-content-center">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-linkedin"></i></a>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="{{asset('vasperr/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{asset('vasperr/assets/vendor/php-email-form/validate.js')}}"></script>
-  <script src="{{asset('vasperr/assets/vendor/aos/aos.js')}}"></script>
-  <script src="{{asset('vasperr/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
-  <script src="{{asset('vasperr/assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
-  <script src="{{asset('vasperr/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
-  <script src="{{asset('vasperr/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
-  <script src="{{asset('vasperr/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
-
-  <!-- Main JS File -->
-  {{-- {{asset('vasperr/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}} --}}
-  <script src="{{asset('vasperr/assets/js/main.js')}}"></script>
+    <!-- Main JS File -->
+    {{-- {{asset('vasperr/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}} --}}
+    <script src="{{ asset('vasperr/assets/js/main.js') }}"></script>
 
 </body>
 

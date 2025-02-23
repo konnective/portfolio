@@ -22,6 +22,7 @@ Route::get('/profile', [FrontController::class, 'profile'])->name('profile');
 Route::get('/developer', [FrontController::class, 'developer'])->name('developer');
 Route::get('/insure', [FrontController::class, 'insure'])->name('insure');
 Route::get('/notes', [FrontController::class, 'notes'])->name('notes');
+Route::get('/blogger', [FrontController::class, 'blogger'])->name('blogger');
 
 //tasks routes
 Route::get('/add-task', [TaskController::class, 'addTask'])->name('add-task');
