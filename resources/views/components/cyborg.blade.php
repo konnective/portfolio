@@ -59,7 +59,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="" class="logo">
+                        <a href="{{route('products')}}" class="logo">
                             <span class="logo_main">Second-Brain</span>
                         </a>
                         <!-- ***** Logo End ***** -->
@@ -112,7 +112,7 @@
     <script src="{{ asset('js/toast.js') }}"></script>
     <script>
         ClassicEditor
-            .create(document.querySelector('#details'))
+            .create(document.querySelector('.details'))
             .catch(error => {
                 console.error(error);
             });

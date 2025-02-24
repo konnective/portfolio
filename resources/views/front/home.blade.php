@@ -1,43 +1,100 @@
-@push('custom-css')
+<x-cyborg>
     <style>
-        /* Additional custom CSS */
-        .card_wrapper {
+        .logo_main {
+            font-family: "Nunito", serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-size: 25px;
+            font-style: normal;
+            color: #e75e8d;
+        }
+
+        li .btn_wrapepr {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 10px;
         }
 
-        .product-card {
-            /* background-color: #ca5151; */
-            -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-            box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-            max-width: 300px;
-            width: 1000px;
-            display: flex;
-            flex-direction: column;
-            /* height: 360px; */
-            border-radius: 10px;
-            overflow: hidden;
+        .modal_btn {
+            padding: 10px 20px;
+            color: #ec6090;
+            background-color: transparent;
+            border: 1px solid #ec6090;
+            cursor: pointer;
+            border-radius: 25px;
         }
 
-        .img-container {
-            flex: 1;
+        .modal_btn:hover {
+            cursor: pointer;
+            border-color: #fff;
+            background-color: #fff;
+            color: #ec6090;
         }
 
-        img {
+        .progress_btn {
+            padding: 10px 20px;
+            color: #ec6090;
+            background-color: transparent;
+            border: 1px solid #ec6090;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+
+        .progress_btn:hover {
+            cursor: pointer;
+            border-color: #fff;
+            background-color: #fff;
+            color: #ec6090;
+        }
+
+        .update_btn {
+            display: block;
             width: 100%;
-            object-fit: contain;
-            height: 200px;
+            padding: 10px 20px;
+            color: #ec6090;
+            background-color: transparent;
+            border: 1px solid #ec6090;
+            cursor: pointer;
+            border-radius: 25px;
         }
 
-        .info-container {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            flex: 1;
-            padding: 20px;
+        .progress_btn:hover {
+            cursor: pointer;
+            border-color: #fff;
+            background-color: #fff;
+            color: #ec6090;
+        }
+
+        li .view_btn {
+
+            padding: 10px 20px;
+            color: #ec6090;
+            background-color: transparent;
+            border: 1px solid #ec6090;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+
+        li .pro_del {
+
+            padding: 10px 20px;
+            color: #f31a1a;
+            background-color: transparent;
+            border: 1px solid #f31a1a;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+
+        li .view_btn:hover {
+            cursor: pointer;
+            border-color: #fff;
+            background-color: #fff;
+            color: #ec6090;
+        }
+
+        li .pro_del:hover {
+            cursor: pointer;
+            border-color: #fff;
+            background-color: #fff;
+            color: #f31a1a;
         }
 
         .marker_wrapper {
@@ -57,145 +114,234 @@
             border-radius: 5px;
             background-color: #198754;
         }
-
-
-        .content_wrapper {
-            max-width: 75vw;
-        }
-        .item {
-            background-color: #27292a;
-            padding: 30px 15px;
-            border-radius: 23px;
-            margin-bottom: 30px;
-        }
-
-        .item img {
-            border-radius: 23px;
-        }
-
-        .item h4 {
-            font-size: 15px;
-            margin-top: 20px;
-            margin-bottom: 0px;
-            display: inline-block;
-        }
     </style>
-@endpush
-<x-layout>
-    <div class="content_wrapper">
-        <div class="btn-wrapper p-4">
-            <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addFormModal">Add Goal</button>
-        </div>
-        <div class="card_wrapper">
-            <div class="row">
-                {{-- for loop here is the single div --}}
-                @forelse ($projects as $user)
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="{{ asset('cyborg/assets/images/popular-01.jpg') }}"
-                                alt="">
-                            <h4></h4>
-                            <div class="row mt-3">
-                                <div class="col-6">
-                                    <a class="modal_btn text-center"
-                                        data-url="{{ route('view-task', 1) }}">View</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-content">
+                    <div class="most-popular">
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                data-bs-target="#addFormModal">Add Goal</button>
+                            <button type="button" class="btn btn-primary addTaskBtn" data-bs-toggle="modal"
+                                data-bs-target="#addTaskModal">Add Task</button>
+                            <button type="button" class="btn btn-primary addTaskBtn" data-bs-toggle="modal"
+                                data-bs-target="#addIdeaModal">Add Idea</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="heading-section">
+                                    <h4><em></em>Goals</h4>
                                 </div>
-                                <div class="col-6">
-                                    <a class="progress_btn text-center" data-url="{{ route('task-data', 1) }}">Progress</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @empty
-                    <p>Nothing to show</p>
-                @endforelse
-            </div>
-            @forelse($projects as $item)
-                <div class="product-card">
-                    <div class="row">
-                        <div class="col-6">
-                            <a href="{{ route('note', $item->id) }}">
-                                <div class="img-container">
-                                    <img src="{{ asset('images/home.png') }}" alt="no img" />
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-6">
-                            <div class="info-container">
-                                <span class="item-title text-muted">{{ $item->name }}</span>
-                                <span class="item-price">
-                                    <button type="button" class="btn btn-primary pro mt-2" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal" data-url="{{route('project.data',$item->id)}}">
-                                        Progress
-                                    </button>
-                                    @if($item->day_count > 0 )
-                                        <button  class="btn btn-warning mt-2 update"  data-url="{{route('change_progress',$item->id)}}">
-                                            Update
-                                        </button>
-                                    @endif
-                                    <button  class="btn btn-danger mt-2 pro_del" data-url="{{route('project_delete',$item->id)}}">
-                                        Delete
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @empty
-                    <h2 class="display-5 mt-3">No projects to show</h2>
-                @endforelse
-            {{-- code for modal here --}}
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Details</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="marker_wrapper">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- modal for add form --}}
-            <div class="modal fade" id="addFormModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add Goal</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="ajax-form" action="{{route('submit_form')}}" method="POST" data-id='addFormModal'>
-                                @csrf
-                                <div class="form-group">
-                                    <label for="name">Goal Name:</label>
-                                    <input type="text" name="name" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="date">Date:</label>
-                                    <input type="date" name="end_date" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="days">Days:</label>
-                                    <input type="number" name="days" class="form-control" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-2">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                <div class="row">
+                                    {{-- for loop here is the single div --}}
+                                    @forelse ($projects as $item)
+                                        <div class="col-lg-3 col-sm-6">
+                                            <div class="item">
+                                                <img src="{{ asset('cyborg/assets/images/popular-01.jpg') }}"
+                                                    alt="">
+                                                <h4>{{ $item->name }}<br><span>{{ $item->email }}</span></h4>
+                                                <div class="row mt-3">
+                                                    <div class="col-6">
+                                                        <a class="modal_btn text-center modal_btn"
+                                                            data-url="{{ route('view-task', ['id' => auth()->user()->id, 'project_id' => $item->id]) }}">View</a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <a class="progress_btn pro text-center" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal"
+                                                            data-url="{{ route('project.data', $item->id) }}">Progress</a>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <a class="update_btn update text-center mt-3"
+                                                            data-url="{{ route('change_progress', $item->id) }}">Update</a>
+                                                    </div>
 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @empty
+                                        <p>Nothing to show</p>
+                                    @endforelse
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- code for ideas library --}}
+                    <div class="gaming-library">
+                        <div class="col-lg-12">
+                            <div class="heading-section">
+                                <h4><em>Your Ideas</em> Library</h4>
+                            </div>
+
+                            @forelse ($products as $item)
+                                <div class="item">
+                                    <ul>
+                                        <li><img src="{{ asset('cyborg/assets/images/game-02.jpg') }}" alt=""
+                                                class="templatemo-item"></li>
+                                        <li>
+                                            <h4>{{ $item->name }}</h4><span>Sandbox</span>
+                                        </li>
+                                        <li>
+                                            <h4>Date Added</h4><span>{{ $item->created_at }}</span>
+                                        </li>
+                                        <li>
+                                            <h4>{{ $item->price }}</h4><span>{{ $item->subject }}</span>
+                                        </li>
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <a class="view_btn"
+                                                        href="{{ route('product_detail', $item->id) }}">View</a>
+                                                </div>
+                                                <div class="col-6">
+                                                    <a class="pro_del"
+                                                        data-url="{{ route('delete_product', $item->id) }}">Delete</a>
+                                                </div>
+
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            @empty
+                                <p>No Products to Show</p>
+                            @endforelse
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</x-layout>
+    {{-- modal place --}}
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="exampleModalLabel">Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="marker_wrapper">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--  --}}
+    <div class="modal fade" id="viewTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="exampleModalLabel">Check Tasks</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="ajax-form" class="modal-form" action="{{ route('add-task') }}" method="POST"
+                        data-id='addProModal'>
+                        @csrf
+                        <div class="row task-list p-4">
+
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--  --}}
+    <div class="modal fade" id="addFormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="exampleModalLabel">Add Goal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="ajax-form" action="{{ route('submit_form') }}" method="POST" data-id='addFormModal'>
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Goal Name:</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" name="end_date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="days">Days:</label>
+                            <input type="number" name="days" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--  --}}
+    <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="exampleModalLabel">Add Goal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('add-task') }}" method="POST" data-id='addProModal'>
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Task Name:</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+                        <input type="text" name="user_id" value="{{ auth()->user()->id }}" hidden>
+                        <div class="form-group">
+                            <label for="date">Goal:</label>
+                            <select name="project_id" class="form-control mt-2 " id="cars">
+                                @foreach ($projects as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="details">Details:</label>
+                            <textarea id="details" type="textarea" name="details" class="form-control details"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2 modal-submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- add idea modal --}}
+    <div class="modal fade" id="addIdeaModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="exampleModalLabel">Add Idea</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('add_product') }}" method="POST" data-id='addProModal'>
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Idea Name:</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="details">Details:</label>
+                            <textarea id="details" type="textarea" name="details" class="form-control details"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2 modal-submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--  --}}
+</x-cyborg>
 <script>
     $(document).ready(function() {
         $('#ajax-form').on('submit', function(e) {
@@ -210,8 +356,8 @@
                 method: method,
                 data: $(this).serialize(),
                 success: function(res) {
-                    if(res.success){
-                        $('#'+modal).modal('hide');
+                    if (res.success) {
+                        $('#' + modal).modal('hide');
                         $('#success-message').text('Form submitted successfully!').show();
                         window.location.reload();
                     }
@@ -224,9 +370,53 @@
     });
 
 
+    $(".modal_btn").on("click", function() {
+
+        var url = $(this).data('url');
+        $.ajax({
+            type: "GET",
+            url: url,
+            beforeSend: function() {
+                console.log("waiting ....");
+
+            },
+            success: function(data) {
+                $('.task-list').empty()
+                if (data.tasks.length > 0) {
+                    data.tasks.forEach((item) => {
+                        if (item.status == 1) {
+                            $('.task-list').append(`
+                                <li class="list-group-item d-flex justify-content-between align-items-center mt-2 ">
+                                    <label class="w-100 d-flex align-items-center">
+                                        <s><input type="checkbox" class="form-check-input me-2" name="task_ids[]" value="${item.id}" ${item.status == 1 ? 'disabled':''}> ${item.name}</s>
+                                    </label>
+                                </li>
+                            `);
+                        } else {
+                            $('.task-list').append(`
+                                <li class="list-group-item d-flex justify-content-between align-items-center mt-2">
+                                    <label class="w-100 d-flex align-items-center">
+                                        <input type="checkbox" class="form-check-input me-2" name="task_ids[]" value="${item.id}"> ${item.name}
+                                    </label>
+                                </li>
+                            `);
+                        }
+                    })
+                }
+
+            }
+        });
+        const viewModal = $('#viewTaskModal');
+        viewModal.modal('show')
+        // check if checkbox is not checked then 
+        // adding progress buttno 
+        //
+    });
+
+
     $(".pro").on("click", function() {
         var id = $(this).data('id');
-        // var url = "{{ route('project.data', " + 13 + ") }}";
+        // var url = "{{ route('project.data', ' + 13 + ') }}";
         var url = $(this).data('url');
         $.ajax({
             type: "GET",
@@ -246,18 +436,24 @@
     });
     $(".update").on("click", function() {
         var id = $(this).data('id');
-        // var url = "{{ route('project.data', " + 13 + ") }}";
+        // var url = "{{ route('project.data', ' + 13 + ') }}";
         var url = $(this).data('url');
         $.ajax({
             type: "GET",
             url: url,
             beforeSend: function() {
-                console.log("waiting...");
-                
+                console.log("waiting ....");
+
             },
             success: function(data) {
-                
-                // notify(response.message, 'success');
+                if (data.success) {
+                    notify(data.message, 'success')
+                } else {
+
+                }
+            },
+            error: function(xhr) {
+                notify(xhr.responseJSON.message, 'error');
             }
         });
     });
@@ -269,7 +465,7 @@
             url: url,
             beforeSend: function() {
                 console.log("waiting ....");
-                
+
             },
             success: function(data) {
                 console.log("deleted");

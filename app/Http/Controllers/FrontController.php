@@ -39,12 +39,13 @@ class FrontController extends Controller
     }
     public  function home()
     {
+        $products = Product::individual();
         $projects = Project::where('user_id',Auth::user()->id)->get()->map(function($project){
             $days = Day::where('project_id',$project->id)->where('is_done',0)->get();
             $project->day_count = count($days);
             return $project;
         });
-        return view('front.new-home',compact('projects'));
+        return view('front.home',compact('projects','products'));
     }
     public  function note($id)
     {
@@ -126,7 +127,7 @@ class FrontController extends Controller
             return response()->json(['success' => true]);
         }
 
-        return redirect('/')->with('success', 'Form submitted successfully!');
+        return redirect('products')->with('success', 'Form submitted successfully!');
     }
 
     public function projectDelete($id) {
