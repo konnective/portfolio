@@ -122,12 +122,15 @@ class FrontController extends Controller
 
       
         // Handle the data (save to database, etc.)
-
         if ($request->ajax()) {
-            return response()->json(['success' => true]);
+            $res = [
+                'success' => true,
+                'message' => 'Goal added successfully'
+            ];
+            return response()->json($res);
         }
 
-        return redirect('products')->with('success', 'Form submitted successfully!');
+        // return redirect('products')->with('success', 'Form submitted successfully!');
     }
 
     public function projectDelete($id) {

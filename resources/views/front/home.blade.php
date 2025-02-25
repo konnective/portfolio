@@ -259,7 +259,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="ajax-form" action="{{ route('submit_form') }}" method="POST" data-id='addFormModal'>
+                    <form id="ajax-form" class="ajax-form" data-url="{{ route('submit_form') }}" method="POST" data-id='addFormModal'>
                         @csrf
                         <div class="form-group">
                             <label for="name">Goal Name:</label>
@@ -343,33 +343,6 @@
     {{--  --}}
 </x-cyborg>
 <script>
-    $(document).ready(function() {
-        $('#ajax-form').on('submit', function(e) {
-            e.preventDefault();
-            $(this).unbind('submit');
-            let form = $(this);
-            let url = form.attr('action');
-            let method = form.attr('method');
-            let modal = form.data('id');
-            $.ajax({
-                url: url,
-                method: method,
-                data: $(this).serialize(),
-                success: function(res) {
-                    if (res.success) {
-                        $('#' + modal).modal('hide');
-                        $('#success-message').text('Form submitted successfully!').show();
-                        window.location.reload();
-                    }
-                },
-                error: function(xhr) {
-                    console.log(xhr.responseText);
-                }
-            });
-        });
-    });
-
-
     $(".modal_btn").on("click", function() {
 
         var url = $(this).data('url');

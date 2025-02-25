@@ -35,6 +35,7 @@
 
 <body>
     @include('admin.partials.flash-msg')
+    @include('admin.partials.ajax-form')
     <!-- ***** Header Area Start ***** -->
 
     <!-- ***** Header Area End ***** -->
