@@ -259,9 +259,6 @@ class BlogController extends Controller
         }
     }
 
-    /**
-     * Search posts
-     */
     public function search(Request $request)
     {
         $query = Post::query();
@@ -296,4 +293,4 @@ class BlogController extends Controller
 
         return view('admin.blog.index', compact('posts'));
     }
-}/* so this is about latest self analysis well there is still an emptyness inside which was there  */
+}

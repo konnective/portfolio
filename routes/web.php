@@ -54,5 +54,5 @@ Route::get('/change-progress/{id}', [FrontController::class, 'changeProgress'])-
 Route::post('/submit-form', [FrontController::class, 'submitForm'])->name('submit_form');
 Route::get('/project-delete/{id}', [FrontController::class, 'projectDelete'])->name('project_delete');
 /* 
-    show toast when adding a product and deleting a product
+    worked on pdf generation of assignment log of cleaning staff
 */

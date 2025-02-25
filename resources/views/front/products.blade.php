@@ -156,11 +156,6 @@
                                     @empty
                                         <p>Nothing to show</p>
                                     @endforelse
-                                    {{-- <div class="col-lg-12">
-                                        <div class="main-button">
-                                            <a href="browse.html">Discover Popular</a>
-                                        </div>
-                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -332,12 +327,14 @@
             type: "GET",
             url: url,
             beforeSend: function() {
-                console.log("waiting ....");
+                console.log("waiting for delete....");
 
             },
             success: function(data) {
-                console.log("deleted");
-                window.location.reload();
+                notify(data.message,'warning')
+                setTimeout(function() {
+                    window.location.reload();
+                }, 1000);
             }
         });
     });
@@ -349,7 +346,6 @@
             url: url,
             beforeSend: function() {
                 console.log("waiting ....");
-
             },
             success: function(data) {
                 $('.task-list').empty()
@@ -357,20 +353,20 @@
                     data.tasks.forEach((item) => {
                         if (item.status == 1) {
                             $('.task-list').append(`
-                        <li class="list-group-item d-flex justify-content-between align-items-center mt-2">
-                            <label class="w-100 d-flex align-items-center">
-                                <s><input type="checkbox" class="form-check-input me-2" name="task_ids[]" value="${item.id}" ${item.status == 1 ? 'disabled':''}> ${item.name}</s>
-                            </label>
-                        </li>
-                    `);
+                                <li class="list-group-item d-flex justify-content-between align-items-center mt-2">
+                                    <label class="w-100 d-flex align-items-center">
+                                        <s><input type="checkbox" class="form-check-input me-2" name="task_ids[]" value="${item.id}" ${item.status == 1 ? 'disabled':''}> ${item.name}</s>
+                                    </label>
+                                </li>
+                            `);
                         } else {
                             $('.task-list').append(`
-                        <li class="list-group-item d-flex justify-content-between align-items-center mt-2">
-                            <label class="w-100 d-flex align-items-center">
-                                <input type="checkbox" class="form-check-input me-2" name="task_ids[]" value="${item.id}"> ${item.name}
-                            </label>
-                        </li>
-                    `);
+                                <li class="list-group-item d-flex justify-content-between align-items-center mt-2">
+                                    <label class="w-100 d-flex align-items-center">
+                                        <input type="checkbox" class="form-check-input me-2" name="task_ids[]" value="${item.id}"> ${item.name}
+                                    </label>
+                                </li>
+                            `);
                         }
                     });
                 } else {
@@ -410,5 +406,4 @@
         progressModal.modal('show')
     });
 </script>
-{{-- so first way is to make drop down at add task module
- second one is add a moodal for adding  a task --}}
+
