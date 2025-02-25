@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Index - Vesperr Bootstrap Template</title>
+    <title>Blog Website</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
@@ -446,13 +446,13 @@
           <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
               <h1 class="display-4 mb-4">Discover more topics</h1>
           </div>
-          <div class="mx-auto">
-            <button class="btn btn-outline-dark">Outlined Button</button>
-            <button class="btn btn-outline-dark">Outlined Button</button>
-            <button class="btn btn-outline-dark">Outlined Button</button>
-            <button class="btn btn-outline-dark">Outlined Button</button>
-            <button class="btn btn-outline-dark">Outlined Button</button>
-            <button class="btn btn-outline-dark">Outlined Button</button>
+          <div class="mx-auto text-center">
+            <button class="btn btn-outline-dark mb-2 mx-2">Tech</button>
+            <button class="btn btn-outline-dark mb-2 mx-2">Psychology</button>
+            <button class="btn btn-outline-dark mb-2 mx-2">Philosophy</button>
+            <button class="btn btn-outline-dark mb-2 mx-2">Books</button>
+            <button class="btn btn-outline-dark mb-2 mx-2">Environment</button>
+            <button class="btn btn-outline-dark mb-2 mx-2">Self-Improvement</button>
           </div>
         </section>
 
@@ -462,7 +462,7 @@
 
         <div class="container">
             <div class="copyright text-center ">
-                <p>© <span>Copyright</span> <strong class="px-1 sitename">Vesperr</strong> <span>All Rights
+                <p>© <span>Copyright</span> <strong class="px-1 sitename">Stoic-Artisan</strong> <span>All Rights
                         Reserved</span></p>
             </div>
             <div class="social-links d-flex justify-content-center">
@@ -476,15 +476,13 @@
                 <!-- You can delete the links only if you've purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
         </div>
 
     </footer>
 
     <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Preloader -->
     <div id="preloader"></div>
