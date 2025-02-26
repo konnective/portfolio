@@ -47,7 +47,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     });
 });
 
-Route::get('/home', [FrontController::class, 'home'])->name('homee')->middleware('auth');
+Route::get('/home', [FrontController::class, 'home'])->name('home')->middleware('auth');
 Route::get('/note/{id}', [FrontController::class, 'note'])->name('note');
 Route::get('/project/data/{id}', [FrontController::class, 'project_data'])->name('project.data');
 Route::get('/change-progress/{id}', [FrontController::class, 'changeProgress'])->name('change_progress');

@@ -57,7 +57,7 @@ class LoginController extends Controller
 
 
         session()->flash('success', 'Login attempt success.');
-        return redirect('homee');
+        return redirect('home');
 
         // $token = $user->createToken('auth_token')->plainTextToken;
 
