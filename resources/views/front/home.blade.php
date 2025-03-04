@@ -238,7 +238,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="ajax-form" class="modal-form" action="{{ route('add-task') }}" method="POST"
+                    <form id="ajax-form" class="modal-form ajax-form" data-url="{{ route('update-task') }}" method="POST"
                         data-id='addProModal'>
                         @csrf
                         <div class="row task-list p-4">

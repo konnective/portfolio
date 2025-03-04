@@ -24,6 +24,7 @@ Route::get('/blogger', [FrontController::class, 'blogger'])->name('blogger');
 //tasks routes
 Route::get('/add-task', [TaskController::class, 'addTask'])->name('add-task');
 Route::post('/add-task', [TaskController::class, 'create'])->name('add-task');
+Route::post('/update-task', [TaskController::class, 'update'])->name('update-task');
 Route::get('/view-task/{id}', [TaskController::class, 'viewTask'])->name('view-task');
 Route::get('/task-data/{id}', [TaskController::class, 'taskData'])->name('task-data');
 
