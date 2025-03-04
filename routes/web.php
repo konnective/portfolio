@@ -45,6 +45,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
         Route::get('/blog/edit/{post}', [BlogController::class, 'edit'])->name('blog.edit');
         Route::post('/blog/update', [BlogController::class, 'update'])->name('blog.update');
+
+        //routes for content
+        Route::get('/contents', [BlogController::class, 'index'])->name('contents');
+        Route::get('/content/create', [BlogController::class, 'create'])->name('content.create');
+        Route::post('/content/store', [BlogController::class, 'store'])->name('content.store');
+        Route::get('/content/edit/{post}', [BlogController::class, 'edit'])->name('content.edit');
+        Route::post('/content/update', [BlogController::class, 'update'])->name('content.update');
+
     });
 });
 
