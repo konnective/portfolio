@@ -45,7 +45,12 @@ class FrontController extends Controller
             $project->day_count = count($days);
             return $project;
         });
-        return view('front.home',compact('projects','products'));
+        $analytics[] = [
+            "user_score"=>0,
+            "user_rank"=>'Warrior',
+            "user_tasks"=>0
+        ];
+        return view('front.home',compact('projects','products','analytics'));
     }
     public  function note($id)
     {

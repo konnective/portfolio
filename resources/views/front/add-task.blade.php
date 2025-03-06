@@ -24,6 +24,10 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    <div class="form-group col-6 text-white mb-2">
+                                        <label for="name">Points:</label>
+                                        <input type="number" name="points" class="form-control" required>
+                                    </div>
                                     {{-- <div class="form-group col-6 text-white mb-2">
                                         <label for="name">Product Name:</label>
                                         <input type="text" name="name" class="form-control mt-2" required>

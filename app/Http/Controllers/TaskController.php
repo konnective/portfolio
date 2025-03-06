@@ -37,11 +37,15 @@ class TaskController extends Controller
     }
     public function create(Request $req)
     {
+
         if($req->task_ids){
             foreach($req->task_ids as $item){
                 $task = Task::find($item);
+                $user = User::findOrFail($task->user_id);
+                $user->points = $user->points + $task->points;
                 $task->status = 1;
                 $task->save();
+                $user->save();
             }
         session()->flash('message', 'Task list updated successfully!');
         }else{
@@ -49,6 +53,7 @@ class TaskController extends Controller
             $task->name = $req->name;
             $task->user_id = $req->user_id;
             $task->project_id = $req->project_id ? $req->project_id:0;
+            $task->points = $req->points ? $req->points:0;
             $task->details = $req->details ? $req->details:'';
             $task->save();
             session()->flash('message', 'Task added successfully!');

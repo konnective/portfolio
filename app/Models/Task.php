@@ -16,6 +16,9 @@ class Task extends Model
     
     // ALTER TABLE `products` ADD `user_id` INT NOT NULL DEFAULT '0' AFTER `name`;
     // ALTER TABLE `products` ADD `category` VARCHAR(255) NULL DEFAULT NULL AFTER `subject`;
+    
+    // ALTER TABLE `tasks` CHANGE `points` `points` DOUBLE(6,2) NULL DEFAULT '0';
+    // ALTER TABLE `users` ADD `rank` VARCHAR(255) NULL DEFAULT NULL AFTER `points`;
     use HasFactory;
 }
 

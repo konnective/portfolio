@@ -119,6 +119,82 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-content">
+                    <div class="gaming-library">
+                        <div class="heading-section">
+                            <h4><em>Personel</em>Analytics</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon purple">
+                                                    <i class="fa fa-user"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Profile Views</h6>
+                                                <h6 class="font-extrabold text-dark mb-0">112.000</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6 mb-3">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon purple">
+                                                    <i class="fa fa-user"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Profile Views</h6>
+                                                <h6 class="font-extrabold text-dark mb-0">112.000</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6 mb-3">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon purple">
+                                                    <i class="fa fa-user"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Profile Views</h6>
+                                                <h6 class="font-extrabold text-dark mb-0">112.000</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6 mb-3">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon purple">
+                                                    <i class="fa fa-user"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Profile Views</h6>
+                                                <h6 class="font-extrabold text-dark mb-0">112.000</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="most-popular">
                         <div class="btn-wrapper">
                             <button type="button" class="btn btn-primary " data-bs-toggle="modal"
@@ -296,14 +372,23 @@
                             <input type="text" name="name" class="form-control" required>
                         </div>
                         <input type="text" name="user_id" value="{{ auth()->user()->id }}" hidden>
-                        <div class="form-group">
-                            <label for="date">Goal:</label>
-                            <select name="project_id" class="form-control mt-2 " id="cars">
-                                @foreach ($projects as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                @endforeach
-                            </select>
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="date">Goal:</label>
+                                    <select name="project_id" class="form-control " id="cars">
+                                        @foreach ($projects as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label for="name">Points:</label>
+                                <input type="number" name="points" class="form-control" required>
+                            </div>
                         </div>
+                      
                         <div class="form-group">
                             <label for="details">Details:</label>
                             <textarea id="details" type="textarea" name="details" class="form-control details"></textarea>

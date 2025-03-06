@@ -14,7 +14,7 @@ Route::post('/login-attempt', [LoginController::class, 'loginAttempt'])->name('l
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register-attempt', [LoginController::class, 'registerAttempt'])->name('register_attempt');
 
-Route::get('/', [FrontController::class, 'developer'])->name('home')->middleware('auth');
+Route::get('/', [FrontController::class, 'home'])->name('home')->middleware('auth');
 Route::get('/profile', [FrontController::class, 'profile'])->name('profile');
 Route::get('/developer', [FrontController::class, 'developer'])->name('developer');
 Route::get('/insure', [FrontController::class, 'insure'])->name('insure');
