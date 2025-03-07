@@ -24,6 +24,7 @@ Route::get('/blogger', [FrontController::class, 'blogger'])->name('blogger');
 //tasks routes
 Route::get('/add-task', [TaskController::class, 'addTask'])->name('add-task');
 Route::post('/add-task', [TaskController::class, 'create'])->name('add-task');
+Route::post('/update-task', [TaskController::class, 'update'])->name('update-task');
 Route::get('/view-task/{id}', [TaskController::class, 'viewTask'])->name('view-task');
 Route::get('/task-data/{id}', [TaskController::class, 'taskData'])->name('task-data');
 
@@ -44,6 +45,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
         Route::get('/blog/edit/{post}', [BlogController::class, 'edit'])->name('blog.edit');
         Route::post('/blog/update', [BlogController::class, 'update'])->name('blog.update');
+
+        //routes for content
+        Route::get('/contents', [BlogController::class, 'index'])->name('contents');
+        Route::get('/content/create', [BlogController::class, 'create'])->name('content.create');
+        Route::post('/content/store', [BlogController::class, 'store'])->name('content.store');
+        Route::get('/content/edit/{post}', [BlogController::class, 'edit'])->name('content.edit');
+        Route::post('/content/update', [BlogController::class, 'update'])->name('content.update');
+
     });
 });
 

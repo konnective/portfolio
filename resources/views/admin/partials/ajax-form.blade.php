@@ -14,11 +14,15 @@
                 success: function(res) {
                     if (res.success) {
                         $('#' + modal).modal('hide');
-                        window.location.reload();
+                        notify(res.message,res.type)
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1000);
                     }
                 },
                 error: function(xhr) {
                     console.log(xhr.responseText);
+                    notify(xhr.responseText,'danger');
                 }
             });
         });

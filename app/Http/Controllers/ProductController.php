@@ -47,6 +47,7 @@ class ProductController extends Controller
             });
             $res = [
                 "success"=>true,
+                "type"=>'success',
                 "message"=>"Idea removed,Think better",
             ];
             return response()->json($res);
