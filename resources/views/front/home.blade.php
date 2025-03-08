@@ -361,11 +361,11 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-dark" id="exampleModalLabel">Add Goal</h5>
+                    <h5 class="modal-title text-dark" id="exampleModalLabel">Add Task</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('add-task') }}" method="POST" data-id='addProModal'>
+                    <form class="modal-from ajax-form" data-url="{{ route('add-task') }}" method="POST" data-id='addProModal'>
                         @csrf
                         <div class="form-group">
                             <label for="name">Task Name:</label>
@@ -460,6 +460,8 @@
                             `);
                         }
                     })
+                } else {
+                    $('.task-list').append('<p>Nothing to show</p>');
                 }
 
             }

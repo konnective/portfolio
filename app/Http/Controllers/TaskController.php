@@ -36,14 +36,30 @@ class TaskController extends Controller
     public function create(Request $req)
     {
 
-        if($req->task_ids){
-            foreach($req->task_ids as $item){
+        $task  = new Task;
+        $task->name = $req->name;
+        $task->user_id = $req->user_id;
+        $task->project_id = $req->project_id ? $req->project_id : 0;
+        $task->details = $req->details ? $req->details : '';
+        $task->save();
+        $res = [
+            "success"=>true,
+            "type"=>'success',
+            "message"=>"Task added successfully",
+        ];
+    
+    
+    return response()->json($res);
+        return redirect()->back();
+    }
+    public function update(Request $req)
+    {
+
+        if ($req->task_ids) {
+            foreach ($req->task_ids as $item) {
                 $task = Task::find($item);
-                $user = User::findOrFail($task->user_id);
-                $user->points = $user->points + $task->points;
                 $task->status = 1;
                 $task->save();
-                $user->save();
             }
             $res = [
                 "success"=>true,
