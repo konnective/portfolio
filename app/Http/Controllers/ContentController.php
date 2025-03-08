@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\PostRequest;
 use App\Models\Category;
+use App\Models\Subject;
 use Illuminate\Support\Facades\DB;
 
 class ContentController extends Controller
@@ -30,9 +31,10 @@ class ContentController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $subjects = Subject::all();
         $tags = Tag::all();
         
-        return view('admin.content.create', compact('categories', 'tags'))
+        return view('admin.content.create', compact('categories','subjects', 'tags'))
             ->with('success', 'Your message here');
 
         // return view('admin.content.create', compact('categories', 'tags'));
@@ -59,6 +61,7 @@ class ContentController extends Controller
                 'slug' => Str::slug($request->title),
                 'content' => $request->content,
                 'category_id' => $request->category_id ? $request->category_id:0,
+                'subject_id' => $request->subject_id ? $request->subject_id:0,
                 'featured_image' => $imagePath,
                 'meta_description' => $request->meta_description,
                 'status' => $request->has('publish') ? 'published' : 'draft',
@@ -66,12 +69,6 @@ class ContentController extends Controller
             ]);
 
             // Handle tags
-            if ($request->has('tags')) {
-                $tags = collect($request->tags)->map(function ($tagName) {
-                    return Tag::firstOrCreate(['name' => $tagName])->id;
-                });
-                $post->tags()->sync($tags);
-            }
 
             DB::commit();
 

@@ -30,7 +30,7 @@
             </div>
             <div class="row mb-3">
                 <div class="col-4">
-                    <a href="{{route('admin.blog.create')}}">
+                    <a href="{{route('admin.content.create')}}">
                         <button type="button" class="btn btn-info" id="deleteSelected" >
                                 <i class="bi bi-plus"></i> Add Blog
                         </button>
