@@ -54,12 +54,15 @@ class TaskController extends Controller
     }
     public function update(Request $req)
     {
-
+        Task::where('points',null)->update(['points'=>10]);
         if ($req->task_ids) {
             foreach ($req->task_ids as $item) {
                 $task = Task::find($item);
+                $user = User::find($task->user_id);
+                $user->points += $task->points;
                 $task->status = 1;
                 $task->save();
+                $user->save();
             }
             $res = [
                 "success"=>true,

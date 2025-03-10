@@ -40,13 +40,14 @@ class FrontController extends Controller
     public  function home()
     {
         $products = Product::individual();
+        $user = auth()->user();
         $projects = Project::where('user_id',Auth::user()->id)->get()->map(function($project){
             $days = Day::where('project_id',$project->id)->where('is_done',0)->get();
             $project->day_count = count($days);
             return $project;
         });
-        $analytics[] = [
-            "user_score"=>0,
+        $analytics = [
+            "user_score"=>$user->points,
             "user_rank"=>'Warrior',
             "user_tasks"=>0
         ];
