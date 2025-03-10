@@ -1,24 +1,14 @@
 @extends('admin.partials.layout')
 @section('content')
     <div class="page-heading">
-        <h3>Blogs</h3>
+        <h3>Contents</h3>
     </div>
     <section class="section">
         <div class="container-fluid mt-4">
             <!-- Action Bar -->
             <div class="row mb-3">
                 <div class="col">
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-danger" id="deleteSelected" disabled>
-                            <i class="bi bi-trash"></i> Delete Selected
-                        </button>
-                        <button type="button" class="btn btn-success" id="publishSelected" disabled>
-                            <i class="bi bi-check-circle"></i> Publish Selected
-                        </button>
-                        <button type="button" class="btn btn-warning" id="draftSelected" disabled>
-                            <i class="bi bi-file-earmark"></i> Move to Draft
-                        </button>
-                    </div>
+                   
                 </div>
                 
                 <div class="col-auto">
@@ -30,9 +20,9 @@
             </div>
             <div class="row mb-3">
                 <div class="col-4">
-                    <a href="{{route('admin.blog.create')}}">
+                    <a href="{{route('admin.content.create')}}">
                         <button type="button" class="btn btn-info" id="deleteSelected" >
-                                <i class="bi bi-plus"></i> Add Blog
+                                <i class="bi bi-plus"></i> Add Content
                         </button>
                     </a>
                 </div>

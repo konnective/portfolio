@@ -56,6 +56,12 @@
                                 <span>Blogs</span>
                             </a>
                         </li>
+                        <li class="sidebar-item {{ Route::is('admin.content') ? 'active' : '' }}">
+                        <a href="{{route('admin.content')}}" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Content</span>
+                            </a>
+                        </li>
 
                         {{-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>

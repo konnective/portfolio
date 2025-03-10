@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Content;
 use App\Models\Tag;
@@ -9,6 +10,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\PostRequest;
 use App\Models\Category;
+use App\Models\Subject;
+use App\Models\Topic;
 use Illuminate\Support\Facades\DB;
 
 class ContentController extends Controller
@@ -17,7 +20,7 @@ class ContentController extends Controller
 
     public function index()
     {
-        $posts = Content::with(['category'])
+        $posts = Content::with(['topic'])
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
@@ -29,10 +32,10 @@ class ContentController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        $tags = Tag::all();
+        $subjects = Subject::all();
+        $topics = Topic::all();
         
-        return view('admin.content.create', compact('categories', 'tags'))
+        return view('admin.content.create', compact('topics', 'subjects'))
             ->with('success', 'Your message here');
 
         // return view('admin.content.create', compact('categories', 'tags'));
@@ -41,7 +44,7 @@ class ContentController extends Controller
     /**
      * Store a newly created blog post.
      */
-    public function store(PostRequest $request)
+    public function store(Request $request)
     {
         try {
             // Begin transaction
@@ -52,31 +55,21 @@ class ContentController extends Controller
             if ($request->hasFile('featured_image')) {
                 $imagePath = $request->file('featured_image')->store('posts/images', 'public');
             }
-
             // Create post
             $post = Content::create([
                 'title' => $request->title,
-                'slug' => Str::slug($request->title),
-                'content' => $request->content,
-                'category_id' => $request->category_id ? $request->category_id:0,
-                'featured_image' => $imagePath,
-                'meta_description' => $request->meta_description,
-                'status' => $request->has('publish') ? 'published' : 'draft',
+                'details' => $request->details,
+                // 'subject_id' => $request->subject_id ? $request->subject_id:0,
+                'topic_id' => $request->topic_id ? $request->topic_id:0,
+                // 'featured_image' => $imagePath,
                 'user_id' => $request->user_id,
             ]);
 
             // Handle tags
-            if ($request->has('tags')) {
-                $tags = collect($request->tags)->map(function ($tagName) {
-                    return Tag::firstOrCreate(['name' => $tagName])->id;
-                });
-                $post->tags()->sync($tags);
-            }
-
             DB::commit();
 
             return redirect()
-                ->route('admin.contents')
+                ->route('admin.content')
                 ->with('success', 'Post created successfully!');
                 
         } catch (\Exception $e) {

@@ -2,6 +2,7 @@
 <?php
 
 use App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\admin\ContentController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\ProductController;
@@ -47,11 +48,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::post('/blog/update', [BlogController::class, 'update'])->name('blog.update');
 
         //routes for content
-        Route::get('/contents', [BlogController::class, 'index'])->name('contents');
-        Route::get('/content/create', [BlogController::class, 'create'])->name('content.create');
-        Route::post('/content/store', [BlogController::class, 'store'])->name('content.store');
-        Route::get('/content/edit/{post}', [BlogController::class, 'edit'])->name('content.edit');
-        Route::post('/content/update', [BlogController::class, 'update'])->name('content.update');
+        Route::get('/contents', [ContentController::class, 'index'])->name('content');
+        Route::get('/content/create', [ContentController::class, 'create'])->name('content.create');
+        Route::post('/content/store', [ContentController::class, 'store'])->name('content.store');
+        Route::get('/content/edit/{post}', [ContentController::class, 'edit'])->name('content.edit');
+        Route::post('/content/update', [ContentController::class, 'update'])->name('content.update');
 
     });
 });
