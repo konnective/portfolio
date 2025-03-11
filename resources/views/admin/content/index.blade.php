@@ -25,6 +25,8 @@
                                 <i class="bi bi-plus"></i> Add Content
                         </button>
                     </a>
+                    <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                data-bs-target="#addTopicModal">Add Topic</button>
                 </div>
             </div>
 
@@ -37,11 +39,7 @@
                                 <input type="checkbox" class="form-check-input" id="selectAll">
                             </th>
                             <th>Title</th>
-                            <th>Category</th>
-                            <th>Featured Image</th>
-                            <th>Tags</th>
-                            <th>Meta Description</th>
-                            <th>Status</th>
+                            <th>Topic</th>
                             <th>Created Date</th>
                             <th>Actions</th>
                         </tr>
@@ -54,20 +52,14 @@
                                     <input type="checkbox" class="form-check-input post-checkbox">
                                 </td>
                                 <td>{{$item->title}}</td>
-                                <td>{{$item->category->name}}</td>
-                                <td><img src="/api/placeholder/50/50" alt="thumbnail" class="img-thumbnail"
-                                        style="width: 50px;"></td>
-                                <td>
-                                    @foreach ($item->tags as $tag)
-                                        <span class="badge bg-primary">{{$tag->name}}</span>
-                                    @endforeach
-                                </td>
-                                <td class="text-truncate" style="max-width: 200px;">Learn the basics of Bootstrap 5 framework...</td>
-                                <td><span class="badge bg-success">{{$item->status}}</span></td>
+
+                                <td>{{$item->topic ? $item->topic : 'Empty'}}</td>
+                               
                                 <td>{{$item->formatDate($item->created_at)}}</td>
+
                                 <td>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="{{route('admin.blog.edit',$item->id)}}">
+                                        <a href="{{route('admin.content.edit',$item->id)}}">
                                             <button class="btn btn-outline-primary"><i class="bi bi-pencil"></i></button>
                                         </a>
                                         <button class="btn btn-outline-danger"><i class="bi bi-trash"></i></button>
@@ -103,6 +95,7 @@
             </nav>
         </div>
     </section>
+    @include('admin.content.partials.topic-modal')
 @endsection
 <script>
     document.addEventListener('DOMContentLoaded', function() {

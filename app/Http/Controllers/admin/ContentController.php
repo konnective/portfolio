@@ -23,7 +23,6 @@ class ContentController extends Controller
         $posts = Content::with(['topic'])
             ->orderBy('created_at', 'desc')
             ->paginate(10);
-
         return view('admin.content.index', compact('posts'));
     }
 
@@ -101,55 +100,36 @@ class ContentController extends Controller
      */
     public function edit($id)
     {
-        $post = Content::find($id);
-        // $post->load(['tags', 'category']);
-        $categories = Category::all();
-        $tags = Tag::all();
+        $record = Content::find($id);
+        $subjects = Subject::all();
+        $topics = Topic::all();
         
-        return view('admin.content.edit', compact('post', 'categories', 'tags'));
+        return view('admin.content.edit', compact('record','topics', 'subjects'));
     }
 
     /**
      * Update the specified blog post.
      */
-    public function update(PostRequest $request, Post $post)
+    public function update(Request $request)
     {
         try {
             DB::beginTransaction();
-            // Handle featured image update
-            $imagePath = $post->featured_image;
-            if ($request->hasFile('featured_image')) {
-                // Delete old image
-                if ($post->featured_image) {
-                    Storage::disk('public')->delete($post->featured_image);
-                }
-                $imagePath = $request->file('featured_image')->store('posts/images', 'public');
-            }
 
-            // Update post
             $post = Content::find($request->post_id);
             $post->update([
                 'title' => $request->title,
-                'slug' => Str::slug($request->title),
-                'content' => $request->content,
-                'category_id' => $request->category_id,
-                'featured_image' => $imagePath,
-                'meta_description' => $request->meta_description,
-                'status' => $request->has('publish') ? 'published' : 'draft',
+                'details' => $request->details,
+                // 'subject_id' => $request->subject_id ? $request->subject_id:0,
+                'topic_id' => $request->topic_id ? $request->topic_id:0,
+                // 'featured_image' => $imagePath,
+                'user_id' => $request->user_id,
             ]);
 
-            // Update tags
-            if ($request->has('tags')) {
-                $tags = collect($request->tags)->map(function ($tagName) {
-                    return Tag::firstOrCreate(['name' => $tagName])->id;
-                });
-                $post->tags()->sync($tags);
-            }
 
             DB::commit();
 
             return redirect()
-                ->route('admin.contents')
+                ->route('admin.content')
                 ->with('success', 'Post updated successfully!');
 
         } catch (\Exception $e) {
@@ -181,7 +161,7 @@ class ContentController extends Controller
             DB::commit();
 
             return redirect()
-                ->route('admin.contents')
+                ->route('admin.content')
                 ->with('success', 'Post deleted successfully!');
 
         } catch (\Exception $e) {
@@ -233,7 +213,7 @@ class ContentController extends Controller
             DB::commit();
 
             return redirect()
-                ->route('admin.contents')
+                ->route('admin.content')
                 ->with('success', $message);
 
         } catch (\Exception $e) {

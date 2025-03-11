@@ -64,7 +64,9 @@
                                     <input type="checkbox" class="form-check-input post-checkbox">
                                 </td>
                                 <td>{{$item->title}}</td>
+
                                 <td>{{$item->category->name}}</td>
+                                
                                 <td><img src="/api/placeholder/50/50" alt="thumbnail" class="img-thumbnail"
                                         style="width: 50px;"></td>
                                 <td>
@@ -72,9 +74,13 @@
                                         <span class="badge bg-primary">{{$tag->name}}</span>
                                     @endforeach
                                 </td>
+
                                 <td class="text-truncate" style="max-width: 200px;">Learn the basics of Bootstrap 5 framework...</td>
+                                
                                 <td><span class="badge bg-success">{{$item->status}}</span></td>
+
                                 <td>{{$item->formatDate($item->created_at)}}</td>
+
                                 <td>
                                     <div class="btn-group btn-group-sm">
                                         <a href="{{route('admin.blog.edit',$item->id)}}">
