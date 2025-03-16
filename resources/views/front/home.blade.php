@@ -296,6 +296,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title text-dark" id="exampleModalLabel">Details</h5>
+                    <div class="date-after"></div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -488,7 +489,9 @@
                 $('.marker_wrapper').append(loader);
             },
             success: function(data) {
+                $('.date-after').empty();
                 $('.marker_wrapper').empty();
+                $('.date-after').append(data.date);
                 $('.marker_wrapper').append(data.html);
 
             }

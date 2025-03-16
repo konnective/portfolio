@@ -49,6 +49,13 @@ class Task extends Model
       `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
       PRIMARY KEY (`id`)
       ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+
+
+        ALTER TABLE `days` 
+        ADD `created_at` TIMESTAMP NULL DEFAULT NULL AFTER `is_done`, 
+        ADD `updated_at` TIMESTAMP NULL DEFAULT NULL AFTER `created_at`;
+
+      ALTER TABLE `days` CHANGE `created_at` `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP, CHANGE `updated_at` `updated_at` TIMESTAMP on update CURRENT_TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP;
           
     
     */

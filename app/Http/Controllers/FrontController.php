@@ -62,6 +62,14 @@ class FrontController extends Controller
     {
 
         $project = Project::with('days')->find($id);
+        $days = Day::where('project_id',$id)->where('is_done',1)->orderBy('id','desc')->first();
+        $date = '<p> ';
+        if($days){
+            $date.=' -'.$days->updated_at.'';
+        }else{
+            $date.=' - Empty';
+        }
+        $date .= '</p>';
         $html = '';
         $div = '<div class="marker"></div>';
         $divMarked = '<div class="marked"></div>';
@@ -77,7 +85,8 @@ class FrontController extends Controller
         }
         $res= [
             "success"=>true,
-            "html"=>$html
+            "html"=>$html,
+            "date"=>$date
         ];
         return response()->json($res);
     }
