@@ -19,14 +19,19 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <div class="col-4">
+                <div class="col-2">
                     <a href="{{route('admin.content.create')}}">
                         <button type="button" class="btn btn-info" id="deleteSelected" >
                                 <i class="bi bi-plus"></i> Add Content
                         </button>
                     </a>
-                    <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                data-bs-target="#addTopicModal">Add Topic</button>
+                </div>
+                <div class="col-2">
+                    <a href="{{route('admin.topic.subject')}}">
+                        <button type="button" class="btn btn-info" id="deleteSelected" >
+                                <i class="bi bi-plus"></i> Add Subject
+                        </button>
+                    </a>
                 </div>
             </div>
 
@@ -95,7 +100,6 @@
             </nav>
         </div>
     </section>
-    @include('admin.content.partials.topic-modal')
 @endsection
 <script>
     document.addEventListener('DOMContentLoaded', function() {

@@ -142,6 +142,74 @@ class ContentController extends Controller
         }
     }
 
+    public function topicSubject()
+    {
+
+        $subjects = Subject::all();
+
+        return view('admin.content.subject',compact('subjects'));
+    }
+
+
+    public function addSubject(Request $request)
+    {
+
+        try {
+            DB::beginTransaction();
+
+            $post = Subject::create([
+                'name' => $request->name,
+                'description' => $request->details,
+            ]);
+
+
+            DB::commit();
+
+            return redirect()
+                ->route('admin.content')
+                ->with('success', 'Subject added successfully!');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', 'Error updating post: ' . $e->getMessage());
+        }
+
+    }
+    public function addTopic(Request $request)
+    {
+
+        try {
+            DB::beginTransaction();
+
+            $post = Topic::create([
+                'name' => $request->name,
+                'subject_id' => $request->subject_id,
+                'description' => $request->details,
+            ]);
+
+
+
+            DB::commit();
+
+            return redirect()
+                ->route('admin.content')
+                ->with('success', 'TOpic added successfully!');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', 'Error updating post: ' . $e->getMessage());
+        }
+
+    }
+
     /**
      * Remove the specified blog post.
      */

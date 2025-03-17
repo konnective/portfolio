@@ -12,7 +12,6 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="{{ asset('mazer/assets/vendors/toastify/toastify.css')}}">
     <link rel="stylesheet" href="{{ asset('mazer/assets/css/bootstrap.css') }}">
-
     <link rel="stylesheet" href="{{ asset('mazer/assets/vendors/iconly/bold.css') }}">
 
     <link rel="stylesheet" href="{{ asset('mazer/assets/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
@@ -22,6 +21,7 @@
 </head>
 
 <body>
+    @include('admin.partials.ajax-form')
     @include('admin.partials.flash-msg')
     <div id="app">
         {{-- sidebar starts --}}

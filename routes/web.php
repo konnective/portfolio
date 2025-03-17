@@ -54,6 +54,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::get('/content/edit/{post}', [ContentController::class, 'edit'])->name('content.edit');
         Route::post('/content/update', [ContentController::class, 'update'])->name('content.update');
 
+        Route::get('/topic-subject', [ContentController::class, 'topicSubject'])->name('topic.subject');
+
+        Route::post('/topic/add', [ContentController::class, 'addTopic'])->name('topic.store');
+        Route::post('/subject/add', [ContentController::class, 'addSubject'])->name('subject.store');
     });
 });
 

@@ -1,4 +1,4 @@
-<form class="topic-modal ajax-form" data-url="{{ route('add-topic') }}" method="POST" data-id='addTopicModal'>
+<form class="topic-modal ajax-form" data-url="{{ route('admin.topic.store') }}" method="POST" data-id='addTopicModal'>
     @csrf
     <div class="form-group">
         <label for="name">Topic Name:</label>
