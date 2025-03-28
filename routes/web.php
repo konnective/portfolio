@@ -2,9 +2,11 @@
 <?php
 
 use App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ContentController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\LoginController;
+use App\Http\Controllers\admin\ProductController as AdminProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TaskController;
@@ -28,7 +30,6 @@ Route::post('/add-task', [TaskController::class, 'create'])->name('add-task');
 Route::post('/update-task', [TaskController::class, 'update'])->name('update-task');
 Route::get('/view-task/{id}', [TaskController::class, 'viewTask'])->name('view-task');
 Route::get('/task-data/{id}', [TaskController::class, 'taskData'])->name('task-data');
-
 
 // products routes
 Route::get('/products', [ProductController::class, 'products'])->name('products');
@@ -58,6 +59,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
         Route::post('/topic/add', [ContentController::class, 'addTopic'])->name('topic.store');
         Route::post('/subject/add', [ContentController::class, 'addSubject'])->name('subject.store');
+
+        //routes for products
+        Route::get('/products', [AdminProductController::class, 'index'])->name('products');
+        Route::get('/product/create', [AdminProductController::class, 'create'])->name('product.create');
+        Route::post('/product/store', [AdminProductController::class, 'store'])->name('product.store');
+        Route::get('/product/edit/{id}', [AdminProductController::class, 'edit'])->name('product.edit');
+        Route::post('/product/update', [AdminProductController::class, 'update'])->name('product.update');
+        
+        Route::get('/cat/create', [CategoryController::class, 'create'])->name('product.update');
+        Route::post('/cat/store', [CategoryController::class, 'store'])->name('cat.store');
+
     });
 });
 
