@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Product;
@@ -31,8 +32,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $brands = Brand::all();
         
-        return view('admin.products.create', compact('categories'))
+        return view('admin.products.create', compact('categories','brands'))
             ->with('success', 'Your message here');
 
         // return view('admin.products.create', compact('categories', 'tags'));
@@ -43,22 +45,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
-        /* 
-        
-        name
-        description
-        price
-        discount_price
-        category_id
-        brand_id
-        stock_quantity
-        sku
-
-
-        status
-        
-        */
+        dd($request);
         try {
             // Begin transaction
             DB::beginTransaction();

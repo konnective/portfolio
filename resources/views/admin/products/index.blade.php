@@ -37,7 +37,7 @@
                     </a>
                 </div>
                 <div class="col-4">
-                    <a href="{{route('admin.category.create')}}">
+                    <a href="{{route('admin.cat.create')}}">
                         <button type="button" class="btn btn-info" id="deleteSelected" >
                                 <i class="bi bi-plus"></i> Add Product Category
                         </button>

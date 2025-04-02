@@ -6,7 +6,7 @@
     }
 </style>
     <div class="page-heading">
-        <h3>Blogs</h3>
+        <h3>Products</h3>
     </div>
     <section class="section">
         <div class="row justify-content-center">
@@ -29,42 +29,69 @@
                                 </div>
                             @endif
                             <input type="text" name="user_id" value="{{auth()->user()->id}}" hidden>
-                            <div class="mb-3">
-                                <label for="title" class="form-label">Title</label>
-                                <input type="text" class="form-control" name="name" id="name" required>
-                                <div class="invalid-feedback">
-                                    Please provide a title for your product.
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <label for="title" class="form-label">Title</label>
+                                    <input type="text" class="form-control" name="name" id="name" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a title for your product.
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label for="price" class="form-label">Price</label>
+                                    <input type="number" class="form-control" name="price" id="price" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a title for your product.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <label for="stock_quantity" class="form-label">Quantity</label>
+                                    <input type="text" class="form-control" name="stock_quantity" id="stock_quantity" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="discounted_price" class="form-label">Discounted Price</label>
+                                    <input type="text" class="form-control" name="discounted_price" id="discounted_price" required>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <label for="sku" class="form-label">Sku</label>
+                                    <input type="text" class="form-control" name="sku" id="sku" required>
                                 </div>
                             </div>
 
                             <!-- Category -->
-                            <div class="mb-3">
-                                <label for="category" class="form-label">Category</label>
-                                <select class="form-select" name="category_id" id="category" required>
-                                    <option value="">Choose a category...</option>
-                                    @foreach ($categories as $item)
-                                    <option value="{{$item->id}}">{{$item->name}}</option>
-                                    @endforeach
-                                </select>
-                                <div class="invalid-feedback">
-                                    Please select a category.
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <label for="category" class="form-label">Category</label>
+                                    <select class="form-select" name="category_id" id="category" required>
+                                        <option value="">Choose a category...</option>
+                                        @foreach ($categories as $item)
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a category.
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label for="brand" class="form-label">Brand</label>
+                                    <select class="form-select" name="brand_id" id="brand_id" required>
+                                        <option value="">Choose a category...</option>
+                                        @foreach ($brands as $item)
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a category.
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="mb-3">
-                                <label for="brand" class="form-label">Brand</label>
-                                <select class="form-select" name="brand_id" id="brand_id" required>
-                                    <option value="">Choose a category...</option>
-                                    @foreach ($brands as $item)
-                                    <option value="{{$item->id}}">{{$item->name}}</option>
-                                    @endforeach
-                                </select>
-                                <div class="invalid-feedback">
-                                    Please select a category.
-                                </div>
-                            </div>
-
-                            
+                      
 
                             <!-- Content -->
                             <div class="mb-3">
@@ -75,19 +102,8 @@
                                 </div>
                             </div>
 
-                            <!-- Draft/Publish Toggle -->
                             <div class="mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="0" id="publishNow" hidden>
-                                    <input class="form-check-input" type="checkbox" id="publishNow">
-                                    <label class="form-check-label" for="publishNow">
-                                        Publish immediately
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="brand" class="form-label">Brand</label>
+                                <label for="brand" class="form-label">Save as</label>
                                 <select class="form-select" name="status" id="status" required>
                                     <option value="">Choose a category...</option>
                                     <option value="Publish">Publish</option>
