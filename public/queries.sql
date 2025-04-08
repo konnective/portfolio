@@ -89,6 +89,11 @@ CREATE TABLE brands (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+
+-- after 06 - 04
+RENAME TABLE `the_mentor`.`p_categories` TO `the_mentor`.`pcategories`;
+
+
 CREATE TABLE cart (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,

@@ -115,4 +115,7 @@ class Status {
 
     const TAX = "Tax and Fee";
     const CHARGE = "Charge";
+
+    const ACTIVE = "active";
+    const INACTIVE = "inactive";
 }

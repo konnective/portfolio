@@ -56,7 +56,6 @@
                             <th>Title</th>
                             <th>Category</th>
                             <th>Featured Image</th>
-                            <th>Tags</th>
                             <th>Meta Description</th>
                             <th>Status</th>
                             <th>Created Date</th>
@@ -76,11 +75,7 @@
                                 
                                 <td><img src="/api/placeholder/50/50" alt="thumbnail" class="img-thumbnail"
                                         style="width: 50px;"></td>
-                                <td>
-                                    @foreach ($item->tags as $tag)
-                                        <span class="badge bg-primary">{{$tag->name}}</span>
-                                    @endforeach
-                                </td>
+                               
 
                                 <td class="text-truncate" style="max-width: 200px;">Learn the basics of Bootstrap 5 framework...</td>
                                 

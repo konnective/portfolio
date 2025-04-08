@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Constants\Status;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Pcategory;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\Tag;
@@ -20,10 +22,12 @@ class ProductController extends Controller
 
     public function index()
     {
-        $posts = Product::orderBy('created_at', 'desc')
+        $posts = Product::with('category')->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        return view('admin.products.index', compact('posts'));
+        $categories = Pcategory::all();
+
+        return view('admin.products.index', compact('posts','categories'));
     }
 
     /**
@@ -31,7 +35,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Pcategory::all();
         $brands = Brand::all();
         
         return view('admin.products.create', compact('categories','brands'))
@@ -45,7 +49,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         try {
             // Begin transaction
             DB::beginTransaction();
@@ -60,7 +63,7 @@ class ProductController extends Controller
                 'sku' => $request->sku,
                 'discount_price' => $request->discount_price,
                 'stock_quantity' => $request->stock_quantity,
-                'status' => $request->has('publish') ? 'published' : 'draft',
+                'status' => $request->has('publish') ? Status::ACTIVE : Status::INACTIVE,
                 'user_id' => $request->user_id,
             ]);
 
@@ -94,7 +97,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
+        $post = Product::find($id);
         // $post->load(['tags', 'category']);
         $categories = Category::all();
         $tags = Tag::all();
