@@ -90,7 +90,7 @@ Route::get('/project-delete/{id}', [FrontController::class, 'projectDelete'])->n
 
 Route::name('frontend.')->group(function () {
     Route::controller(FrontendController::class)->group(function () {
-        Route::get('/', 'index')->name('index');
+        Route::get('/ecom', 'index')->name('index');
         Route::get('/cart', 'cart')->name('cart');
         Route::get('/product-detail', 'productDetail')->name('product-detail');
     });
