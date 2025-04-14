@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ContentController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\LoginController;
+use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\ProductController as AdminProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontController;
@@ -69,6 +70,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         
         Route::get('/cat/create', [CategoryController::class, 'create'])->name('cat.create');
         Route::post('/cat/store', [CategoryController::class, 'store'])->name('cat.store');
+        
+        //for orders
+        Route::get('/orders', [OrderController::class, 'index'])->name('orders');
+
 
     });
 });

@@ -26,4 +26,8 @@ class Product extends Model
     {
         return self::where('user_id', 0)->get();
     }
+    public function order()
+    {
+        return $this->belongsToMany(Order::class);
+    }
 }

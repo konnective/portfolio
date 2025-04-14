@@ -68,6 +68,12 @@
                                     <span>Product</span>
                                 </a>
                         </li>
+                        <li class="sidebar-item {{ Route::is('admin.orders') ? 'active' : '' }}">
+                            <a href="{{route('admin.orders')}}" class='sidebar-link'>
+                                    <i class="bi bi-grid-fill"></i>
+                                    <span>Order</span>
+                                </a>
+                        </li>
                         {{-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>
