@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\ProductController as AdminProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -85,9 +86,22 @@ Route::get('/change-progress/{id}', [FrontController::class, 'changeProgress'])-
 Route::post('/submit-form', [FrontController::class, 'submitForm'])->name('submit_form');
 Route::get('/project-delete/{id}', [FrontController::class, 'projectDelete'])->name('project_delete');
 
-Route::get('/ecom', function () {
-    return view('admin.test');
+
+
+Route::name('frontend.')->group(function () {
+    Route::controller(FrontendController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/cart', 'cart')->name('cart');
+        Route::get('/product-detail', 'productDetail')->name('product-detail');
+    });
 });
+
+// Route::get('/ecom', function () {
+//     return view('frontend.test');
+// });
+// Route::get('/details', function () {
+//     return view('frontend.pro-details');
+// });
 /* 
     worked on pdf generation of assignment log of cleaning staff
 */
