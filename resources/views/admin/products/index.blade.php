@@ -20,7 +20,7 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="col-auto">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search posts..." id="searchInput">
@@ -30,16 +30,16 @@
             </div>
             <div class="row mb-3">
                 <div class="col-4">
-                    <a href="{{route('admin.product.create')}}">
-                        <button type="button" class="btn btn-info" id="deleteSelected" >
-                                <i class="bi bi-plus"></i> Add Product
+                    <a href="{{ route('admin.product.create') }}">
+                        <button type="button" class="btn btn-info" id="deleteSelected">
+                            <i class="bi bi-plus"></i> Add Product
                         </button>
                     </a>
                 </div>
                 <div class="col-4">
-                    <a href="{{route('admin.cat.create')}}">
-                        <button type="button" class="btn btn-info" id="deleteSelected" >
-                                <i class="bi bi-plus"></i> Add Product Category
+                    <a href="{{ route('admin.cat.create') }}">
+                        <button type="button" class="btn btn-info" id="deleteSelected">
+                            <i class="bi bi-plus"></i> Add Product Category
                         </button>
                     </a>
                 </div>
@@ -53,7 +53,7 @@
                             <th>
                                 <input type="checkbox" class="form-check-input" id="selectAll">
                             </th>
-                            <th>Title</th>
+                            <th>Name</th>
                             <th>Category</th>
                             <th>Featured Image</th>
                             <th>Meta Description</th>
@@ -69,38 +69,40 @@
                                 <td>
                                     <input type="checkbox" class="form-check-input post-checkbox">
                                 </td>
-                                <td>{{$item->title}}</td>
+                                <td>{{ $item->name }}</td>
 
-                                <td>{{$item->category->name}}</td>
-                                
+                                <td>{{ $item->category?->name }}</td>
+
                                 <td><img src="/api/placeholder/50/50" alt="thumbnail" class="img-thumbnail"
                                         style="width: 50px;"></td>
-                               
 
-                                <td class="text-truncate" style="max-width: 200px;">Learn the basics of Bootstrap 5 framework...</td>
-                                
-                                <td><span class="badge bg-success">{{$item->status}}</span></td>
 
-                                <td>{{$item->formatDate($item->created_at)}}</td>
+                                <td class="text-truncate" style="max-width: 200px;">Learn the basics of Bootstrap 5
+                                    framework...</td>
+
+                                <td><span class="badge bg-success">{{ $item->status }}</span></td>
+
+                                <td>{{ $item->formatDate($item->created_at) }}</td>
 
                                 <td>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="{{route('admin.product.edit',$item->id)}}">
-                                            <button class="btn btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                                        <a href="{{ route('admin.product.edit', $item->id) }}">
+                                            <button class="btn btn-outline-primary p-3"><i class="bi bi-pencil"></i></button>
                                         </a>
-                                        <button class="btn btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                        <button class="btn btn-outline-danger delete-pro-btn ms-2 p-3" data-id={{$item->id}}><i
+                                                class="bi bi-trash"></i></button>
                                     </div>
                                 </td>
-                            </tr>  
-                            @empty
-                                <tr>
-                                    <td colspan="9" class="text-center py-4">
-                                        <div class="alert alert-warning" role="alert">
-                                            <i class="fas fa-exclamation-circle"></i> No posts found. 
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforelse
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="9" class="text-center py-4">
+                                    <div class="alert alert-warning" role="alert">
+                                        <i class="fas fa-exclamation-circle"></i> No posts found.
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -121,49 +123,21 @@
             </nav>
         </div>
     </section>
-@endsection
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const selectAll = document.getElementById('selectAll');
-        const postCheckboxes = document.querySelectorAll('.post-checkbox');
-        const actionButtons = document.querySelectorAll('#deleteSelected, #publishSelected, #draftSelected');
+    @include('admin.partials.ajax-form')
+    @include('admin.partials.delete-modal')
+    @include('admin.partials.multi-select')
 
-        // Select All functionality
-        selectAll.addEventListener('change', function() {
-            postCheckboxes.forEach(checkbox => {
-                checkbox.checked = this.checked;
-            });
-            updateActionButtons();
-        });
+    <script>
+        "use strict";
 
-        // Individual checkbox functionality
-        postCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                const allChecked = Array.from(postCheckboxes).every(cb => cb.checked);
-                const anyChecked = Array.from(postCheckboxes).some(cb => cb.checked);
-                selectAll.checked = allChecked;
-                updateActionButtons();
-            });
-        });
-
-        // Update action buttons state
-        function updateActionButtons() {
-            const anyChecked = Array.from(postCheckboxes).some(cb => cb.checked);
-            actionButtons.forEach(button => {
-                button.disabled = !anyChecked;
-            });
+        function openDeleteModal(productId) {
+            $('.product_id').val(productId);
+            $('.deleteTaskModal').modal('show');
         }
-
-        // Search functionality
-        const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const rows = document.querySelectorAll('tbody tr');
-            
-            rows.forEach(row => {
-                const text = row.textContent.toLowerCase();
-                row.style.display = text.includes(searchTerm) ? '' : 'none';
-            });
+        $('.delete-pro-btn').on('click', function() {
+            const productId = $(this).data('id');
+            console.log(productId);
+            openDeleteModal(productId);
         });
-    });
-</script>
+    </script>
+@endsection

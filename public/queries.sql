@@ -46,7 +46,7 @@ ALTER TABLE `users` ADD `rank` VARCHAR(255) NULL DEFAULT NULL AFTER `points`;
 
 
 -- 
-CREATE TABLE p_categories (
+CREATE TABLE pcategories (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL UNIQUE,
     description TEXT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE p_categories (
     image_url VARCHAR(255) NULL,
     status ENUM('active', 'inactive') DEFAULT 'active',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `products` (

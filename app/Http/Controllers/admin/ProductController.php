@@ -161,8 +161,9 @@ class ProductController extends Controller
     /**
      * Remove the specified blog post.
      */
-    public function destroy(Post $post)
+    public function destroy(Request $request)
     {
+        $post = Product::findOrFail($request->id);
         try {
             DB::beginTransaction();
 

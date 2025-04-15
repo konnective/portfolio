@@ -493,7 +493,6 @@
                 $('.marker_wrapper').empty();
                 $('.date-after').append(data.date);
                 $('.marker_wrapper').append(data.html);
-
             }
         });
     });
