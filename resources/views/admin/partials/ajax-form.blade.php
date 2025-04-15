@@ -1,7 +1,7 @@
 <script>
    $(document).ready(function() {
         $('.ajax-form').on('submit', function(e) {
-            console.log('object');
+            console.log($(this).data('url'));
             e.preventDefault();
             let form = $(this);
             let url = $(this).data('url');

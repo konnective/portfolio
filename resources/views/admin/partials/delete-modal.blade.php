@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <p>Are you sure you want to delete this product?</p>
-                <form class="ajax-form" action="{{ route('admin.product.destroy') }}" method="POST" id="deleteTaskForm">
+                <form class="ajax-form" data-url="{{route('admin.product.destroy')}}" method="POST" id="deleteTaskForm">
                     @csrf
                     @method('POST') 
                     <input type="hidden" class="product_id" name="product_id" id="product_id" value="">

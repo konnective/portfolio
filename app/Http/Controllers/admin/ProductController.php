@@ -163,7 +163,8 @@ class ProductController extends Controller
      */
     public function destroy(Request $request)
     {
-        $post = Product::findOrFail($request->id);
+
+        $post = Product::findOrFail($request->product_id);
         try {
             DB::beginTransaction();
 
@@ -177,9 +178,12 @@ class ProductController extends Controller
 
             DB::commit();
 
-            return redirect()
-                ->route('admin.blogs')
-                ->with('success', 'Post deleted successfully!');
+            $res = [
+                "success"=>true,
+                "type"=>'success',
+                "message"=>"Post deleted successfully",
+            ];
+            return response()->json($res);
 
         } catch (\Exception $e) {
             DB::rollBack();
