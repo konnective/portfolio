@@ -2,23 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Traits\UploadImage;
+
 
 class FrontendController extends Controller
 {
     //
+    use UploadImage;
+
+
     public  function index()
     {
-        return view('frontend.home');
+        $products = Product::all()->map(function($item){
+            $item->image = $this->getImageUrl($item->image_url);
+            return $item;
+        });
+        return view('frontend.home',compact('products'));
     }
     public  function test(Request $request)
     {
         if (!$request->hasFile('image')) {
             return 'No file uploaded';
         }
-    
-        $imagePath = $request->file('image')->store('uploads', 'public');
-        return 'true';
+
+        $path = $this->uploadImage($request->file('image'), 'products');
+
+        return $path;
     }
     public  function productDetail()
     {

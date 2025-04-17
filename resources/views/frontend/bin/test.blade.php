@@ -10,6 +10,9 @@
     <form action="{{ route('frontend.test') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('POST')
+        <div>
+            <img src="{{}}" alt="">
+        </div>
         <input type="file" name="image" required>
         <button type="submit">Upload</button>
     </form>

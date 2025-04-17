@@ -14,7 +14,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="card product-card">
                         <div class="position-relative">
-                            <img src="/api/placeholder/300/300" class="card-img-top" alt="Product 1">
+                            <img src="{{$item->image}}" class="card-img-top" alt="Product 1">
                             <span class="badge-new">New</span>
                         </div>
                         <div class="card-body">
