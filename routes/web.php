@@ -94,12 +94,13 @@ Route::name('frontend.')->group(function () {
         Route::get('/ecom', 'index')->name('index');
         Route::get('/cart', 'cart')->name('cart');
         Route::get('/product-detail', 'productDetail')->name('product-detail');
+        Route::post('/test', 'test')->name('test');
     });
 });
 
-// Route::get('/ecom', function () {
-//     return view('frontend.test');
-// });
+Route::get('/image', function () {
+    return view('frontend.bin.test');
+});
 // Route::get('/details', function () {
 //     return view('frontend.pro-details');
 // });
