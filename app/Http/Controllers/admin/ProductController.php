@@ -10,6 +10,7 @@ use App\Models\Pcategory;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\Tag;
+use App\Traits\UploadImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -18,6 +19,7 @@ use Illuminate\Support\Str;
 class ProductController extends Controller
 {
     //
+    use UploadImage;
 
 
     public function index()
@@ -37,8 +39,10 @@ class ProductController extends Controller
     {
         $categories = Pcategory::all();
         $brands = Brand::all();
+        $pageTitle = 'Create a Product';
+        $module = 'Products';
         
-        return view('admin.products.create', compact('categories','brands'))
+        return view('admin.products.create', compact('categories','brands','pageTitle','module'))
             ->with('success', 'Your message here');
 
         // return view('admin.products.create', compact('categories', 'tags'));
@@ -52,6 +56,11 @@ class ProductController extends Controller
         try {
             // Begin transaction
             DB::beginTransaction();
+            if (!$request->hasFile('image')) {
+                return 'No file uploaded';
+            }
+            $path = $this->uploadImage($request->file('image'), 'products');
+
 
             // Create post
             $post = Product::create([
@@ -63,6 +72,7 @@ class ProductController extends Controller
                 'sku' => $request->sku,
                 'discount_price' => $request->discount_price,
                 'stock_quantity' => $request->stock_quantity,
+                'image_url' => $path,
                 'status' => $request->has('publish') ? Status::ACTIVE : Status::INACTIVE,
                 'user_id' => $request->user_id,
             ]);
@@ -97,56 +107,56 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $post = Product::find($id);
-        // $post->load(['tags', 'category']);
+        $record = Product::find($id);
         $categories = Category::all();
         $tags = Tag::all();
+        $brands = Brand::all();
+        $pageTitle = 'Create a Product';
+        $module = 'Products';
         
-        return view('admin.products.edit', compact('post', 'categories', 'tags'));
+        return view('admin.products.edit',
+        compact(
+             'brands',
+             'categories',
+             'tags',
+             'pageTitle',
+             'module',
+             'record'
+        ));
     }
 
     /**
      * Update the specified blog post.
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Product $post)
     {
         try {
             DB::beginTransaction();
-            // Handle featured image update
-            $imagePath = $post->featured_image;
-            if ($request->hasFile('featured_image')) {
-                // Delete old image
-                if ($post->featured_image) {
-                    Storage::disk('public')->delete($post->featured_image);
-                }
-                $imagePath = $request->file('featured_image')->store('posts/images', 'public');
+        
+            if ($request->hasFile('image')) {
+                $path = $this->uploadImage($request->file('image'), 'products');
             }
 
             // Update post
-            $post = Post::find($request->post_id);
+            $post = Product::find($request->product_id);
             $post->update([
-                'title' => $request->title,
-                'slug' => Str::slug($request->title),
-                'content' => $request->content,
-                'category_id' => $request->category_id,
-                'featured_image' => $imagePath,
-                'meta_description' => $request->meta_description,
-                'status' => $request->has('publish') ? 'published' : 'draft',
+                'name' => $request->name,
+                'description' => $request->description,
+                'category_id' => $request->category_id ? $request->category_id:0,
+                'brand_id' => $request->brand_id ? $request->brand_id:0,
+                'price' => $request->price,
+                'sku' => $request->sku,
+                'discount_price' => $request->discount_price,
+                'stock_quantity' => $request->stock_quantity,
+                'status' => $request->has('publish') ? Status::ACTIVE : Status::INACTIVE,
+                'user_id' => $request->user_id,
             ]);
-
-            // Update tags
-            if ($request->has('tags')) {
-                $tags = collect($request->tags)->map(function ($tagName) {
-                    return Tag::firstOrCreate(['name' => $tagName])->id;
-                });
-                $post->tags()->sync($tags);
-            }
 
             DB::commit();
 
             return redirect()
-                ->route('admin.blogs')
-                ->with('success', 'Post updated successfully!');
+                ->route('admin.products')
+                ->with('success', 'Product updated successfully!');
 
         } catch (\Exception $e) {
             DB::rollBack();

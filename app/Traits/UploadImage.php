@@ -27,6 +27,25 @@ trait UploadImage
         return $path; // This will return something like "uploads/filename.jpg"
     }
 
+
+    public function uploadImages(array $images, string $path): array
+    {
+        $uploadedImagePaths = [];
+
+        foreach ($images as $image) {
+            if ($image instanceof UploadedFile) {
+                // Validate the image (optional)
+                $this->validateImage($image);
+
+                // Store the image and get the path
+                $imagePath = $image->store($path, 'public');
+                $uploadedImagePaths[] = $imagePath;
+            }
+        }
+
+        return $uploadedImagePaths;
+    }
+
         /**
      * Get the full URL of an uploaded image.
      *

@@ -6,14 +6,14 @@
     }
 </style>
     <div class="page-heading">
-        <h3>Products</h3>
+        <h3>{{$module}}</h3>
     </div>
     <section class="section">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="mb-0">Create New Product</h3>
+                        <h3 class="mb-0">{{$pageTitle}}</h3>
                     </div>
                     <div class="card-body">
                         <form  id="ajax-form" class="modal-form" action="{{ route('admin.product.store') }}" method="POST" novalidate>
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="col-6">
                                     <label for="discounted_price" class="form-label">Discounted Price</label>
-                                    <input type="text" class="form-control" name="discounted_price" id="discounted_price" required>
+                                    <input type="text" class="form-control" name="discount_price" id="discount_price" required>
                                 </div>
                             </div>
 
@@ -61,6 +61,10 @@
                                 <div class="col-12">
                                     <label for="sku" class="form-label">Sku</label>
                                     <input type="text" class="form-control" name="sku" id="sku" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="formFile" class="form-label">Upload Image</label>
+                                    <input class="form-control" name='image' type="file" id="formFile">
                                 </div>
                             </div>
 
