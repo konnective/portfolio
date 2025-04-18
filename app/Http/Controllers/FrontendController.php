@@ -16,7 +16,7 @@ class FrontendController extends Controller
     public  function index()
     {
         $products = Product::all()->map(function($item){
-            $item->image = $this->getImageUrl($item->image_url);
+            $item->image = $item->image_url ? $this->getImageUrl($item->image_url) : '';
             return $item;
         });
         return view('frontend.home',compact('products'));

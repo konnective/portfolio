@@ -36,7 +36,6 @@ trait UploadImage
      */
     public function getImageUrl(string $path, string $disk = 'public'): string
     {
-        // return Storage::disk($disk)->url($path);
-        return asset('');
+        return asset('storage/app/public/'.$path);
     }
 }
