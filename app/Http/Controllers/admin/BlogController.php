@@ -27,8 +27,10 @@ class BlogController extends Controller
         $posts = Post::with(['tags', 'category'])
             ->orderBy('created_at', 'desc')
             ->paginate(10);
+        $pageTitle = 'Create a Blogs';
+        $pageHeading = 'Blogs';            
 
-        return view('admin.blog.index', compact('posts'));
+        return view('admin.blog.index', compact('posts','pageTitle','pageHeading'));
     }
 
     /**
@@ -38,8 +40,10 @@ class BlogController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
+        $pageTitle = 'Create a Blogs';
+        $pageHeading = 'Blogs'; 
         
-        return view('admin.blog.create', compact('categories', 'tags'))
+        return view('admin.blog.create', compact('categories', 'tags','pageTitle','pageHeading'))
             ->with('success', 'Your message here');
 
         // return view('admin.blog.create', compact('categories', 'tags'));
@@ -115,12 +119,14 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
+        $pageTitle = 'Create a Blogs';
+        $pageHeading = 'Blogs'; 
         $post = Post::find($id);
         // $post->load(['tags', 'category']);
         $categories = Category::all();
         $tags = Tag::all();
         
-        return view('admin.blog.edit', compact('post', 'categories', 'tags'));
+        return view('admin.blog.edit', compact('post', 'categories', 'tags','pageTitle','pageHeading'));
     }
 
     /**

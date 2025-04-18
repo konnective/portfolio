@@ -6,7 +6,7 @@
     }
 </style>
     <div class="page-heading">
-        <h3>{{$module}}</h3>
+        <h3>{{$pageHeading}}</h3>
     </div>
     <section class="section">
         <div class="row justify-content-center">

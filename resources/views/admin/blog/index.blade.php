@@ -1,7 +1,7 @@
 @extends('admin.partials.layout')
 @section('content')
     <div class="page-heading">
-        <h3>Blogs</h3>
+        <h3>{{$pageHeading}}</h3>
     </div>
     <section class="section">
         <div class="container-fluid mt-4">

@@ -6,14 +6,14 @@
     }
 </style>
     <div class="page-heading">
-        <h3>Blogs</h3>
+        <h3>{{$pageHeading}}</h3>
     </div>
     <section class="section">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="mb-0">Create New Blog Post</h3>
+                        <h3 class="mb-0">{{$pageTitle}}</h3>
                     </div>
                     <div class="card-body">
                         <form  id="ajax-form" class="modal-form" action="{{ route('admin.blog.store') }}" method="POST" novalidate>

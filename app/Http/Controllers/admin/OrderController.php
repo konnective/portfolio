@@ -13,7 +13,8 @@ class OrderController extends Controller
     {
         $posts = Order::with('user','product')->orderBy('created_at', 'desc')
             ->paginate(10);
+        $pageHeading = 'Orders';    
 
-        return view('admin.order.index', compact('posts'));
+        return view('admin.order.index', compact('posts','pageHeading'));
     }
 }

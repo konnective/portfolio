@@ -26,10 +26,10 @@ class ProductController extends Controller
     {
         $posts = Product::with('category')->orderBy('created_at', 'desc')
             ->paginate(10);
-
         $categories = Pcategory::all();
+        $pageHeading = 'Products';
 
-        return view('admin.products.index', compact('posts','categories'));
+        return view('admin.products.index', compact('posts','categories','pageHeading'));
     }
 
     /**
@@ -40,9 +40,9 @@ class ProductController extends Controller
         $categories = Pcategory::all();
         $brands = Brand::all();
         $pageTitle = 'Create a Product';
-        $module = 'Products';
+        $pageHeading = 'Products';
         
-        return view('admin.products.create', compact('categories','brands','pageTitle','module'))
+        return view('admin.products.create', compact('categories','brands','pageTitle','pageHeading'))
             ->with('success', 'Your message here');
 
         // return view('admin.products.create', compact('categories', 'tags'));
@@ -111,8 +111,8 @@ class ProductController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
         $brands = Brand::all();
-        $pageTitle = 'Create a Product';
-        $module = 'Products';
+        $pageTitle = 'Update a Product';
+        $pageHeading = 'Products';
         
         return view('admin.products.edit',
         compact(
@@ -120,7 +120,7 @@ class ProductController extends Controller
              'categories',
              'tags',
              'pageTitle',
-             'module',
+             'pageHeading',
              'record'
         ));
     }

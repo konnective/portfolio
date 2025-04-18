@@ -23,7 +23,9 @@ class ContentController extends Controller
         $posts = Content::with(['topic'])
             ->orderBy('created_at', 'desc')
             ->paginate(10);
-        return view('admin.content.index', compact('posts'));
+        $pageTitle = 'Create a Content';
+        $pageHeading = 'Content';  
+        return view('admin.content.index', compact('posts','pageTitle','pageHeading'));
     }
 
     /**
@@ -33,8 +35,10 @@ class ContentController extends Controller
     {
         $subjects = Subject::all();
         $topics = Topic::all();
+        $pageTitle = 'Update a Content';
+        $pageHeading = 'Content';      
         
-        return view('admin.content.create', compact('topics', 'subjects'))
+        return view('admin.content.create', compact('topics', 'subjects','pageTitle','pageHeading'))
             ->with('success', 'Your message here');
 
         // return view('admin.content.create', compact('categories', 'tags'));
@@ -100,11 +104,13 @@ class ContentController extends Controller
      */
     public function edit($id)
     {
+        $pageTitle = 'Update a Content';
+        $pageHeading = 'Content'; 
         $record = Content::find($id);
         $subjects = Subject::all();
         $topics = Topic::all();
         
-        return view('admin.content.edit', compact('record','topics', 'subjects'));
+        return view('admin.content.edit', compact('record','topics', 'subjects','pageTitle','pageHeading'));
     }
 
     /**
