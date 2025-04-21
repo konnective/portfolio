@@ -148,7 +148,7 @@ class ProductController extends Controller
                 'sku' => $request->sku,
                 'discount_price' => $request->discount_price,
                 'stock_quantity' => $request->stock_quantity,
-                'status' => $request->has('publish') ? Status::ACTIVE : Status::INACTIVE,
+                'status' => $request->status,
                 'user_id' => $request->user_id,
             ]);
 

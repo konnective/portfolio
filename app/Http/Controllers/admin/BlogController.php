@@ -10,10 +10,12 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\PostRequest;
 use App\Models\Category;
+use App\Traits\UploadImage;
 use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
+    use UploadImage;
     /**
      * next task is to create main section from some attractive design
      * firstly create a navbar to create
@@ -58,11 +60,10 @@ class BlogController extends Controller
             // Begin transaction
             DB::beginTransaction();
 
-            // Handle featured image upload
-            $imagePath = null;
-            if ($request->hasFile('featured_image')) {
-                $imagePath = $request->file('featured_image')->store('posts/images', 'public');
+            if (!$request->hasFile('image')) {
+                return 'No file uploaded';
             }
+            $path = $this->uploadImage($request->file('image'), 'products');
 
             // Create post
             $post = Post::create([
@@ -70,7 +71,7 @@ class BlogController extends Controller
                 'slug' => Str::slug($request->title),
                 'content' => $request->content,
                 'category_id' => $request->category_id ? $request->category_id:0,
-                'featured_image' => $imagePath,
+                'featured_image' => $path,
                 'meta_description' => $request->meta_description,
                 'status' => $request->has('publish') ? 'published' : 'draft',
                 'user_id' => $request->user_id,

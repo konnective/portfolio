@@ -111,9 +111,8 @@
                                 <label for="brand" class="form-label">Save as</label>
                                 <select class="form-select" name="status" id="status" required>
                                     <option value="">Choose a category...</option>
-                                    <option value="Publish">Publish</option>
-                                    <option value="Draft">Draft</option>
-                                   
+                                    <option value="{{App\Constants\Status::ACTIVE}}">Publish</option>
+                                    <option value="{{App\Constants\Status::INACTIVE}}">Draft</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Please select a category.
