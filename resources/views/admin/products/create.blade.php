@@ -16,7 +16,7 @@
                         <h3 class="mb-0">{{$pageTitle}}</h3>
                     </div>
                     <div class="card-body">
-                        <form  id="ajax-form" class="modal-form" action="{{ route('admin.product.store') }}" method="POST" novalidate>
+                        <form  id="ajax-form" class="modal-form" action="{{ route('admin.product.store') }}" method="POST" >
                             @csrf
                             <!-- Title -->
                             @if ($errors->any())
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="col-12">
                                     <label for="formFile" class="form-label">Upload Image</label>
-                                    <input class="form-control" name='image' type="file" id="formFile">
+                                    <input class="form-control" name="image" type="file" id="formFile">
                                 </div>
                             </div>
 

@@ -73,7 +73,7 @@ class ProductController extends Controller
                 'discount_price' => $request->discount_price,
                 'stock_quantity' => $request->stock_quantity,
                 'image_url' => $path,
-                'status' => $request->has('publish') ? Status::ACTIVE : Status::INACTIVE,
+                'status' => $request->status,
                 'user_id' => $request->user_id,
             ]);
 
@@ -128,17 +128,20 @@ class ProductController extends Controller
     /**
      * Update the specified blog post.
      */
-    public function update(Request $request, Product $post)
+    public function update(Request $request)
     {
         try {
             DB::beginTransaction();
-        
+            $post = Product::find($request->product_id);
+            if ($post->image_url) {
+                Storage::disk('public')->delete($post->image_url);
+            }
             if ($request->hasFile('image')) {
                 $path = $this->uploadImage($request->file('image'), 'products');
             }
 
             // Update post
-            $post = Product::find($request->product_id);
+            
             $post->update([
                 'name' => $request->name,
                 'description' => $request->description,
@@ -146,6 +149,7 @@ class ProductController extends Controller
                 'brand_id' => $request->brand_id ? $request->brand_id:0,
                 'price' => $request->price,
                 'sku' => $request->sku,
+                'image_url' => $path ? $path : '',
                 'discount_price' => $request->discount_price,
                 'stock_quantity' => $request->stock_quantity,
                 'status' => $request->status,

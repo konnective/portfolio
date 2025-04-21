@@ -57,4 +57,15 @@ trait UploadImage
     {
         return asset('storage/app/public/'.$path);
     }
+
+    public function deleteImage(string $folder, string $filename): bool
+    {
+        $path = $folder . '/' . $filename;
+
+        if (Storage::disk('public')->exists($path)) {
+            return Storage::disk('public')->delete($path);
+        }
+
+        return false; // File doesn't exist
+    }
 }
