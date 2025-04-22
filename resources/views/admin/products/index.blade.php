@@ -73,9 +73,8 @@
 
                                 <td>{{ $item->category?->name }}</td>
 
-                                <td><img src="/api/placeholder/50/50" alt="thumbnail" class="img-thumbnail"
-                                        style="width: 50px;"></td>
-
+                                <td><img src="{{$item->image}}" alt="thumbnail" class="img-thumbnail"
+                                    style="width: 50px;"></td>
 
                                 <td class="text-truncate" style="max-width: 200px;">Learn the basics of Bootstrap 5
                                     framework...</td>

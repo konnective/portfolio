@@ -16,7 +16,7 @@
                         <h3 class="mb-0">{{$pageTitle}}</h3>
                     </div>
                     <div class="card-body">
-                        <form  id="ajax-form" class="modal-form" action="{{ route('admin.product.update') }}" method="POST">
+                        <form  id="ajax-form" class="modal-form" action="{{ route('admin.product.update') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <!-- Title -->
                             @if ($errors->any())
@@ -96,7 +96,6 @@
                                     </div>
                                 </div>
                             </div>
-                      
 
                             <!-- Content -->
                             <div class="mb-3">

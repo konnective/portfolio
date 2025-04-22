@@ -16,8 +16,9 @@
                         <h3 class="mb-0">{{$pageTitle}}</h3>
                     </div>
                     <div class="card-body">
-                    <form  id="ajax-form" class="modal-form" action="{{ route('admin.blog.update') }}" method="POST" novalidate>
+                    <form  id="ajax-form" class="modal-form" action="{{ route('admin.blog.update') }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            @method('POST')
                             <!-- Title -->
                             @if ($errors->any())
                             <div class="alert alert-danger">
@@ -54,8 +55,8 @@
 
                             <!-- Featured Image -->
                             <div class="mb-3">
-                                <label for="featuredImage" class="form-label">Featured Image</label>
-                                <input type="file" class="form-control" name="featuredImage" id="featuredImage" accept="image/*">
+                                <label for="featured_image" class="form-label">Featured Image</label>
+                                <input type="file" class="form-control" name="featured_image" id="featured_image" enctype="multipart/form-data">
                             </div>
 
                             <!-- Content -->

@@ -26,6 +26,10 @@ class ProductController extends Controller
     {
         $posts = Product::with('category')->orderBy('created_at', 'desc')
             ->paginate(10);
+        $posts->getCollection()->transform(function ($item) {
+            $item->image = $item->image_url ? $this->getImageUrl($item->image_url) : '';
+            return $item;
+        }); 
         $categories = Pcategory::all();
         $pageHeading = 'Products';
 

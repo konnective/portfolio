@@ -25,10 +25,14 @@ class BlogController extends Controller
 
     */
     public function index()
-    {
+    {     
         $posts = Post::with(['tags', 'category'])
             ->orderBy('created_at', 'desc')
             ->paginate(10);
+        $posts->getCollection()->transform(function ($item) {
+            $item->image = $item->featured_image ? $this->getImageUrl($item->featured_image) : '';
+            return $item;
+        });    
         $pageTitle = 'Create a Blogs';
         $pageHeading = 'Blogs';            
 
@@ -63,7 +67,7 @@ class BlogController extends Controller
             if (!$request->hasFile('image')) {
                 return 'No file uploaded';
             }
-            $path = $this->uploadImage($request->file('image'), 'products');
+            $path = $this->uploadImage($request->file('image'), 'blogs');
 
             // Create post
             $post = Post::create([
@@ -133,28 +137,26 @@ class BlogController extends Controller
     /**
      * Update the specified blog post.
      */
-    public function update(PostRequest $request, Post $post)
+    public function update(PostRequest $request)
     {
         try {
             DB::beginTransaction();
-            // Handle featured image update
-            $imagePath = $post->featured_image;
+            $post = Post::find($request->post_id);
+            if ($post->featured_image) {
+                Storage::disk('public')->delete($post->featured_image);
+            }
             if ($request->hasFile('featured_image')) {
-                // Delete old image
-                if ($post->featured_image) {
-                    Storage::disk('public')->delete($post->featured_image);
-                }
-                $imagePath = $request->file('featured_image')->store('posts/images', 'public');
+                $path = $this->uploadImage($request->file('featured_image'), 'blogs');
             }
 
             // Update post
-            $post = Post::find($request->post_id);
+            
             $post->update([
                 'title' => $request->title,
                 'slug' => Str::slug($request->title),
                 'content' => $request->content,
                 'category_id' => $request->category_id,
-                'featured_image' => $imagePath,
+                'featured_image' => $path,
                 'meta_description' => $request->meta_description,
                 'status' => $request->has('publish') ? 'published' : 'draft',
             ]);

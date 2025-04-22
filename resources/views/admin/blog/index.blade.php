@@ -67,7 +67,7 @@
 
                                 <td>{{$item->category->name}}</td>
                                 
-                                <td><img src="/api/placeholder/50/50" alt="thumbnail" class="img-thumbnail"
+                                <td><img src="{{$item->image}}" alt="thumbnail" class="img-thumbnail"
                                         style="width: 50px;"></td>
                                 <td>
                                     @foreach ($item->tags as $tag)
