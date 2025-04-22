@@ -17,15 +17,22 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form action="{{ route('admin.cat.store') }}" method="POST" class="form form-vertical">
+                            <form action="{{ route('admin.banner.update') }}" method="POST" class="form form-vertical" enctype="multipart/form-data">  
                                 @csrf
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="first-name-vertical">Name</label>
+                                                <label for="first-name-vertical">Title</label>
                                                 <input type="text" id="first-name-vertical" class="form-control"
-                                                    name="name" placeholder="First Name">
+                                                    name="title" placeholder="title">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">Subtitle</label>
+                                                <input type="text" id="subtitle" class="form-control"
+                                                    name="subtitle" placeholder="subtitle">
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -35,15 +42,8 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <div class="form-group">
-                                                <label for="first-name-vertical">Status</label>
-                                                <select class="form-select" name="status" id="subject" required>
-                                                    <option value="">Choose a status...</option>
-                                                    <option value="Publish">Publish</option>
-                                                    <option value="Draft">Draft</option>
-                                                    
-                                                </select>
-                                            </div>
+                                            <label for="image" class="form-label">Banner Image</label>
+                                            <input type="file" class="form-control" name="image" id="image" enctype="multipart/form-data">
                                         </div>
                                         <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>

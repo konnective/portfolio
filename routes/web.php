@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ContentController;
@@ -75,6 +76,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         
         //for orders
         Route::get('/orders', [OrderController::class, 'index'])->name('orders');
+        //for banner
+        Route::get('/banners', [BannerController::class, 'index'])->name('banners');
+        Route::post('/update/banner', [BannerController::class, 'createOrUpdate'])->name('banner.update');
 
 
     });

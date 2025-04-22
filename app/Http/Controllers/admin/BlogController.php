@@ -142,7 +142,7 @@ class BlogController extends Controller
         try {
             DB::beginTransaction();
             $post = Post::find($request->post_id);
-            if ($post->featured_image) {
+            if ($post->featured_image && $request->hasFile('featured_image')) {
                 Storage::disk('public')->delete($post->featured_image);
             }
             if ($request->hasFile('featured_image')) {
@@ -156,7 +156,7 @@ class BlogController extends Controller
                 'slug' => Str::slug($request->title),
                 'content' => $request->content,
                 'category_id' => $request->category_id,
-                'featured_image' => $path,
+                'featured_image' => $path ? $path : $post->featured_image,
                 'meta_description' => $request->meta_description,
                 'status' => $request->has('publish') ? 'published' : 'draft',
             ]);

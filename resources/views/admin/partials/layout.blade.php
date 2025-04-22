@@ -74,6 +74,12 @@
                                     <span>Order</span>
                                 </a>
                         </li>
+                        <li class="sidebar-item {{ Route::is('admin.banners') ? 'active' : '' }}">
+                            <a href="{{route('admin.banners')}}" class='sidebar-link'>
+                                    <i class="bi bi-grid-fill"></i>
+                                    <span>Banner</span>
+                                </a>
+                        </li>
                         {{-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>

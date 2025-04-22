@@ -16,7 +16,7 @@
                         <h3 class="mb-0">{{$pageTitle}}</h3>
                     </div>
                     <div class="card-body">
-                        <form  id="ajax-form" class="modal-form" action="{{ route('admin.product.store') }}" method="POST" >
+                        <form  id="ajax-form" class="modal-form" action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <!-- Title -->
                             @if ($errors->any())
