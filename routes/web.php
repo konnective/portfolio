@@ -105,6 +105,9 @@ Route::name('frontend.')->group(function () {
 Route::get('/image', function () {
     return view('frontend.bin.test');
 });
+Route::get('/das', function () {
+    return view('frontend.bin.new-base');
+});
 // Route::get('/details', function () {
 //     return view('frontend.pro-details');
 // });
