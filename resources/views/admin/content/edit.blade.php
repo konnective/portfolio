@@ -42,23 +42,11 @@
                             <!-- Category -->
                             <div class="row mb-3">
                                 <div class="col-6">
-                                    <label for="subject" class="form-label">Subject</label>
-                                    <select class="form-select" name="subject_id" id="subject" required>
-                                        <option value="">Choose a subject...</option>
-                                        @foreach ($subjects as $item)
-                                            <option value="{{ $item->id }}" {{ old('subject_id') == $item->id ? 'selected' : ''; }}>{{ $item->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Please select a subject.
-                                    </div>
-                                </div>
-                                <div class="col-6">
                                     <label for="topic" class="form-label">Topic</label>
                                     <select class="form-select" name="topic_id" id="topic" required>
                                         <option value="">Choose a topic...</option>
                                         @foreach ($topics as $item)
-                                            <option value="{{ $item->id }}" {{ old('subject_id') == $item->id ? 'selected' : ''; }}>{{ $item->name }}</option>
+                                        <option value="{{ $item->id }}" {{$item->id == $record->topic_id ? 'selected' : ''}}>{{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

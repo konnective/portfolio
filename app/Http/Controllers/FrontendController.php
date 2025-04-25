@@ -31,9 +31,10 @@ class FrontendController extends Controller
 
         return $path;
     }
-    public  function productDetail()
+    public  function productDetail($id)
     {
-        return view('frontend.pro-details');
+        $product = Product::findOrFail($id);
+        return view('frontend.pro-details',compact('product'));
     }
     public  function cart()
     {

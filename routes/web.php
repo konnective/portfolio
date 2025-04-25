@@ -97,7 +97,7 @@ Route::name('frontend.')->group(function () {
     Route::controller(FrontendController::class)->group(function () {
         Route::get('/ecom', 'index')->name('index');
         Route::get('/cart', 'cart')->name('cart');
-        Route::get('/product-detail', 'productDetail')->name('product-detail');
+        Route::get('/product/{id}', 'productDetail')->name('product-detail');
         Route::post('/test', 'test')->name('test');
     });
 });

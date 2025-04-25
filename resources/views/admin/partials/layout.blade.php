@@ -56,12 +56,14 @@
                                 <span>Blogs</span>
                             </a>
                         </li>
+                        @if(auth()->user()->id === 3)
                         <li class="sidebar-item {{ Route::is('admin.content') ? 'active' : '' }}">
-                        <a href="{{route('admin.content')}}" class='sidebar-link'>
+                            <a href="{{route('admin.content')}}" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Content</span>
                             </a>
                         </li>
+                        @endif
                         <li class="sidebar-item {{ Route::is('admin.products') ? 'active' : '' }}">
                             <a href="{{route('admin.products')}}" class='sidebar-link'>
                                     <i class="bi bi-grid-fill"></i>
