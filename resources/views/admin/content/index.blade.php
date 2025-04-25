@@ -58,7 +58,7 @@
                                 </td>
                                 <td>{{$item->title}}</td>
 
-                                <td>{{$item->topic ? $item->topic : 'Empty'}}</td>
+                                <td>{{$item->topic ? $item->topic->name : 'Empty'}}</td>
                                
                                 <td>{{$item->formatDate($item->created_at)}}</td>
 
