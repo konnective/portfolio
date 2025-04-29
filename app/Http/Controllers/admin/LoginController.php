@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    //
+    // 
     public function register(Request $request)
     {
-        return view('front.register');
+        return view('auth.new-register');
     }
     public function registerAttempt(Request $request)
     {
@@ -32,13 +32,13 @@ class LoginController extends Controller
         ]);
 
         // $token = $user->createToken('auth_token')->plainTextToken;
-
+        session()->flash('Success', 'User Created successfully.');
         return redirect('login');
     }
 
     public function login()
     {
-        return view('front.new-login');
+        return view('auth.new-login');
 
     }
     public function loginAttempt(Request $request)
@@ -62,5 +62,9 @@ class LoginController extends Controller
         // $token = $user->createToken('auth_token')->plainTextToken;
 
         // return response()->json(['access_token' => $token, 'token_type' => 'Bearer']);
+    }
+    public function logout(Request $request) {
+        Auth::logout();
+        return redirect('login');
     }
 }
