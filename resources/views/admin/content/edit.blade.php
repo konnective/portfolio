@@ -50,7 +50,6 @@
                                         @endforeach
                                     </select>
                                 </div>
-
                             </div>
 
                             <!-- Featured Image -->

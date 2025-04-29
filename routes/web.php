@@ -108,6 +108,9 @@ Route::get('/image', function () {
 Route::get('/das', function () {
     return view('frontend.bin.new-base');
 });
+Route::get('/loggin', function () {
+    return view('frontend.bin.loggin');
+});
 // Route::get('/details', function () {
 //     return view('frontend.pro-details');
 // });

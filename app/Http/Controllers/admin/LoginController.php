@@ -38,7 +38,7 @@ class LoginController extends Controller
 
     public function login()
     {
-        return view('front.login');
+        return view('front.new-login');
 
     }
     public function loginAttempt(Request $request)
