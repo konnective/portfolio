@@ -15,7 +15,7 @@ class PasswordController extends Controller
 
     public function index()
     {
-        $posts = Password::orderBy('created_at', 'desc')
+        $posts = Password::where('user_id',auth()->user()->id)->orderBy('created_at', 'desc')
             ->paginate(10);
         $posts->getCollection()->transform(function ($item) {
             $item->name = $item->title ? Crypt::decrypt($item->title): '';
