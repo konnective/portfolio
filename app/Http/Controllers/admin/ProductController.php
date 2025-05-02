@@ -63,8 +63,6 @@ class ProductController extends Controller
             if ($request->hasFile('image')) {
                 $path = $this->uploadImage($request->file('image'), 'products');
             }
-
-
             // Create post
             $post = Product::create([
                 'name' => $request->name,
@@ -192,7 +190,7 @@ class ProductController extends Controller
             $res = [
                 "success"=>true,
                 "type"=>'success',
-                "message"=>"Post deleted successfully",
+                "message"=>"Product deleted successfully",
             ];
             return response()->json($res);
 

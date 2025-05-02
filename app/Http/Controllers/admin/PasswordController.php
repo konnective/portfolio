@@ -89,9 +89,12 @@ class PasswordController extends Controller
     {
         $pageTitle = 'Update a Passwords';
         $pageHeading = 'Passwords';
+        $item = Password::findOrFail($id);
+        $item->name = $item->title ? Crypt::decrypt($item->title): '';
         
         return view('admin.passwords.edit',
         compact(
+             'item',
              'pageTitle',
              'pageHeading'
         ));

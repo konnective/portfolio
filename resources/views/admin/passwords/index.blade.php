@@ -39,9 +39,6 @@
 
                                 <td>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="{{ route('admin.password.view', $item->id) }}">
-                                            <button class="btn btn-outline-primary p-3"><i class="bi bi-eye"></i></button>
-                                        </a>
                                         <a href="{{ route('admin.password.edit', $item->id) }}">
                                             <button class="btn btn-outline-primary p-3"><i class="bi bi-pencil"></i></button>
                                         </a>

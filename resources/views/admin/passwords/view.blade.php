@@ -31,8 +31,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="email-id-vertical">Password</label>
-                                                <input type="password" id="first-name-vertical" class="form-control" name="password" value="{{$item->password}}">
-                                                <button class="toggle-btn" onclick="toggleVisibility()">👁️</button>
+                                                <input type="text" id="first-name-vertical" class="form-control" name="password" value="{{$item->password}}">
                                             </div>
                                         </div>
                                     </div>
@@ -44,14 +43,4 @@
             </div>
         </div>
     </section>
-    <script>
-        function toggleVisibility() {
-            let inputField = document.getElementById("inputField");
-            if (inputField.type === "password") {
-                inputField.type = "text";
-            } else {
-                inputField.type = "password";
-            }
-        }
-    </script>
 @endsection

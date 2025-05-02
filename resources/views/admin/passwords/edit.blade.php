@@ -25,13 +25,13 @@
                                             <div class="form-group">
                                                 <label for="first-name-vertical">App Name</label>
                                                 <input type="text" id="first-name-vertical" class="form-control"
-                                                    name="title" value="{{$item->title}}">
+                                                    name="title" value="{{$item->name}}">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="email-id-vertical">Password</label>
-                                                <input type="password" id="first-name-vertical" class="form-control" name="password" value="{{$item->password}}"><button class="toggle-btn" onclick="toggleVisibility()">👁️</button>
+                                                <input type="text" id="first-name-vertical" class="form-control" name="password" value="{{$item->password}}">
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex justify-content-end">
