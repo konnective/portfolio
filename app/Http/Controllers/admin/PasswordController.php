@@ -5,7 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Password;
+use App\Models\Password;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 
 class PasswordController extends Controller
@@ -16,9 +17,13 @@ class PasswordController extends Controller
     {
         $posts = Password::orderBy('created_at', 'desc')
             ->paginate(10);
+        $posts->getCollection()->transform(function ($item) {
+            $item->name = $item->title ? Crypt::decrypt($item->title): '';
+            return $item;
+        }); 
         $pageHeading = 'Passwords';
 
-        return view('admin.passwords.index', compact('pageHeading'));
+        return view('admin.passwords.index', compact('pageHeading','posts'));
     }
 
     public function create()
@@ -39,41 +44,47 @@ class PasswordController extends Controller
         try {
             // Begin transaction
             DB::beginTransaction();
-
+            $encryptedText = Crypt::encrypt($request->title);
 
             // Create post
             $post = Password::create([
-                'name' => $request->name,
-                'description' => $request->description,
-                'category_id' => $request->category_id ? $request->category_id:0,
-                'brand_id' => $request->brand_id ? $request->brand_id:0,
-                'price' => $request->price,
-                'sku' => $request->sku,
-                'discount_price' => $request->discount_price,
-                'stock_quantity' => $request->stock_quantity,
-                'status' => $request->status,
-                'user_id' => $request->user_id,
+                'title' => $encryptedText,
+                'password' => $request->password,
             ]);
 
             // Handle tags
             DB::commit();
 
             return redirect()
-                ->route('admin.Passwords')
-                ->with('success', 'Product created successfully!');
+                ->route('admin.passwords')
+                ->with('success', 'Password created successfully!');
                 
         } catch (\Exception $e) {
             DB::rollBack();
             return redirect()
                 ->back()
                 ->withInput()
-                ->with('error', 'Error creating product: ' . $e->getMessage());
+                ->with('error', 'Error creating Password: ' . $e->getMessage());
         }
     }
 
     /**
      * Show the form for editing the specified blog post.
      */
+    public function view($id)
+    {
+        $pageTitle = 'Update a Passwords';
+        $pageHeading = 'Passwords';
+        $item = Password::findOrFail($id);
+        $item->name = $item->title ? Crypt::decrypt($item->title): '';
+        
+        return view('admin.passwords.view',
+        compact(
+             'pageTitle',
+             'item',
+             'pageHeading'
+        ));
+    }
     public function edit($id)
     {
         $pageTitle = 'Update a Passwords';
@@ -95,22 +106,14 @@ class PasswordController extends Controller
             // Update post
             
             $post->update([
-                'name' => $request->name,
-                'description' => $request->description,
-                'category_id' => $request->category_id ? $request->category_id:0,
-                'brand_id' => $request->brand_id ? $request->brand_id:0,
-                'price' => $request->price,
-                'sku' => $request->sku,
-                'discount_price' => $request->discount_price,
-                'stock_quantity' => $request->stock_quantity,
-                'status' => $request->status,
-                'user_id' => $request->user_id,
+                'title' => $request->title,
+                'password' => $request->password,
             ]);
 
             DB::commit();
 
             return redirect()
-                ->route('admin.Passwords')
+                ->route('admin.passwords')
                 ->with('success', 'Password updated successfully!');
 
         } catch (\Exception $e) {

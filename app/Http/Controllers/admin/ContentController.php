@@ -125,9 +125,7 @@ class ContentController extends Controller
             $post->update([
                 'title' => $request->title,
                 'details' => $request->details,
-                // 'subject_id' => $request->subject_id ? $request->subject_id:0,
                 'topic_id' => $request->topic_id ? $request->topic_id:0,
-                // 'featured_image' => $imagePath,
                 'user_id' => $request->user_id,
             ]);
 

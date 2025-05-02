@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\ContentController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\OrderController;
+use App\Http\Controllers\admin\PasswordController;
 use App\Http\Controllers\admin\ProductController as AdminProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontController;
@@ -80,7 +81,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         //for banner
         Route::get('/banners', [BannerController::class, 'index'])->name('banners');
         Route::post('/update/banner', [BannerController::class, 'createOrUpdate'])->name('banner.update');
+        //for password manager
 
+        Route::get('/passwords', [PasswordController::class, 'index'])->name('passwords');
+        Route::get('/password/view/{id}', [PasswordController::class, 'view'])->name('password.view');
+        Route::get('/password/create', [PasswordController::class, 'create'])->name('password.create');
+        Route::post('/password/store', [PasswordController::class, 'store'])->name('password.store');
+        Route::get('/password/edit/{id}', [PasswordController::class, 'edit'])->name('password.edit');
+        Route::post('/password/update', [PasswordController::class, 'update'])->name('password.update');
+        Route::post('/password/destroy', [PasswordController::class, 'destroy'])->name('password.destroy');
 
     });
 });

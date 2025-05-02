@@ -60,10 +60,9 @@ class ProductController extends Controller
         try {
             // Begin transaction
             DB::beginTransaction();
-            if (!$request->hasFile('image')) {
-                return 'No file uploaded';
+            if ($request->hasFile('image')) {
+                $path = $this->uploadImage($request->file('image'), 'products');
             }
-            $path = $this->uploadImage($request->file('image'), 'products');
 
 
             // Create post
@@ -76,7 +75,7 @@ class ProductController extends Controller
                 'sku' => $request->sku,
                 'discount_price' => $request->discount_price,
                 'stock_quantity' => $request->stock_quantity,
-                'image_url' => $path,
+                'image_url' => isset($path) ? $path : '',
                 'status' => $request->status,
                 'user_id' => $request->user_id,
             ]);
@@ -185,12 +184,6 @@ class ProductController extends Controller
         $post = Product::findOrFail($request->product_id);
         try {
             DB::beginTransaction();
-
-            // Delete featured image if exists
-            if ($post->featured_image) {
-                Storage::disk('public')->delete($post->featured_image);
-            }
-
             // Delete post (tags will be automatically detached due to database relationship)
             $post->delete();
 

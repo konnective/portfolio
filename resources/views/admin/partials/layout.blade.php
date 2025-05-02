@@ -82,6 +82,18 @@
                                     <span>Banner</span>
                                 </a>
                         </li>
+                        <li class="sidebar-item {{ Route::is('admin.passwords') ? 'active' : '' }}">
+                            <a href="{{route('admin.passwords')}}" class='sidebar-link'>
+                                    <i class="bi bi-grid-fill"></i>
+                                    <span>Password</span>
+                                </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{route('logout')}}" class='sidebar-link'>
+                                    <i class="bi bi-grid-fill"></i>
+                                    <span>Log out</span>
+                                </a>
+                        </li>
                         {{-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>

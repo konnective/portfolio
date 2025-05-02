@@ -35,11 +35,14 @@
                                 <td>
                                     <input type="checkbox" class="form-check-input post-checkbox">
                                 </td>
-                                <td>{{ $item->title }}</td>
+                                <td>{{ $item->name }}</td>
 
                                 <td>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="{{ route('admin.product.edit', $item->id) }}">
+                                        <a href="{{ route('admin.password.view', $item->id) }}">
+                                            <button class="btn btn-outline-primary p-3"><i class="bi bi-eye"></i></button>
+                                        </a>
+                                        <a href="{{ route('admin.password.edit', $item->id) }}">
                                             <button class="btn btn-outline-primary p-3"><i class="bi bi-pencil"></i></button>
                                         </a>
                                         <button class="btn btn-outline-danger delete-pro-btn ms-2 p-3" data-id={{$item->id}}><i
@@ -77,14 +80,14 @@
         </div>
     </section>
     @include('admin.partials.ajax-form')
-    @include('admin.partials.delete-modal')
+    @include('admin.passwords.partials.delete-modal')
     @include('admin.partials.multi-select')
 
     <script>
         "use strict";
 
         function openDeleteModal(productId) {
-            $('.product_id').val(productId);
+            $('.pass_id').val(productId);
             $('.deleteTaskModal').modal('show');
         }
         $('.delete-pro-btn').on('click', function() {
