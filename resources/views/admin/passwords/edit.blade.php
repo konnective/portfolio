@@ -17,9 +17,10 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form action="{{ route('admin.password.store') }}" method="POST" class="form form-vertical">
+                            <form action="{{ route('admin.password.update') }}" method="POST" class="form form-vertical">
                                 @csrf
                                 <div class="form-body">
+                                    <input type="text" name="pass_id" value="{{$item->id}}" hidden>
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">

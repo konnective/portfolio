@@ -107,9 +107,9 @@ class PasswordController extends Controller
             $post = Password::find($request->pass_id);
 
             // Update post
-            
+            $encryptedText = Crypt::encrypt($request->title);
             $post->update([
-                'title' => $request->title,
+                'title' => $encryptedText,
                 'password' => $request->password,
             ]);
 
