@@ -150,4 +150,4 @@ CREATE TABLE `passwords` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
 
 
-ALTER TABLE `passwords` ADD `user_id` INT NULL DEFAULT NULL AFTER `password`;
+ALTER TABLE `passwords` CHANGE `product_id` `user_id` INT(11) NOT NULL;

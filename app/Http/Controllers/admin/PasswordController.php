@@ -50,6 +50,7 @@ class PasswordController extends Controller
             $post = Password::create([
                 'title' => $encryptedText,
                 'password' => $request->password,
+                'user_id' => auth()->user()->id,
             ]);
 
             // Handle tags
