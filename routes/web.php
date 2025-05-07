@@ -101,8 +101,6 @@ Route::get('/change-progress/{id}', [FrontController::class, 'changeProgress'])-
 Route::post('/submit-form', [FrontController::class, 'submitForm'])->name('submit_form');
 Route::get('/project-delete/{id}', [FrontController::class, 'projectDelete'])->name('project_delete');
 
-
-
 Route::name('frontend.')->group(function () {
     Route::controller(FrontendController::class)->group(function () {
         Route::get('/ecom', 'index')->name('index');
@@ -118,8 +116,14 @@ Route::get('/image', function () {
 Route::get('/das', function () {
     return view('frontend.bin.new-base');
 });
-Route::get('/loggin', function () {
-    return view('frontend.bin.loggin');
+Route::get('/store', function () {
+    return view('frontend.bin.ecom');
+});
+Route::get('/store/details', function () {
+    return view('frontend.bin.details');
+});
+Route::get('/store/cart', function () {
+    return view('frontend.bin.new-cart');
 });
 // Route::get('/details', function () {
 //     return view('frontend.pro-details');
