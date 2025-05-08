@@ -117,7 +117,7 @@ Route::get('/das', function () {
     return view('frontend.bin.new-base');
 });
 Route::get('/store', function () {
-    return view('frontend.bin.ecom');
+    return view('frontend.new-store.main-page');
 });
 Route::get('/store/details', function () {
     return view('frontend.bin.details');
