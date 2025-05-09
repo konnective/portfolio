@@ -19,7 +19,7 @@ class FrontendController extends Controller
             $item->image = $item->image_url ? $this->getImageUrl($item->image_url) : '';
             return $item;
         });
-        return view('frontend.home',compact('products'));
+        return view('frontend.new-store.home',compact('products'));
     }
     public  function test(Request $request)
     {
@@ -34,11 +34,11 @@ class FrontendController extends Controller
     public  function productDetail($id)
     {
         $product = Product::findOrFail($id);
-        return view('frontend.pro-details',compact('product'));
+        return view('frontend.new-store.pro-details',compact('product'));
     }
     public  function cart()
     {
-        return view('frontend.cart');
+        return view('frontend.new-store.cart');
     }
   
 
