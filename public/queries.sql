@@ -151,3 +151,12 @@ CREATE TABLE `passwords` (
 
 
 ALTER TABLE `passwords` CHANGE `product_id` `user_id` INT(11) NOT NULL;
+
+CREATE TABLE `product_images` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `product_id` int(11) DEFAULT NULL,
+ `image_url` varchar(255) DEFAULT NULL,
+ `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+ `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci

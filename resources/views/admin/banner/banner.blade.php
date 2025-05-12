@@ -25,20 +25,20 @@
                                             <div class="form-group">
                                                 <label for="first-name-vertical">Title</label>
                                                 <input type="text" id="first-name-vertical" class="form-control"
-                                                    name="title" placeholder="title">
+                                                    name="title" value="{{$hero->title}}">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="first-name-vertical">Subtitle</label>
                                                 <input type="text" id="subtitle" class="form-control"
-                                                    name="subtitle" placeholder="subtitle">
+                                                    name="subtitle" value="{{$hero->subtitle}}">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="email-id-vertical">Description</label>
-                                                <textarea name="description" class="form-control" id="" cols="30" rows="10"></textarea>
+                                                <textarea name="description" class="form-control" id="" cols="30" rows="10">{{$hero->description    }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12">

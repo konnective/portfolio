@@ -142,7 +142,6 @@ class ProductController extends Controller
             }
 
             // Update post
-            
             $post->update([
                 'name' => $request->name,
                 'description' => $request->description,

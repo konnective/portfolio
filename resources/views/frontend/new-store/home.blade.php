@@ -1,10 +1,10 @@
-@extends('frontend.new-store.template')
+@extends('frontend.new-store.partials.layout')
 @section('content')
 <!-- Hero Section -->
 <section class="hero">
     <div class="hero-content">
-        <h1>SUMMER COLLECTION 2025</h1>
-        <p>Discover timeless essentials designed for modern living. Sustainable fashion that lasts beyond seasons.</p>
+        <h1>{{$hero->title}}</h1>
+        <p>{{$hero->subtitle}}</p>
         <a href="#" class="cta-button">SHOP NOW</a>
     </div>
 </section>

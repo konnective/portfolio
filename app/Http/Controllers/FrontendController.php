@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Traits\UploadImage;
@@ -19,7 +20,8 @@ class FrontendController extends Controller
             $item->image = $item->image_url ? $this->getImageUrl($item->image_url) : '';
             return $item;
         });
-        return view('frontend.new-store.home',compact('products'));
+        $hero = Banner::first();
+        return view('frontend.new-store.home',compact('products','hero'));
     }
     public  function test(Request $request)
     {

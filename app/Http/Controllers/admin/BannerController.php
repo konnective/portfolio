@@ -18,7 +18,8 @@ class BannerController extends Controller
     {
         $pageHeading = 'Banner';
         $pageTitle = 'Create Banner';
-        return view('admin.banner.banner', compact('pageHeading','pageTitle'));
+        $hero = Banner::first();
+        return view('admin.banner.banner', compact('pageHeading','pageTitle','hero'));
     }
     public function createOrUpdate(Request $request)
     {
