@@ -73,7 +73,7 @@
 
                                 <td>{{ $item->category?->name }}</td>
 
-                                <td><img src="{{$item->image}}" alt="thumbnail" class="img-thumbnail"
+                                <td><img src="{{$item->images_array[0] ?? null}}" alt="thumbnail" class="img-thumbnail"
                                     style="width: 50px;"></td>
 
                                 <td class="text-truncate" style="max-width: 200px;">Learn the basics of Bootstrap 5

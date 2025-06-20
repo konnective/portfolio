@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Pcategory;
 use App\Models\Post;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\Tag;
 use App\Traits\UploadImage;
 use Illuminate\Http\Request;
@@ -25,11 +26,7 @@ class ProductController extends Controller
     public function index()
     {
         $posts = Product::with('category')->orderBy('created_at', 'desc')
-            ->paginate(10);
-        $posts->getCollection()->transform(function ($item) {
-            $item->image = $item->image_url ? $this->getImageUrl($item->image_url) : '';
-            return $item;
-        }); 
+            ->paginate(10); 
         $categories = Pcategory::all();
         $pageHeading = 'Products';
 
@@ -137,11 +134,6 @@ class ProductController extends Controller
             if ($post->image_url) {
                 Storage::disk('public')->delete($post->image_url);
             }
-            if ($request->hasFile('image')) {
-                $path = $this->uploadImage($request->file('image'), 'products');
-            }
-
-            // Update post
             $post->update([
                 'name' => $request->name,
                 'description' => $request->description,
@@ -155,6 +147,14 @@ class ProductController extends Controller
                 'status' => $request->status,
                 'user_id' => $request->user_id,
             ]);
+            foreach($request->file('image') as $item){
+                $path = $this->uploadImage($item, 'products');
+                $imageCreate = ProductImage::create([
+                    'product_id'=>$post->id,
+                    'image_url'=>$path,
+                ]);
+                
+            }
 
             DB::commit();
 

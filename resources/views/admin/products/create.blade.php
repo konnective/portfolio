@@ -63,7 +63,7 @@
                                     <input type="text" class="form-control" name="sku" id="sku" required>
                                 </div>
                                 <div class="col-12">
-                                    <label for="formFile" class="form-label">Upload Image</label>
+                                    <label for="formFile" class="form-label">Upload Imagee</label>
                                     <input class="form-control" name="image" type="file" id="formFile">
                                 </div>
                             </div>

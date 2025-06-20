@@ -18,6 +18,12 @@
     <link rel="stylesheet" href="{{ asset('mazer/assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('mazer/assets/css/app.css') }}">
     <link rel="shortcut icon" href="{{ asset('mazer/assets/images/favicon.svg') }}" type="image/x-icon">
+    <style>
+        .preview-container img{
+            margin:15px 0 0 0; 
+            width: 200px;
+        }
+    </style>
 </head>
 
 <body>

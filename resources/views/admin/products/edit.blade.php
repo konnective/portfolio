@@ -63,9 +63,28 @@
                                     <label for="sku" class="form-label">Sku</label>
                                     <input type="text" class="form-control" name="sku" id="sku" value='{{$record->sku}}' required>
                                 </div>
-                                <div class="col-12">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-3">
                                     <label for="formFile" class="form-label">Upload Image</label>
-                                    <input class="form-control" name="image" type="file" id="formFile">
+                                    <input class="form-control" name="image[]" type="file" id="formFile" data-preview-target="preview1">
+                                    <div id="preview1" class="preview-container"></div>
+                                </div>
+                                <div class="col-3">
+                                    <label for="formFile" class="form-label">Upload Image</label>
+                                    <input class="form-control" name="image[]" type="file" id="formFile" data-preview-target="preview2">
+                                    <div id="preview2" class="preview-container"></div>
+                                </div>
+                                <div class="col-3">
+                                    <label for="formFile" class="form-label">Upload Image</label>
+                                    <input class="form-control" name="image[]" type="file" id="formFile" data-preview-target="preview3">
+                                    <div id="preview3" class="preview-container"></div>
+                                </div>
+                                <div class="col-3">
+                                    <label for="formFile" class="form-label">Upload Image</label>
+                                    <input class="form-control" name="image[]" type="file" id="formFile" data-preview-target="preview4">
+                                    <div id="preview4" class="preview-container"></div>
                                 </div>
                             </div>
 
@@ -129,4 +148,5 @@
             </div>
         </div>
     </section>
+     @include('admin.partials.image-upload')
 @endsection
