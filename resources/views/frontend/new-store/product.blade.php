@@ -914,20 +914,31 @@
         <div class="product-images">
             <div class="image-thumbnails">
                 <div class="thumbnail active">
-                    <img src="/api/placeholder/200/240" alt="Organic Cotton Cardigan Thumbnail 1">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop"
+                    data-full="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=960&h=800&fit=crop" 
+                    alt="Organic Cotton Cardigan Thumbnail 1">
                 </div>
                 <div class="thumbnail">
-                    <img src="/api/placeholder/200/240" alt="Organic Cotton Cardigan Thumbnail 2">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop"
+                    data-full="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=960&h=800&fit=crop" 
+                    class="thumnail-img"
+                    alt="Organic Cotton Cardigan Thumbnail 2">
                 </div>
                 <div class="thumbnail">
-                    <img src="/api/placeholder/200/240" alt="Organic Cotton Cardigan Thumbnail 3">
+                    <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=300&fit=crop"
+                    data-full="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=960&h=800&fit=crop"
+                    class="thumnail-img"
+                    alt="Organic Cotton Cardigan Thumbnail 3">
                 </div>
                 <div class="thumbnail">
-                    <img src="/api/placeholder/200/240" alt="Organic Cotton Cardigan Thumbnail 4">
+                    <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=300&fit=crop"
+                    data-full="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=960&h=800&fit=crop"
+                    class="thumnail-img"
+                    alt="Organic Cotton Cardigan Thumbnail 4">
                 </div>
             </div>
             <div class="main-image">
-                <img src="/api/placeholder/800/960" alt="Organic Cotton Cardigan">
+                <img id="mainImage" src="https://images.unsplash.com/photo-1582897085656-c636d006a246?w=960&h=800&fit=crop" alt="Organic Cotton Cardigan">
             </div>
         </div>
 
@@ -1062,14 +1073,29 @@
                 </div>
             </div>
         </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
 
-        <!-- Size Guide Tab -->
-        <div class="tab-content" id="size-guide">
-            <table class="size-table">
-                <thead>
-                    <tr>
-                        <th>Size</th>
-                        <th>Chest (cm)</th>
-                        <th>Waist (cm)</th>
-                        <th>Hip (cm)</th>
-                        <th>Length (cm)</th>
+        $('.thumbnail img').click(function() {
+            $('.thumbnail').removeClass('active');
+            $(this).closest('.thumbnail').addClass('active');
+
+            var fullImageUrl = $(this).data('full');
+            
+            $('#mainImage').fadeOut(200, function() {
+            $(this).attr('src', fullImageUrl).fadeIn(200);
+            });
+        });
+
+        $('.main-image').hover(
+            function() {
+                $(this).find('#mainImage').css('transform', 'scale(1.05)');
+            },
+            function() {
+                $(this).find('#mainImage').css('transform', 'scale(1)');
+            }
+        );
+
+    </script>
+
