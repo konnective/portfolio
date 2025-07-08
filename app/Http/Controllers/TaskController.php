@@ -8,9 +8,6 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    //making view ,fun for add task
-    // then add users on main page
-    // 
     public function addTask()
     {
         $users = User::partner();
