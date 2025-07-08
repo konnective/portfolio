@@ -21,7 +21,7 @@ class FrontendController extends Controller
             return $item;
         });
         $hero = Banner::first();
-        return view('frontend.new-store.home',compact('products','hero'));
+        return view('frontend.store.home',compact('products','hero'));
     }
     public  function test(Request $request)
     {
@@ -36,11 +36,11 @@ class FrontendController extends Controller
     public  function productDetail($id)
     {
         $product = Product::findOrFail($id);
-        return view('frontend.new-store.product',compact('product'));
+        return view('frontend.store.product',compact('product'));
     }
     public  function cart()
     {
-        return view('frontend.new-store.cart');
+        return view('frontend.store.cart');
     }
   
 

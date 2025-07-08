@@ -1,4 +1,4 @@
-@extends('frontend.new-store.partials.layout')
+@extends('frontend.store.partials.layout')
 @section('content')
 <style>
     button {
@@ -850,8 +850,8 @@
         </div>
     </div>
 </div>
-@include('frontend.new-store.products')
-@include('frontend.new-store.news-letter')
+@include('frontend.store.products')
+@include('frontend.store.news-letter')
 @endsection
 <script>
 

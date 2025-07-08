@@ -1,4 +1,4 @@
-@extends('frontend.new-store.partials.layout')
+@extends('frontend.store.partials.layout')
 @section('content')
 <!-- Hero Section -->
 <section class="hero">
@@ -36,6 +36,6 @@
         </div>
     </div>
 </section>
-@include('frontend.new-store.products')
-@include('frontend.new-store.news-letter')
+@include('frontend.store.products')
+@include('frontend.store.news-letter')
 @endsection
