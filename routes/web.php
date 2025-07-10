@@ -125,6 +125,9 @@ Route::get('/store/details', function () {
 Route::get('/store/cart', function () {
     return view('frontend.bin.new-cart');
 });
+Route::get('/salon', function () {
+    return view('salon.index');
+});
 // Route::get('/details', function () {
 //     return view('frontend.pro-details');
 // });
