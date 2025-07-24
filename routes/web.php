@@ -90,7 +90,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::get('/password/edit/{id}', [PasswordController::class, 'edit'])->name('password.edit');
         Route::post('/password/update', [PasswordController::class, 'update'])->name('password.update');
         Route::post('/password/destroy', [PasswordController::class, 'destroy'])->name('password.destroy');
-
+        
+        Route::get('/plans', function () {
+            return view('pages.plans');
+        });
+        
     });
 });
 
