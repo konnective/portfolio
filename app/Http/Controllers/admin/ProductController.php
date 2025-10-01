@@ -201,6 +201,39 @@ class ProductController extends Controller
                 ->with('error', 'Error deleting post: ' . $e->getMessage());
         }
     }
+    
+    
+    public function upload(Request $request)
+    {
+        
+    }    
+    public function dropzone(Request $request)
+    {
+        
+        
+        $categories = Pcategory::all();
+        $brands = Brand::all();
+        $pageTitle = 'Create a Product';
+        $pageHeading = 'Products';
+
+        return view('admin.products.dropzone', compact('categories','brands','pageTitle','pageHeading'))
+            ->with('success', 'Your message here');
+        //$pageHeading = 'Products';
+        //$pageTitle = 'Dropzone';
+        //$product = Product::findOrFail(4);
+        //return view('admin.products.dropzone',
+        //compact(
+        //     'pageTitle',
+        //     'pageHeading',
+        //     'product'
+        //));
+        //if ($request->isMethod('post')) {
+        //    
+        //}else{   
+        //}
+        
+
+    }
 
     /**
      * Bulk operations on posts
