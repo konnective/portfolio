@@ -91,7 +91,7 @@
                                         <a class="ms-2" href="{{ route('admin.product.dropzone', $item->id) }}">
                                             <button class="btn btn-outline-dark p-3"><i class="bi bi-camera"></i></button>
                                         </a>
-                                        <button class="btn btn-outline-danger delete-pro-btn ms-2 p-3" data-id={{$item->id}}><i
+                                        <button class="btn btn-outline-danger delete-pro-btn ms-2 p-3" data-id="{{$item->id}}"><i
                                                 class="bi bi-trash"></i></button>
                                     </div>
                                 </td>

@@ -73,9 +73,9 @@ Route::group(["prefix" => "admin", "middleware" => ["auth"]], function () {
         Route::get("/product/edit/{id}", [AdminProductController::class, "edit"])->name("product.edit");
         Route::post("/product/update", [AdminProductController::class, "update"])->name("product.update");
         Route::post("/product/destroy", [AdminProductController::class, "destroy"])->name("product.destroy");
-        Route::get("/product/dropzone", [AdminProductController::class, "dropzone"])->name("product.dropzone");
-        Route::get("/product/upload", [AdminProductController::class, "upload"])->name("product.upload");
-
+        Route::get("/product/dropzone/{id}", [AdminProductController::class, "dropzone"])->name("product.dropzone");
+        Route::post("/product/upload/{id}", [AdminProductController::class, "upload"])->name("product.upload");
+        Route::post('/admin/product/delete-image/{id}', [AdminProductController::class, 'deleteImage'])->name('product.delete-image');
 
         Route::get("/cat/create", [CategoryController::class, "create"])->name("cat.create");
         Route::post("/cat/store", [CategoryController::class, "store"])->name("cat.store");

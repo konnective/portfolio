@@ -141,7 +141,6 @@ class ProductController extends Controller
                 'brand_id' => $request->brand_id ? $request->brand_id:0,
                 'price' => $request->price,
                 'sku' => $request->sku,
-                'image_url' => $path ? $path : '',
                 'discount_price' => $request->discount_price,
                 'stock_quantity' => $request->stock_quantity,
                 'status' => $request->status,
@@ -203,11 +202,21 @@ class ProductController extends Controller
     }
     
     
-    public function upload(Request $request)
+    public function upload($id ,Request $request)
     {
+        $product = Product::findOrFail($id);
+        $path = $this->uploadImage($request->file('file'), 'products');
+        $imageCreate = ProductImage::create([
+            'product_id'=>$product->id,
+            'image_url'=>$path,
+        ]);
         
+        $res = [
+          'success'=>true,  
+        ];
+        return response()->json($res);
     }    
-    public function dropzone(Request $request)
+    public function dropzone($id,Request $request)
     {
         
         
@@ -215,24 +224,32 @@ class ProductController extends Controller
         $brands = Brand::all();
         $pageTitle = 'Create a Product';
         $pageHeading = 'Products';
+        $product = Product::findOrFail($id);
+        $product->images = $product->images->map(function($item){
+            $item->image = $item->image_url ? $this->getImageUrl($item->image_url) : '';
+            return $item;
+        });
 
-        return view('admin.products.dropzone', compact('categories','brands','pageTitle','pageHeading'))
+        return view('admin.products.dropzone', compact('categories','brands','pageTitle','pageHeading','product'))
             ->with('success', 'Your message here');
-        //$pageHeading = 'Products';
-        //$pageTitle = 'Dropzone';
-        //$product = Product::findOrFail(4);
-        //return view('admin.products.dropzone',
-        //compact(
-        //     'pageTitle',
-        //     'pageHeading',
-        //     'product'
-        //));
-        //if ($request->isMethod('post')) {
-        //    
-        //}else{   
-        //}
-        
 
+    }
+
+    public function deleteImage($id)
+    {
+        try {
+            $image = ProductImage::findOrFail($id);
+            
+            // Delete the file from storage
+            Storage::delete('public/products/' . $image->image_url);
+            
+            // Delete the database record
+            $image->delete();
+            
+            return response()->json(['success' => true]);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => $e->getMessage()]);
+        }
     }
 
     /**

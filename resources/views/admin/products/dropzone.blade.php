@@ -38,11 +38,11 @@
                         <h3 class="mb-0">{{$pageTitle}}</h3>
                     </div>
                     <div class="card-body">
-                        <form  id="image-dropzone" class="modal-form dropzone" action="{{ route('admin.product.upload') }}" method="POST" enctype="multipart/form-data">
+                        <form  id="image-dropzone" class="modal-form dropzone" action="{{ route('admin.product.upload', $product->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <!-- Title -->
                             @if ($errors->any())
-                            <div class="alert alert-danger">
+                                <div class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $error)
                                             <li>{{ $error }}</li>
@@ -57,6 +57,29 @@
                             </div>
                            
                         </form>
+
+                        <!-- Display existing images -->
+                        <div class="mt-5">
+                            <h4>Existing Images</h4>
+                            <div class="row" id="existing-images">
+                                @if(isset($product->images) && count($product->images) > 0)
+                                    @foreach($product->images as $image)
+                                        <div class="col-md-3 mb-3">
+                                            <div class="card">
+                                                <img src="{{ $image->image }}" class="card-img-top" alt="Product Image">
+                                                <div class="card-body">
+                                                    <button class="btn btn-danger btn-sm delete-image" data-id="{{ $image->id }}">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <div class="col-12">
+                                        <div class="alert alert-info">No images uploaded yet.</div>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -70,7 +93,7 @@
 
         // Initialize Dropzone
         const myDropzone = new Dropzone("#image-dropzone", {
-            url: "{{route('admin.product.upload')}}",
+            url: "{{route('admin.product.upload', $product->id)}}",
             method: "post",
             paramName: "file",
             maxFilesize: 2, // MB
@@ -96,5 +119,42 @@
                 }, 5000);
             }
         });
+
+        // Handle deletion of existing images
+        document.querySelectorAll('.delete-image').forEach(button => {
+            button.addEventListener('click', function() {
+                if (confirm('Are you sure you want to delete this image?')) {
+                    const imageId = this.getAttribute('data-id');
+                    const card = this.closest('.col-md-3');
+                    
+                    // Send AJAX request to delete the image
+                    fetch(`/admin/product/delete-image/${imageId}`, {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Remove the image card from the DOM
+                            card.remove();
+                            
+                            // Show success message
+                            alert('Image deleted successfully');
+                        } else {
+                            alert('Failed to delete image: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred while deleting the image');
+                    });
+                }
+            });
+        });
     </script>
+
+    <div id="success-message" class="success-message"></div>
 @endsection
