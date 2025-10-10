@@ -75,7 +75,7 @@ Route::group(["prefix" => "admin", "middleware" => ["auth"]], function () {
         Route::post("/product/destroy", [AdminProductController::class, "destroy"])->name("product.destroy");
         Route::get("/product/dropzone/{id}", [AdminProductController::class, "dropzone"])->name("product.dropzone");
         Route::post("/product/upload/{id}", [AdminProductController::class, "upload"])->name("product.upload");
-        Route::post('/admin/product/delete-image/{id}', [AdminProductController::class, 'deleteImage'])->name('product.delete-image');
+        Route::post('/product/delete-image/{id}', [AdminProductController::class, 'deleteImage'])->name('product.delete-image');
 
         Route::get("/cat/create", [CategoryController::class, "create"])->name("cat.create");
         Route::post("/cat/store", [CategoryController::class, "store"])->name("cat.store");

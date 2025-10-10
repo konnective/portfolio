@@ -68,7 +68,7 @@
                                             <div class="card">
                                                 <img src="{{ $image->image }}" class="card-img-top" alt="Product Image">
                                                 <div class="card-body">
-                                                    <button class="btn btn-danger btn-sm delete-image" data-id="{{ $image->id }}">Delete</button>
+                                                    <button class="btn btn-danger btn-sm delete-image" data-url="{{ route('admin.product.delete-image', $image->id) }}" data-id="{{ $image->id }}">Delete</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -126,9 +126,9 @@
                 if (confirm('Are you sure you want to delete this image?')) {
                     const imageId = this.getAttribute('data-id');
                     const card = this.closest('.col-md-3');
-                    
+                    const deleteImgUrl = this.getAttribute('data-url');
                     // Send AJAX request to delete the image
-                    fetch(`/admin/product/delete-image/${imageId}`, {
+                    fetch(deleteImgUrl, {
                         method: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
