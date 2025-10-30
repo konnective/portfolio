@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\PostRequest;
 use App\Models\Category;
+use App\Models\Post;
 use App\Models\Subject;
 use App\Models\Topic;
 use Illuminate\Support\Facades\DB;

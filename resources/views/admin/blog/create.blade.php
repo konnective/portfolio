@@ -76,7 +76,7 @@
                             <!-- Meta Description -->
                             <div class="mb-3">
                                 <label for="metaDescription" class="form-label">Meta Description</label>
-                                <textarea class="form-control" name="meta" id="metaDescription" rows="2" maxlength="160"
+                                <textarea class="form-control" name="meta_description" id="metaDescription" rows="2" maxlength="160"
                                     placeholder="Brief description for SEO (max 160 characters)"></textarea>
                                 <div class="form-text">This description will appear in search engine results.</div>
                             </div>

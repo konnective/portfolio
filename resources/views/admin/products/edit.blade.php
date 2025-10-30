@@ -65,28 +65,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-3">
-                                    <label for="formFile" class="form-label">Upload Image</label>
-                                    <input class="form-control" name="image[]" type="file" id="formFile" data-url="{{$record->images_array[0]}}" data-preview-target="preview1">
-                                    <div id="preview1" class="preview-container"></div>
-                                </div>
-                                <div class="col-3">
-                                    <label for="formFile" class="form-label">Upload Image</label>
-                                    <input class="form-control" name="image[]" type="file" id="formFile" data-url="{{$record->images_array[1]}}" data-preview-target="preview2">
-                                    <div id="preview2" class="preview-container"></div>
-                                </div>
-                                <div class="col-3">
-                                    <label for="formFile" class="form-label">Upload Image</label>
-                                    <input class="form-control" name="image[]" type="file" id="formFile" data-url="{{$record->images_array[2]}}" data-preview-target="preview3">
-                                    <div id="preview3" class="preview-container"></div>
-                                </div>
-                                <div class="col-3">
-                                    <label for="formFile" class="form-label">Upload Image</label>
-                                    <input class="form-control" name="image[]" type="file" id="formFile" data-url="{{$record->images_array[3]}}" data-preview-target="preview4">
-                                    <div id="preview4" class="preview-container"></div>
-                                </div>
-                            </div>
+      
 
                             <!-- Category -->
                             <div class="row mb-3">
