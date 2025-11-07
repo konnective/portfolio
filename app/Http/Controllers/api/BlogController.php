@@ -20,8 +20,23 @@ class BlogController extends Controller
    public function index()
    {
       $posts = Post::with(['tags', 'category'])
+				 ->orderBy('created_at', 'desc')
+				 ->paginate(10);
+      $posts->getCollection()->transform(function ($item) {
+         $item->image = $item->featured_image ? $this->getImageUrl($item->featured_image) : '';
+         return $item;
+      });
+      $pageTitle = 'Create a Blogs';
+      $pageHeading = 'Blogs';
+
+      return view('admin.blog.index', compact('posts', 'pageTitle', 'pageHeading'));
+   }
+
+   public function blogs()
+   {
+      $posts = Post::with(['tags', 'category'])
          ->orderBy('created_at', 'desc')
-         ->paginate(10);
+         ->get();
       $posts->getCollection()->transform(function ($item) {
          $item->image = $item->featured_image ? $this->getImageUrl($item->featured_image) : '';
          return $item;
